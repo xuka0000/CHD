@@ -6,7 +6,6 @@ public class Action {
 	private boolean isDirection ;
 	private Img img[];
 	private Sound sound;
-
 	public Action(String name, boolean isDirection, Img[] img, Sound sound) {
 		super();
 		this.name = name;
