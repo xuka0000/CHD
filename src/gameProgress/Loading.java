@@ -27,7 +27,7 @@ public class Loading extends Thread {
                 if (SQL.MapSQL.MapSQL[j].getId() == gf.hero.hero.getMapId()) {
                     //给Map
                     gf.map.Map = SQL.MapSQL.MapSQL[j];
-                    System.out.println(gf.map.Map.getId());
+                  
                 }
             }
             // 创建怪兽(线程）
