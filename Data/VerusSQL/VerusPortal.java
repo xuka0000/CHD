@@ -11,19 +11,19 @@ import DataMask.PortalMask;
 public class VerusPortal {
 
     public static Img[] verusPortalImg = {
-            new Img("Verus´«ËÍÃÅ", "Image\\¹â»·.gif", 200, 200, 4750, 550),
-            new Img("Verus´«ËÍ", "Image\\Ç°Íù¹ÅÄ¾´ÔÁÖ.png", 300, 200, 4600, 300)
+            new Img("Verusä¼ é€é—¨", "Image\\å…‰ç¯.gif", 200, 200, 4750, 550),
+            new Img("Verusä¼ é€", "Image\\å‰å¾€å¤æœ¨ä¸›æ—.png", 300, 200, 4600, 300)
     };
     /**
-     * Ò»¸öµØÍ¼ÓĞ
+     * ä¸€ä¸ªåœ°å›¾æœ‰
      */
     public static Action[] verusPortal = {
-            new Action("Verus´«ËÍÃÅ", false, verusPortalImg, null)
+            new Action("Verusä¼ é€é—¨", false, verusPortalImg, null)
     };
 
     //public static
     /**
-     * ´«ËÍÃÅÊı¾İ
+     * ä¼ é€é—¨æ•°æ®
      */
     public static PortalMask[] portal = {
             new PortalMask(null, verusPortal, false, 1, 0, 0, 0, 0,verusPortalImg),

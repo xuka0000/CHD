@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/Data/DataMask/Action.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Data/VerusSQL/VerusPortal.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/AppMain/AppMain.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/Hero/Hero.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/ui/GameFrame.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/ui/GameFrame.java" charset="UTF-8" />
     <file url="PROJECT" charset="GBK" />
   </component>
 </project>
