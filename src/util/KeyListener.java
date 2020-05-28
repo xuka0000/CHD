@@ -33,6 +33,16 @@ public class KeyListener extends KeyAdapter{
 					gf.hero.hero.getAction()[4].setDirection(true);
 				}
 				break;
+			case 38:
+				//更换地图
+				for (int i = 0; i < gf.portal.length; i++) {
+					if (gf.portal[i].portal.getIsGravity()) {
+						System.out.println("切换前地图"+gf.hero.hero.getMapId());
+						gf.hero.hero.setMapId(gf.portal[i].portal.getChangeMapId());
+						System.out.println("切换后地图"+gf.hero.hero.getMapId());
+					}
+
+				}
 		}
 	}
 	//键盘释放

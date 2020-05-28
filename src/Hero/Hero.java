@@ -207,7 +207,7 @@ public class Hero extends Thread implements HeroControl{
 	 */
 	@Override
 	public void heroJump() {
-		System.out.println("落地跳"+!hero.getIsGravity());
+
 		if (!hero.getAction()[5].isDirection() && !hero.getIsGravity()) {
 			hero.getAction()[5].setDirection(true);
 			new Thread() {
@@ -420,16 +420,14 @@ public class Hero extends Thread implements HeroControl{
 						//利用上面定义的英雄图片6的判断跳跃
 
 						if (hero.getAction()[6].isDirection()&&!hero.getIsGravity()) {
-
 							break;
 						}
 
 						if (hit(dir_Down)) {
-
 							break;
 						}
 						if (hero.getMove().getY() >= 570) {
-							System.out.println(!hero.getIsGravity());
+
 							hero.setIsGravity(false);
 						} else {
 							if (!hero.getAction()[4].isDirection()) {

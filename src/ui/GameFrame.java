@@ -10,6 +10,7 @@ import Map.Monster;
 import Map.NPC;
 import Map.Portal;
 import SQL.MapSQL;
+import gameProgress.Loading;
 import util.AudioPlayer;
 import Map.BG;
 import Map.LeftBg;
@@ -32,8 +33,9 @@ public class GameFrame extends JFrame {
 	// 得到很多NPC
 	public NPC[] NPC;
 	// 得到很多传送门
-	public Portal[] portal;
-
+	public Portal[] portal = {new Portal()};
+	//创建加载类
+	public Loading loading;
 	public GameFrame() {
 
 		// 制作界面~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -62,47 +64,36 @@ public class GameFrame extends JFrame {
 		leftBg = new LeftBg();
 		//创建上面技能栏
 		topBg = new TopBg();
+		//创建加载实体
+		loading = new Loading(this);
+
 
 		// 确定地图优先
-		for (int i = 0; i <MapSQL.MapSQL.length; i++) {
-			if (hero.hero.getMapId() == i) {
-				for (int j = 0; j <MapSQL.MapSQL.length; j++) {
-					if (SQL.MapSQL.MapSQL[j].getId() == i) {
-						//给Map
-						map.Map = SQL.MapSQL.MapSQL[j];
-					}
-				}
-			}
-		}
+//		for (int j = 0; j <MapSQL.MapSQL.length; j++) {
+//			if (SQL.MapSQL.MapSQL[j].getId() == hero.hero.getMapId()) {
+//				//给Map
+//				map.Map = SQL.MapSQL.MapSQL[j];
+//			}
+//		}
+//
+//
+//		// 创建怪兽(线程）
+//		for (int i = 0; i < map.Map.getMonster().length - 1; i++) {
+//			monster[i] = new Monster(this);
+//		}
+//		// 创建NPC(线程）
+//		for (int i = 0; i < map.Map.getNPC().length - 1; i++) {
+//			NPC[i] = new NPC(this);
+//		}
+//		// 创建传送门
+//		for (int i = 0; i < map.Map.getPortal().length; i++) {
+//			portal[i] = new Portal(this);
+//			portal[i].portal = map.Map.getPortal()[i];
+//		}
 
-		// 创建怪兽(线程）
-		for (int i = 0; i < map.Map.getMonster().length - 1; i++) {
-			monster[i] = new Monster(this);
-		}
-		// 创建NPC(线程）
-		for (int i = 0; i < map.Map.getNPC().length - 1; i++) {
-			NPC[i] = new NPC(this);
-		}
-		// 创建传送门
-		for (int i = 0; i < map.Map.getPortal().length - 1; i++) {
-			portal[i] = new Portal(this);
-		}
+		loading.start();
 
-		// 线程任务开始
-		// 冒险家
-		hero.start();
-		// 怪物
-		for (int i = 0; i < map.Map.getMonster().length - 1; i++) {
-			monster[i].start();
-		}
-		// NPC
-		for (int i = 0; i < map.Map.getNPC().length - 1; i++) {
-			NPC[i].start();
-		}
-		// 传送门
-		for (int i = 0; i < map.Map.getPortal().length - 1; i++) {
-			portal[i].start();
-		}
+
 
 		// 开启音乐播放器
 		new Thread() {
@@ -117,12 +108,14 @@ public class GameFrame extends JFrame {
 		// 开启一个线程负责界面的窗体重绘线程
 		new Thread() {
 			public void run() {
+				this.setName("游戏界面线程");
 				while (true) {
 					// 绘制窗体
-					repaint();
+
 					try {
+						repaint();
 						Thread.sleep(10);
-					} catch (InterruptedException e) {
+					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
@@ -144,11 +137,27 @@ public class GameFrame extends JFrame {
 			big.drawImage(map.Map.getImg()[i].getPicturePath(), map.Map.getImg()[i].getX(), map.Map.getImg()[i].getY(),
 					map.Map.getImg()[i].getWidth(), map.Map.getImg()[i].getHeight(), null);
 		}
+
+		//打印传送门
+		big.drawImage(map.Map.getPortal()[0].getAction()[0].getImg()[0].getPicturePath(),
+				map.Map.getPortal()[0].getAction()[0].getImg()[0].getX()+map.Map.getImg()[0].getX(),
+				map.Map.getPortal()[0].getAction()[0].getImg()[0].getY(),
+				map.Map.getPortal()[0].getAction()[0].getImg()[0].getWidth(),
+				map.Map.getPortal()[0].getAction()[0].getImg()[0].getHeight(),null);
+		//判断人物接触传送门，根据重力变量判断，缺少Y的判断
+		if (portal[0].portal.getIsGravity()) {
+			big.drawImage(map.Map.getPortal()[0].getAction()[0].getImg()[1].getPicturePath(),
+					map.Map.getPortal()[0].getAction()[0].getImg()[1].getX() + map.Map.getImg()[1].getX(),
+					map.Map.getPortal()[0].getAction()[0].getImg()[1].getY(),
+					map.Map.getPortal()[0].getAction()[0].getImg()[1].getWidth(),
+					map.Map.getPortal()[0].getAction()[0].getImg()[1].getHeight(), null);
+		}
+
+
 		//调用方法打印英雄
 		GraphicsView.heroActionImg(big, hero.image, hero.hero);
-
 		//左上角属性
-		//drawleftBg(big);
+
 		LeftBgView.drawleftBg(big, leftBg, hero);
 
 		//顶部技能栏
