@@ -8,7 +8,7 @@ import util.MouseListen;
  *
  */
 public class AppMain {
-//shishikan
+//我再试试看
 public static void main(String[] args) {
 	GameFrame gf = new GameFrame();
 	// 创建监听器对象
