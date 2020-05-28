@@ -17,7 +17,7 @@ public class LeftBg {
     public static int highLevel = 30, widthLevel = 45;
     //Hp参数
     public static Image hpImg = new ImageIcon("Image\\红色血条.png").getImage();
-    public static int X_HP = 15, Y_HP = 60;
+    public static int  X_HP = 15, Y_HP = 60;
     public static int highHp = 20, widthHp = 200;
     //Mp参数
     public static Image mpImg = new ImageIcon("Image\\蓝条.png").getImage();
@@ -28,5 +28,5 @@ public class LeftBg {
     public static int X_HERO_EXP = 15, Y_HERO_EXP = 110;
     public static int highHeroExp = 20, widthHeroExp = 200;
     //EXP图片
-    public static Image expImg = new ImageIcon("Image\\左上空白条.png").getImage();
+    public static Image expImg = new ImageIcon("Image\\人物左上血条.png").getImage();
 }
