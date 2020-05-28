@@ -11,12 +11,12 @@ public class AppMain {
 
 public static void main(String[] args) {
 	GameFrame gf = new GameFrame();
-	// ´´½¨¼àÌıÆ÷¶ÔÏó
+	// åˆ›å»ºç›‘å¬å™¨å¯¹è±¡
 	KeyListener kl = new KeyListener(gf);
-	// ¸ø´°ÌåÌí¼Ó¼üÅÌ¼àÌıÆ÷
+	// ç»™çª—ä½“æ·»åŠ é”®ç›˜ç›‘å¬å™¨
 	gf.addKeyListener(kl);
-	//´´½¨Ò»¸ö¼àÌıÊó±ê¶ÔÏó
-	//´´½¨Êó±ê¼àÌı
+	//åˆ›å»ºä¸€ä¸ªç›‘å¬é¼ æ ‡å¯¹è±¡
+	//åˆ›å»ºé¼ æ ‡ç›‘å¬
 	MouseListen m1 = new MouseListen(gf);
 	MouseListen m2 = new MouseListen(gf);
 	gf.addMouseMotionListener(m1);
