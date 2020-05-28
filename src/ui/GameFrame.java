@@ -18,74 +18,74 @@ import Map.TopBg;
 import Map.RightBG;
 
 public class GameFrame extends JFrame {
-	// å¾—åˆ°ä¸€ä¸ªè‹±é›„
+	// µÃµ½Ò»¸öÓ¢ĞÛ
 	public Hero hero;
-	// å¾—åˆ°ä¸€å¼ åœ°å›¾
+	// µÃµ½Ò»ÕÅµØÍ¼
 	public BG map;
-	//ç­‰åˆ°å·¦ä¸Šå±æ€§
+	//µÈµ½×óÉÏÊôĞÔ
 	public LeftBg leftBg;
-	//ä¸Šé¢æŠ€èƒ½æ 
+	//ÉÏÃæ¼¼ÄÜÀ¸
 	public TopBg topBg;
-	//å³ä¸Šè§’å°åœ°å›¾
+	//ÓÒÉÏ½ÇĞ¡µØÍ¼
 	public RightBG rightBG;
-	// å¾—åˆ°å¾ˆå¤šæ€ªå…½
+	// µÃµ½ºÜ¶à¹ÖÊŞ
 	public Monster[] monster;
-	// å¾—åˆ°å¾ˆå¤šNPC
+	// µÃµ½ºÜ¶àNPC
 	public NPC[] NPC;
-	// å¾—åˆ°å¾ˆå¤šä¼ é€é—¨
+	// µÃµ½ºÜ¶à´«ËÍÃÅ
 	public Portal[] portal = {new Portal()};
-	//åˆ›å»ºåŠ è½½ç±»
+	//´´½¨¼ÓÔØÀà
 	public Loading loading;
 	public GameFrame() {
 
-		// åˆ¶ä½œç•Œé¢~~~~~~~~~~~~~~~~~~~~~~~~~~
-		String title = "å½©è™¹å²›";
+		// ÖÆ×÷½çÃæ~~~~~~~~~~~~~~~~~~~~~~~~~~
+		String title = "²Êºçµº";
 		JFrame jf = new JFrame(title);
 		Container container = jf.getContentPane();
 		jf.setSize(600, 400);
 		jf.setLayout(new BorderLayout());
 
-		// åˆå§‹åŒ–çª—å£
+		// ³õÊ¼»¯´°¿Ú
 		this.setSize(1024, 807);
-		this.setTitle("å½©è™¹å²›");
+		this.setTitle("²Êºçµº");
 		this.setResizable(false);
-		// å±…ä¸­å±•ç¤ºçª—å£
+		// ¾ÓÖĞÕ¹Ê¾´°¿Ú
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setVisible(true);
-		// åˆ›å»ºåœ°å›¾
+		// ´´½¨µØÍ¼
 		map = new BG();
 
-		// åˆ›å»ºå†’é™©å®¶(çº¿ç¨‹ï¼‰
+		// ´´½¨Ã°ÏÕ¼Ò(Ïß³Ì£©
 		hero = new Hero(this);
 
 
-		//åˆ›å»ºå·¦ä¸Šå±æ€§
+		//´´½¨×óÉÏÊôĞÔ
 		leftBg = new LeftBg();
-		//åˆ›å»ºä¸Šé¢æŠ€èƒ½æ 
+		//´´½¨ÉÏÃæ¼¼ÄÜÀ¸
 		topBg = new TopBg();
-		//åˆ›å»ºåŠ è½½å®ä½“
+		//´´½¨¼ÓÔØÊµÌå
 		loading = new Loading(this);
 
 
-		// ç¡®å®šåœ°å›¾ä¼˜å…ˆ
+		// È·¶¨µØÍ¼ÓÅÏÈ
 //		for (int j = 0; j <MapSQL.MapSQL.length; j++) {
 //			if (SQL.MapSQL.MapSQL[j].getId() == hero.hero.getMapId()) {
-//				//ç»™Map
+//				//¸øMap
 //				map.Map = SQL.MapSQL.MapSQL[j];
 //			}
 //		}
 //
 //
-//		// åˆ›å»ºæ€ªå…½(çº¿ç¨‹ï¼‰
+//		// ´´½¨¹ÖÊŞ(Ïß³Ì£©
 //		for (int i = 0; i < map.Map.getMonster().length - 1; i++) {
 //			monster[i] = new Monster(this);
 //		}
-//		// åˆ›å»ºNPC(çº¿ç¨‹ï¼‰
+//		// ´´½¨NPC(Ïß³Ì£©
 //		for (int i = 0; i < map.Map.getNPC().length - 1; i++) {
 //			NPC[i] = new NPC(this);
 //		}
-//		// åˆ›å»ºä¼ é€é—¨
+//		// ´´½¨´«ËÍÃÅ
 //		for (int i = 0; i < map.Map.getPortal().length; i++) {
 //			portal[i] = new Portal(this);
 //			portal[i].portal = map.Map.getPortal()[i];
@@ -95,7 +95,7 @@ public class GameFrame extends JFrame {
 
 
 
-		// å¼€å¯éŸ³ä¹æ’­æ”¾å™¨
+		// ¿ªÆôÒôÀÖ²¥·ÅÆ÷
 		new Thread() {
 			public void run() {
 				while (true) {
@@ -105,12 +105,12 @@ public class GameFrame extends JFrame {
 			}
 		}.start();
 
-		// å¼€å¯ä¸€ä¸ªçº¿ç¨‹è´Ÿè´£ç•Œé¢çš„çª—ä½“é‡ç»˜çº¿ç¨‹
+		// ¿ªÆôÒ»¸öÏß³Ì¸ºÔğ½çÃæµÄ´°ÌåÖØ»æÏß³Ì
 		new Thread() {
 			public void run() {
-				this.setName("æ¸¸æˆç•Œé¢çº¿ç¨‹");
+				this.setName("ÓÎÏ·½çÃæÏß³Ì");
 				while (true) {
-					// ç»˜åˆ¶çª—ä½“
+					// »æÖÆ´°Ìå
 
 					try {
 						repaint();
@@ -124,27 +124,27 @@ public class GameFrame extends JFrame {
 		}.start();
 	}
 
-	// åˆ©ç”¨åŒç¼“å†²ç”»èƒŒæ™¯å›¾ç‰‡å’Œå†’é™©å®¶
+	// ÀûÓÃË«»º³å»­±³¾°Í¼Æ¬ºÍÃ°ÏÕ¼Ò
 	@Override
 	public void paint(Graphics g) {
-		// ç»˜ç”»æ¿
+		// »æ»­°å
 		BufferedImage bi = (BufferedImage) this.createImage(this.getSize().width, this.getSize().height);
-		// ç”»ç¬”
+		// »­±Ê
 		Graphics big = bi.getGraphics();
 
-		//èƒŒæ™¯å›¾
+		//±³¾°Í¼
 		for (int i = map.Map.getImg().length - 1; i >= 0; i--) {
 			big.drawImage(map.Map.getImg()[i].getPicturePath(), map.Map.getImg()[i].getX(), map.Map.getImg()[i].getY(),
 					map.Map.getImg()[i].getWidth(), map.Map.getImg()[i].getHeight(), null);
 		}
 
-		//æ‰“å°ä¼ é€é—¨
+		//´òÓ¡´«ËÍÃÅ
 		big.drawImage(map.Map.getPortal()[0].getAction()[0].getImg()[0].getPicturePath(),
 				map.Map.getPortal()[0].getAction()[0].getImg()[0].getX()+map.Map.getImg()[0].getX(),
 				map.Map.getPortal()[0].getAction()[0].getImg()[0].getY(),
 				map.Map.getPortal()[0].getAction()[0].getImg()[0].getWidth(),
 				map.Map.getPortal()[0].getAction()[0].getImg()[0].getHeight(),null);
-		//åˆ¤æ–­äººç‰©æ¥è§¦ä¼ é€é—¨ï¼Œæ ¹æ®é‡åŠ›å˜é‡åˆ¤æ–­ï¼Œç¼ºå°‘Yçš„åˆ¤æ–­
+		//ÅĞ¶ÏÈËÎï½Ó´¥´«ËÍÃÅ£¬¸ù¾İÖØÁ¦±äÁ¿ÅĞ¶Ï£¬È±ÉÙYµÄÅĞ¶Ï
 		if (portal[0].portal.getIsGravity()) {
 			big.drawImage(map.Map.getPortal()[0].getAction()[0].getImg()[1].getPicturePath(),
 					map.Map.getPortal()[0].getAction()[0].getImg()[1].getX() + map.Map.getImg()[1].getX(),
@@ -154,22 +154,22 @@ public class GameFrame extends JFrame {
 		}
 
 
-		//è°ƒç”¨æ–¹æ³•æ‰“å°è‹±é›„
+		//µ÷ÓÃ·½·¨´òÓ¡Ó¢ĞÛ
 		GraphicsView.heroActionImg(big, hero.image, hero.hero);
-		//å·¦ä¸Šè§’å±æ€§
+		//×óÉÏ½ÇÊôĞÔ
 
 		LeftBgView.drawleftBg(big, leftBg, hero);
 
-		//é¡¶éƒ¨æŠ€èƒ½æ 
+		//¶¥²¿¼¼ÄÜÀ¸
 		TopBgView.topBgView(big, topBg);
 
-		//å³ä¸Šè§’å°åœ°å›¾
+		//ÓÒÉÏ½ÇĞ¡µØÍ¼
 		RightBgView.rightBgView(big, map, hero);
 
-		//æ‰“å°éšœç¢ç‰©
+		//´òÓ¡ÕÏ°­Îï
 		ObsView.obsView(big, map, hero);
 
-		// ç»˜ç”»ä¸Šè‰²
+		// »æ»­ÉÏÉ«
 		g.drawImage(bi, 0, 0, null);
 	}
 
