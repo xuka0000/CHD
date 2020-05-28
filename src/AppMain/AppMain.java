@@ -7,7 +7,7 @@ import util.MouseListen;
 
 public class AppMain {
 public static void main(String[] args) {
-
+    //我是谁
 	GameFrame gf = new GameFrame();
 	// 创建监听器对象
 	KeyListener kl = new KeyListener(gf);
