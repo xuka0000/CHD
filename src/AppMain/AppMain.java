@@ -1,26 +1,30 @@
 package AppMain;
 
 import ui.GameFrame;
-import util.KeyListener;
-import util.MouseListen;
+import util.KeyListenerHero;
+import util.MouseListenHero;
 
-/**
- *
- */
+
+
+
 public class AppMain {
-//æˆ‘å†è¯•è¯•çœ‹
+
 public static void main(String[] args) {
+
 	GameFrame gf = new GameFrame();
-	// åˆ›å»ºç›‘å¬å™¨å¯¹è±¡
-	KeyListener kl = new KeyListener(gf);
-	// ç»™çª—ä½“æ·»åŠ é”®ç›˜ç›‘å¬å™¨
+
+	// ´´½¨¼àÌıÆ÷¶ÔÏó
+
+
+	KeyListenerHero kl = new KeyListenerHero(gf);
+    // ¸ø´°ÌåÌí¼Ó¼üÅÌ¼àÌıÆ÷
 	gf.addKeyListener(kl);
-	//åˆ›å»ºä¸€ä¸ªç›‘å¬é¼ æ ‡å¯¹è±¡
-	//åˆ›å»ºé¼ æ ‡ç›‘å¬
-	MouseListen m1 = new MouseListen(gf);
-	MouseListen m2 = new MouseListen(gf);
+
+	MouseListenHero m1 = new MouseListenHero(gf);
+	MouseListenHero m2 = new MouseListenHero(gf);
+    //´´½¨Ò»¸ö¼àÌıÊó±ê¶ÔÏó
+	//´´½¨Êó±ê¼àÌı
 	gf.addMouseMotionListener(m1);
 	gf.addMouseListener(m2);
 }
-
 }

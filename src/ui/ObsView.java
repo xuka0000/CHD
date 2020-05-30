@@ -14,15 +14,7 @@ public class ObsView {
         /**
          * ฒโสิด๚ย๋
          */
-            for (int i = 0; i < map.Map.getObsBottom().length ; i++) {
-                big.drawImage(map.Map.getObsBottom()[i].getImg().getPicturePath(),
-                        map.Map.getObsBottom()[i].getImg().getX() + map.Map.getImg()[0].getX(), map.Map.getObsBottom()[i].getImg().getY(),
-                        map.Map.getObsBottom()[i].getImg().getWidth(), map.Map.getObsBottom()[i].getImg().getHeight(), null);
-            }
-            big.drawRect(hero.hero.getMove().getX(),hero.hero.getMove().getY(),
-                    hero.hero.getAction()[0].getImg()[0].getWidth(),
-                    hero.hero.getAction()[0].getImg()[0].getHeight());
-            big.drawRect(300+map.Map.getImg()[0].getX(),650,80,10);
+
 
 
     }

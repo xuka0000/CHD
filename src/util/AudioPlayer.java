@@ -29,13 +29,20 @@ public class AudioPlayer extends Thread{
 	public AudioPlayer(String filePath) {
 		this(new File(filePath));
 	}
-	
-	@Override
+
+	public void runBg() {
+		try {
+			play();
+			sleep(2000);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	public void run() {
 		try {
-
 			play();
-		} catch (FileNotFoundException | JavaLayerException e) {
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
