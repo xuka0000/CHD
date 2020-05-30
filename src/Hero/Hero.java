@@ -431,7 +431,6 @@ public class Hero extends Thread implements HeroControl{
 						e.printStackTrace();
 					}
 					while (true) {
-						//利用上面定义的英雄图�?6的判断跳�?
 						//利用上面定义的英雄运动的6的判断跳跃?
 						if (hero.getAction()[6].isDirection()&&!hero.getIsGravity()) {
 
