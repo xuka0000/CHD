@@ -46,11 +46,17 @@ public class KeyListener extends KeyAdapter{
 				 */
 				for (int i = 0; i < gf.portal.length ; i++) {
 					if (gf.portal[i].portal.getIsGravity()) {
+<<<<<<< HEAD:RainbowV3.0/src/util/KeyListener.java
 						gf.hero.changeMap = true;
 						//ÇÐ»»µØÍ¼ÇÐ»»ÒôÀÖ
 						if (!gf.StartSound.isAlive()) {
 							gf.StartSound.stopMusic();
 						}
+=======
+
+						gf.hero.hero.setMapId(gf.portal[i].portal.getChangeMapId());
+
+>>>>>>> 6ea51db78ee0f9c87ab8400125c8e1523c62c56b:src/util/KeyListener.java
 					}
 				}
 				break;
