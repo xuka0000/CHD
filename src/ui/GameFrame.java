@@ -5,11 +5,14 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
 
+import DataMask.MapMask;
+import DataMask.Sound;
 import Hero.Hero;
 import Map.Monster;
 import Map.NPC;
 import Map.Portal;
 import SQL.MapSQL;
+import SQL.TradableSQL;
 import gameProgress.Loading;
 import util.AudioPlayer;
 import Map.BG;
@@ -36,6 +39,9 @@ public class GameFrame extends JFrame {
 	public Portal[] portal = {new Portal()};
 	//创建加载类
 	public Loading loading;
+	//音乐播放
+	public AudioPlayer StartSound;
+
 	public GameFrame() {
 
 		// 制作界面~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -64,60 +70,42 @@ public class GameFrame extends JFrame {
 		leftBg = new LeftBg();
 		//创建上面技能栏
 		topBg = new TopBg();
-		//创建加载实体
+		//创建加载类的对象
 		loading = new Loading(this);
 
-
 		// 确定地图优先
-//		for (int j = 0; j <MapSQL.MapSQL.length; j++) {
-//			if (SQL.MapSQL.MapSQL[j].getId() == hero.hero.getMapId()) {
-//				//给Map
-//				map.Map = SQL.MapSQL.MapSQL[j];
-//			}
-//		}
-//
-//
-//		// 创建怪兽(线程）
-//		for (int i = 0; i < map.Map.getMonster().length - 1; i++) {
-//			monster[i] = new Monster(this);
-//		}
-//		// 创建NPC(线程）
-//		for (int i = 0; i < map.Map.getNPC().length - 1; i++) {
-//			NPC[i] = new NPC(this);
-//		}
-//		// 创建传送门
-//		for (int i = 0; i < map.Map.getPortal().length; i++) {
-//			portal[i] = new Portal(this);
-//			portal[i].portal = map.Map.getPortal()[i];
-//		}
 
 		loading.start();
-
-
-
 		// 开启音乐播放器
 		new Thread() {
+			@Override
 			public void run() {
+				setName("音乐线程");
 				while (true) {
-					AudioPlayer StartSound = new AudioPlayer(map.Map.getSound().getSoundPath());
-					StartSound.run();
+					try {
+						while (true) {
+							StartSound = new AudioPlayer(map.Map.getSound().getSoundPath());
+							StartSound.runBg();
+						}
+					} catch (Exception e) {
+						//不打印异常
+					}
 				}
+
 			}
 		}.start();
 
 		// 开启一个线程负责界面的窗体重绘线程
 		new Thread() {
 			public void run() {
-				this.setName("游戏界面线程");
+
 				while (true) {
 					// 绘制窗体
-
+					repaint();
 					try {
-						repaint();
 						Thread.sleep(10);
-					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+					} catch (InterruptedException e) {
+						//不打印了
 					}
 				}
 			}
@@ -133,31 +121,18 @@ public class GameFrame extends JFrame {
 		Graphics big = bi.getGraphics();
 
 		//背景图
-		for (int i = map.Map.getImg().length - 1; i >= 0; i--) {
+		for (int i = 0; i < 5; i++) {
 			big.drawImage(map.Map.getImg()[i].getPicturePath(), map.Map.getImg()[i].getX(), map.Map.getImg()[i].getY(),
 					map.Map.getImg()[i].getWidth(), map.Map.getImg()[i].getHeight(), null);
 		}
-
-		//打印传送门
-		big.drawImage(map.Map.getPortal()[0].getAction()[0].getImg()[0].getPicturePath(),
-				map.Map.getPortal()[0].getAction()[0].getImg()[0].getX()+map.Map.getImg()[0].getX(),
-				map.Map.getPortal()[0].getAction()[0].getImg()[0].getY(),
-				map.Map.getPortal()[0].getAction()[0].getImg()[0].getWidth(),
-				map.Map.getPortal()[0].getAction()[0].getImg()[0].getHeight(),null);
-		//判断人物接触传送门，根据重力变量判断，缺少Y的判断
-		if (portal[0].portal.getIsGravity()) {
-			big.drawImage(map.Map.getPortal()[0].getAction()[0].getImg()[1].getPicturePath(),
-					map.Map.getPortal()[0].getAction()[0].getImg()[1].getX() + map.Map.getImg()[1].getX(),
-					map.Map.getPortal()[0].getAction()[0].getImg()[1].getY(),
-					map.Map.getPortal()[0].getAction()[0].getImg()[1].getWidth(),
-					map.Map.getPortal()[0].getAction()[0].getImg()[1].getHeight(), null);
-		}
-
+		//传送门
+		PortalView.portalUse(big,portal,map);
 
 		//调用方法打印英雄
 		GraphicsView.heroActionImg(big, hero.image, hero.hero);
-		//左上角属性
 
+		//左上角属性
+		//drawleftBg(big);
 		LeftBgView.drawleftBg(big, leftBg, hero);
 
 		//顶部技能栏
@@ -168,7 +143,11 @@ public class GameFrame extends JFrame {
 
 		//打印障碍物
 		ObsView.obsView(big, map, hero);
-
+		//打印前面图层的地图
+		for (int i = 5; i < map.Map.getImg().length; i++) {
+			big.drawImage(map.Map.getImg()[i].getPicturePath(), map.Map.getImg()[i].getX(), map.Map.getImg()[i].getY(),
+					map.Map.getImg()[i].getWidth(), map.Map.getImg()[i].getHeight(), null);
+		}
 		// 绘画上色
 		g.drawImage(bi, 0, 0, null);
 	}

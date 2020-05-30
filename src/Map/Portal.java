@@ -9,21 +9,19 @@ public class Portal extends Thread{
 	
 	public PortalMask portal ;
 
-	public Portal() { }
+	public Portal() {
+
+	}
 	public Portal(GameFrame gf ) {
 		this.gf = gf ;
 	}
 	
-	//´«ËÍÃÅÒÆ¶¯µÄµØ·½
+	//ä¼ é€é—¨ç§»åŠ¨çš„åœ°æ–¹
 	public void run() {
 		while (true) {
-			//È±YµÄÅÐ¶Ï
-			if (gf.hero.hero.getMove().getX() > portal.getImg()[0].getX() + gf.map.Map.getImg()[0].getX() - 50 &&
-					 gf.hero.hero.getMove().getX() < portal.getImg()[0].getX() + gf.map.Map.getImg()[0].getX() +100 &&
-					gf.hero.hero.getMove().getY() > portal.getImg()[0].getY()- 50&&
-					gf.hero.hero.getMove().getY() < portal.getImg()[0].getY()+ 50
-
-			) {
+			if (gf.hero.hero.getMove().getX() > portal.getImg()[0].getX() + gf.map.Map.getImg()[4].getX() - 50 &&
+					gf.hero.hero.getMove().getX() < portal.getImg()[0].getX() + gf.map.Map.getImg()[4].getX() + 100
+					) {
 
 				portal.setIsGravity(true);
 			}else {
@@ -34,6 +32,8 @@ public class Portal extends Thread{
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+
 		}
+
 	}
 }

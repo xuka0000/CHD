@@ -6,7 +6,7 @@ import java.awt.event.MouseMotionListener;
 
 import ui.GameFrame;
 
-public class MouseListen implements MouseListener,MouseMotionListener {
+public class MouseListenHero implements MouseListener,MouseMotionListener {
 
 public GameFrame gf;
 	
@@ -14,11 +14,11 @@ public GameFrame gf;
 	public int x,y;
 	
 	//构造监听类型
-	public MouseListen(int a) {
+	public MouseListenHero(int a) {
 	}
 	
 	
-	public MouseListen(GameFrame gf) {
+	public MouseListenHero(GameFrame gf) {
 		this.gf = gf;
 	}
 	
@@ -42,13 +42,13 @@ public GameFrame gf;
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	//鼠标点击
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
+
 		
 	}
 
