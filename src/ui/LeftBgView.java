@@ -3,8 +3,10 @@ package ui;
 import java.awt.*;
 import Map.LeftBg;
 import Hero.Hero;
+
+
 /**
- * ×óÉÏ½ÇµÄÓ¢ĞÛÊôĞÔ
+ * å·¦ä¸Šè§’çš„è‹±é›„å±æ€§
  * @author shkstart
  * @create 2020-05-26-0:28
  */
@@ -13,32 +15,32 @@ public class LeftBgView {
     public static void drawleftBg(Graphics big,LeftBg leftBg,Hero hero) {
 
         big.setFont(new Font("",Font.BOLD,15));
-        //Ñ­»·´òÓ¡¿Õ°×Í¼Æ¬
+        //å¾ªç¯æ‰“å°ç©ºç™½å›¾ç‰‡
         for (int i = 0; i < 3 ; i++) {
             int tempNumer = 25;
             big.drawImage(leftBg.nullImg, leftBg.X_HERO_EXP, leftBg.Y_HERO_EXP - tempNumer * i, leftBg.widthHeroExp, leftBg.highHeroExp, null);
         }
-        //×óÉÏµÄlv±êÖ¾
+        //å·¦ä¸Šçš„lvæ ‡å¿—
         big.drawImage(leftBg.levelImg, leftBg.X_LEVEL, leftBg.Y_LEVEL, leftBg.widthLevel, leftBg.highLevel, null);
-        //×óÉÏÑªÌõ
+        //å·¦ä¸Šè¡€æ¡
         big.drawImage(leftBg.hpImg, leftBg.X_HP, leftBg.Y_HP, leftBg.widthHp * hero.hero.getAbilityValue().getCurrHp() / hero.hero.getAbilityValue().getMaxHp(), leftBg.highHp, null);
-        //½«×ÖÌå±ä³É°×É«
+        //å°†å­—ä½“å˜æˆç™½è‰²
         big.setColor(Color.white);
-        //Êµ¼ÊÑªÁ¿ÏÔÊ¾
+        //å®é™…è¡€é‡æ˜¾ç¤º
         big.drawString(hero.hero.getAbilityValue().getCurrHp() + "", 50, 75);
-        //ÑªÁ¿Êµ¼Ê·Ö¸î
+        //è¡€é‡å®é™…åˆ†å‰²
         big.drawString("/", 78, 75);
-        //×î´óÑªÁ¿
+        //æœ€å¤§è¡€é‡
         big.drawString(hero.hero.getAbilityValue().getMaxHp() + "", 90, 75);
-        //×óÉÏÀ¶Ìõ
+        //å·¦ä¸Šè“æ¡
         big.drawImage(leftBg.mpImg, leftBg.X_MP, leftBg.Y_MP, leftBg.widthMp * hero.hero.getAbilityValue().getCurrBlue() / hero.hero.getAbilityValue().getMaxBlue(), leftBg.highMp, null);
-        //Êµ¼ÊMP
+        //å®é™…MP
         big.drawString(hero.hero.getAbilityValue().getCurrBlue()+"",50,100);
-        //MPÊµ¼Ê·Ö¸î
+        //MPå®é™…åˆ†å‰²
         big.drawString("/",78,100);
-        //MP×î´óÖµ
+        //MPæœ€å¤§å€¼
         big.drawString(hero.hero.getAbilityValue().getMaxBlue()+"",90,100);
-        //ÏÔÊ¾µÈ¼¶
+        //æ˜¾ç¤ºç­‰çº§
         big.drawString(hero.hero.getAbilityValue().getLevel()+"",50,45);
     }
 

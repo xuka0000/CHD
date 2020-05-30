@@ -11,30 +11,30 @@ import java.awt.*;
  * @create 2020-05-19-22:26
  */
 public class TopBg {
-    //¿Õ°×²Ëµ¥À¸
-    public Image nullPicture = new ImageIcon("Image\\¼¼ÄÜ¿ò.png").getImage();
+    //ç©ºç™½èœå•æ 
+    public Image nullPicture = new ImageIcon("Image\\æŠ€èƒ½æ¡†.png").getImage();
     public TopBgSkill[] topBgSkills = {
-            new TopBgSkill("ÌøÔ¾", "ÌøÔ¾¡£", new Img("ÌøÔ¾", ".png", 35, 35, 300, 38), false),
-            new TopBgSkill("ÌøÔ¾", "ÌøÔ¾¡£", new Img("ÌøÔ¾", ".png", 35, 35, 300, 38), false),
-            new TopBgSkill("ÌøÔ¾", "ÌøÔ¾¡£", new Img("ÌøÔ¾", ".png", 35, 35, 300, 38), false),
-            new TopBgSkill("ÌøÔ¾", "ÌøÔ¾¡£", new Img("ÌøÔ¾", ".png", 35, 35, 300, 38), false),
-            new TopBgSkill("ÌøÔ¾", "ÌøÔ¾¡£", new Img("ÌøÔ¾", ".png", 35, 35, 300, 38), false),
-            new TopBgSkill("ÌøÔ¾", "ÌøÔ¾¡£", new Img("ÌøÔ¾", ".png", 35, 35, 300, 38), false),
-            new TopBgSkill("ÌøÔ¾", "ÌøÔ¾¡£", new Img("ÌøÔ¾", ".png", 35, 35, 300, 38), false),
-            new TopBgSkill("ÌøÔ¾", "ÌøÔ¾¡£", new Img("ÌøÔ¾", ".png", 35, 35, 300, 38), false),
-            new TopBgSkill("ÌøÔ¾", "ÌøÔ¾¡£", new Img("ÌøÔ¾", ".png", 35, 35, 300, 38), false),
-            new TopBgSkill("ÌøÔ¾", "ÌøÔ¾¡£", new Img("ÌøÔ¾", "Image\\ÌøÔ¾Í¼±ê.png", 35, 35, 300, 38), false),
-            new TopBgSkill("ÌøÔ¾", "ÌøÔ¾¡£", new Img("ÌøÔ¾", ".png", 35, 35, 300, 38), false),
-            new TopBgSkill("ÌøÔ¾", "ÌøÔ¾¡£", new Img("ÌøÔ¾", ".png", 35, 35, 300, 38), false)
+            new TopBgSkill("è·³è·ƒ", "è·³è·ƒã€‚", new Img("è·³è·ƒ", ".png", 35, 35, 300, 38), false),
+            new TopBgSkill("è·³è·ƒ", "è·³è·ƒã€‚", new Img("è·³è·ƒ", ".png", 35, 35, 300, 38), false),
+            new TopBgSkill("è·³è·ƒ", "è·³è·ƒã€‚", new Img("è·³è·ƒ", ".png", 35, 35, 300, 38), false),
+            new TopBgSkill("è·³è·ƒ", "è·³è·ƒã€‚", new Img("è·³è·ƒ", ".png", 35, 35, 300, 38), false),
+            new TopBgSkill("è·³è·ƒ", "è·³è·ƒã€‚", new Img("è·³è·ƒ", ".png", 35, 35, 300, 38), false),
+            new TopBgSkill("è·³è·ƒ", "è·³è·ƒã€‚", new Img("è·³è·ƒ", ".png", 35, 35, 300, 38), false),
+            new TopBgSkill("è·³è·ƒ", "è·³è·ƒã€‚", new Img("è·³è·ƒ", ".png", 35, 35, 300, 38), false),
+            new TopBgSkill("è·³è·ƒ", "è·³è·ƒã€‚", new Img("è·³è·ƒ", ".png", 35, 35, 300, 38), false),
+            new TopBgSkill("è·³è·ƒ", "è·³è·ƒã€‚", new Img("è·³è·ƒ", ".png", 35, 35, 300, 38), false),
+            new TopBgSkill("è·³è·ƒ", "è·³è·ƒã€‚", new Img("è·³è·ƒ", "Image\\è·³è·ƒå›¾æ ‡.png", 35, 35, 300, 38), false),
+            new TopBgSkill("è·³è·ƒ", "è·³è·ƒã€‚", new Img("è·³è·ƒ", ".png", 35, 35, 300, 38), false),
+            new TopBgSkill("è·³è·ƒ", "è·³è·ƒã€‚", new Img("è·³è·ƒ", ".png", 35, 35, 300, 38), false)
     };
 
 
-    //¿Õ°×¼¼ÄÜÀ¸µÄ×ø±ê
+    //ç©ºç™½æŠ€èƒ½æ çš„åæ ‡
     public int X_NullPicture = 300, Y_NullPicture = 38;
 
     public int highNullPicture = 35, widthNullPicture = 35;
 
-    //¼¼ÄÜÀ¸¶ÔÓ¦×ÖÄ¸
+    //æŠ€èƒ½æ å¯¹åº”å­—æ¯
     public String[] skillWord = {"CTRL","A","S","D","F","ALT","Shift","Z","X","C","V","SPACE","1","2","3","4","5","6","7","8","9","10","-","="};
 
 

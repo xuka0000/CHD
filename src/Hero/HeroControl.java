@@ -1,42 +1,41 @@
 package Hero;
-
 /**
  * @author shkstart
  * @create 2020-05-26-1:12
  */
 public interface HeroControl {
     /**
-     *  ÏòÓÒÅÜµÄÅĞ¶Ï
+     *  å‘å³è·‘çš„åˆ¤æ–­
      */
     void heroRightRun();
 
     /**
-     * Ïò×óÅÜµÄÅĞ¶Ï
+     * å‘å·¦è·‘çš„åˆ¤æ–­
      */
     void heroLeftRun();
 
     /**
-     * Ó¢ĞÛÌøÔ¾
+     * è‹±é›„è·³è·ƒ
      */
     void heroJump();
 
     /**
-     * ÌøÔ¾½µÂäº¯Êı
+     * è·³è·ƒé™è½å‡½æ•°
      */
     public void jumpLogic();
 
     /**
-     * ÌøÔ¾Í¼Æ¬¸Ä±ä
+     * è·³è·ƒå›¾ç‰‡æ”¹å˜
      */
     public void jumpImg();
 
     /**
-     * ¼ì²âÅö×²
+     * æ£€æµ‹ç¢°æ’
      */
     public boolean hit(String dir);
 
     /**
-     * ÖØÁ¦Ïß³Ì
+     * é‡åŠ›çº¿ç¨‹
      */
     public void Gravity();
 

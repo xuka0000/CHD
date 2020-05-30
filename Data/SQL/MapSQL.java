@@ -5,14 +5,14 @@ import VerusSQL.*;
 import jungleSQL.Jungle;
 
 /**
- * ´æ·ÅËùÓĞµØÍ¼µÄSQL
+ * å­˜æ”¾æ‰€æœ‰åœ°å›¾çš„SQL
  */
 public class MapSQL {
 
 	public static MapMask[] MapSQL = {
 
-			new MapMask("±´ÂŞË¹³ÇÕò", Verus.VerusImg, Verus.VerusSdound, VerusNPC.verusNPC, VerusMonster.verusMonster, VerusObs.obsLeft, VerusObs.obsRight,VerusObs.obsBottom, VerusObs.ladder,VerusObs.rope, VerusPortal.portal, VerusSmallMap.VerusSmallMap, 0),
-			new MapMask("´ÔÁÖ", Jungle.jungleImg, Jungle.jungleSound, VerusNPC.verusNPC, VerusMonster.verusMonster, VerusObs.obsLeft, VerusObs.obsRight,VerusObs.obsBottom, VerusObs.ladder,VerusObs.rope, VerusPortal.portal, VerusSmallMap.VerusSmallMap, 1),
+			new MapMask("è´ç½—æ–¯åŸé•‡", Verus.VerusImg, Verus.VerusSdound, VerusNPC.verusNPC, VerusMonster.verusMonster, VerusObs.obsLeft, VerusObs.obsRight,VerusObs.obsBottom, VerusObs.ladder,VerusObs.rope, VerusPortal.portal, VerusSmallMap.VerusSmallMap, 0),
+			new MapMask("ä¸›æ—", Jungle.jungleImg, Jungle.jungleSound, VerusNPC.verusNPC, VerusMonster.verusMonster, VerusObs.obsLeft, VerusObs.obsRight,VerusObs.obsBottom, VerusObs.ladder,VerusObs.rope, VerusPortal.portal, VerusSmallMap.VerusSmallMap, 1),
 
 	};
 

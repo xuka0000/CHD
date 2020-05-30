@@ -3,8 +3,8 @@ package SQL;
 import DataMask.*;
 
 /**
- * Ã°ÏÕ¼Ò¿â
- * @author ¿­¿­
+ * å†’é™©å®¶åº“
+ * @author å‡¯å‡¯
  *
  */
 public class HeroSQL {
@@ -15,14 +15,14 @@ public class HeroSQL {
 
 	};
 	/**
-	 * Ó¢ĞÛµÄÒÆ¶¯
+	 * è‹±é›„çš„ç§»åŠ¨
 	 */
 	public static Move[] move = {
 			new Move(400, 300, 5, 5, 1, 1, 1)
 
 	};
 	/**
-	 * Ó¢ĞÛÈ«¾ÖÊôĞÔ
+	 * è‹±é›„å…¨å±€å±æ€§
 	 */
 	public static HighAbilityValue[] abilityValue = {
 			new HighAbilityValue(0, 80, 100, 20, 30, 10, 100, 20, 40, 0, 100, 20, 20, 20, 20, 100, 20)
@@ -30,10 +30,10 @@ public class HeroSQL {
 
 
 	public static HeroMask[] soldier = {
-		new HeroMask("ÎŞÃûÊÏ1", ActionSQL.ActionSQL, false, 0, "Õ½Ê¿", 400, 750, SQL.TempBag.tempBag, equipment, fashionEquipment, abilityValue[0], move[0], skill),
+			new HeroMask("æ— åæ°1", ActionSQL.ActionSQL, false, 0, "æˆ˜å£«", 400, 750, SQL.TempBag.tempBag, equipment, fashionEquipment, abilityValue[0], move[0], skill),
 	};
-	
+
 	public static HeroMask[] Ranger = {
-		new HeroMask("ÎŞÃûÊÏ", ActionSQL.ActionSQL, false, 0, "Õ½Ê¿", 400, 750, SQL.TempBag.tempBag, equipment, fashionEquipment, null, null, null),
+			new HeroMask("æ— åæ°", ActionSQL.ActionSQL, false, 0, "æˆ˜å£«", 400, 750, SQL.TempBag.tempBag, equipment, fashionEquipment, null, null, null),
 	};
 }

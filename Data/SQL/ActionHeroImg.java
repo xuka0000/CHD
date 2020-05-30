@@ -3,46 +3,46 @@ package SQL;
 import DataMask.Img;
 
 /**
- * ÈËÎïÔË¶¯ÊôĞÔÍ¼Æ¬
+ * äººç‰©è¿åŠ¨å±æ€§å›¾ç‰‡
  * @author shkstart
  * @create 2020-05-20-22:41h
  */
 public class ActionHeroImg {
     public static Img[] leftStand={
-            new Img("»ù±¾Í¼ĞÎ×óÕ¾Á¢","Image\\Õ¾Á¢×ó.gif",108,156,0,0)
+            new Img("åŸºæœ¬å›¾å½¢å·¦ç«™ç«‹","Image\\ç«™ç«‹å·¦.gif",108,156,0,0)
     };
     public static Img[] rightStand={
-            new Img("»ù±¾Í¼ĞÎÓÒÕ¾Á¢","Image\\Õ¾Á¢ÓÒ.gif",108,156,0,0)
+            new Img("åŸºæœ¬å›¾å½¢å³ç«™ç«‹","Image\\ç«™ç«‹å³.gif",108,156,0,0)
     };
     public static Img[] leftRun={
-            new Img("»ù±¾Í¼ĞÎ×óÅÜ²½","Image\\Íæ¼Ò×óÅÜ.gif",210,165,0,0)
+            new Img("åŸºæœ¬å›¾å½¢å·¦è·‘æ­¥","Image\\ç©å®¶å·¦è·‘.gif",210,165,0,0)
     };
     public static Img[] rightRun={
-            new Img("»ù±¾Í¼ĞÎÓÒÅÜ²½","Image\\Íæ¼ÒÓÒÅÜ.gif",210,165,0,0)
+            new Img("åŸºæœ¬å›¾å½¢å³è·‘æ­¥","Image\\ç©å®¶å³è·‘.gif",210,165,0,0)
     };
     /**
-     * ÓÒÌø
+     * å³è·³
      */
     public static Img[] leftJump = {
-            new Img("×óÌøÔ¾","Image\\Íæ¼Ò×óÌøÔ¾.gif",108,156,0,0)
+            new Img("å·¦è·³è·ƒ","Image\\ç©å®¶å·¦è·³è·ƒ.gif",108,156,0,0)
     };
     /**
-     * ×ó½µÂä
+     * å·¦é™è½
      */
     public static Img[] leftDown = {
-            new Img("×ó½µÂä","Image\\×óÏÂ½µ.png",108,156,0,0)
+            new Img("å·¦é™è½","Image\\å·¦ä¸‹é™.png",108,156,0,0)
     };
     /**
-     *  ÓÒÌøÔ¾
+     *  å³è·³è·ƒ
      */
     public static Img[] rightJump = {
-            new Img("ÓÒÌøÔ¾","Image\\ÓÒÌø.png",108,156,0,0)
+            new Img("å³è·³è·ƒ","Image\\å³è·³.png",108,156,0,0)
     };
     /**
-     * ×ó½µÂä
+     * å·¦é™è½
      */
     public static Img[] rightDown = {
-            new Img("ÓÒ½µÂä","Image\\ÓÒÏÂ½µ.png",108,156,0,0)
+            new Img("å³é™è½","Image\\å³ä¸‹é™.png",108,156,0,0)
     };
 
 

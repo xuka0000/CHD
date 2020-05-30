@@ -4,19 +4,19 @@ import DataMask.Bag;
 import DataMask.LittleBag;
 
 /**
- * ´æ·ÅÊé°üµÄµØ·½
- * @author ¿­¿­
+ * å­˜æ”¾ä¹¦åŒ…çš„åœ°æ–¹
+ * @author å‡¯å‡¯
  *
  */
 public class TempBag {
 
 	public static LittleBag[] tempLitteBag = {
-			new LittleBag(true, "×°±¸", null, null, null),
-			new LittleBag(false, "ÏûºÄÆ·", null, null, null),
-			new LittleBag(false, "ÆäËû", null, null, null),
-			new LittleBag(false, "ÈÎÎñ", null, null, null),
-			new LittleBag(false, "³èÎï", null, null, null),
+			new LittleBag(true, "è£…å¤‡", null, null, null),
+			new LittleBag(false, "æ¶ˆè€—å“", null, null, null),
+			new LittleBag(false, "å…¶ä»–", null, null, null),
+			new LittleBag(false, "ä»»åŠ¡", null, null, null),
+			new LittleBag(false, "å® ç‰©", null, null, null),
 	};
-	
+
 	public static Bag tempBag = new Bag(false, tempLitteBag, 0);
 }

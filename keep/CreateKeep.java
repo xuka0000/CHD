@@ -1,83 +1,85 @@
 import java.io.IOException;
+
 import java.io.File;
+
 /**
- * ´¦ÀíÉÏ´«svn ÓĞ¿ÕÄ¿Â¼ ÎŞ·¨ÉÏ´«µÄÎÊÌâ
+ * å¤„ç†ä¸Šä¼ svn æœ‰ç©ºç›®å½• æ— æ³•ä¸Šä¼ çš„é—®é¢˜
  *
- * ËµÃ÷ : svn ÉÏ´« ÂëÔÆÏîÄ¿ÖĞµÄ¿ÕÎÄ¼şÊÇÎŞ·¨ÉÏ´«µÄ.
- *       ±¾ÀàÊÇ±éÀúÏîÄ¿ÏÂµÄËùÓĞÎÄ¼ş¼Ğ,ÔÚ¿ÕµÄÎÄ¼şÏÂ´´½¨ .keepÎÄ¼ş.
- *       Ê¹ÓÃÖ®Ç°ÏÈ²âÊÔÏîÄ¿ËùÔÚµÄ±¾µØÂ·¾¶ÊÇ·ñÊÇ·½·¨µÄ getRealPath()
- *       Â·¾¶Ò»ÖÂ,Èç¹û²»Ò»ÖÂÇë×ÔĞĞĞŞ¸Ä.Ò»¶¨ÊÇÏîÄ¿ÃûµÄÂ·¾¶.
+ * è¯´æ˜ : svn ä¸Šä¼  ç äº‘é¡¹ç›®ä¸­çš„ç©ºæ–‡ä»¶æ˜¯æ— æ³•ä¸Šä¼ çš„.
+ *       æœ¬ç±»æ˜¯éå†é¡¹ç›®ä¸‹çš„æ‰€æœ‰æ–‡ä»¶å¤¹,åœ¨ç©ºçš„æ–‡ä»¶ä¸‹åˆ›å»º .keepæ–‡ä»¶.
+ *       ä½¿ç”¨ä¹‹å‰å…ˆæµ‹è¯•é¡¹ç›®æ‰€åœ¨çš„æœ¬åœ°è·¯å¾„æ˜¯å¦æ˜¯æ–¹æ³•çš„ getRealPath()
+ *       è·¯å¾„ä¸€è‡´,å¦‚æœä¸ä¸€è‡´è¯·è‡ªè¡Œä¿®æ”¹.ä¸€å®šæ˜¯é¡¹ç›®åçš„è·¯å¾„.
  * author: huiping zhang
  * Date:2019/12/23 12:29
  **/
 public class CreateKeep {
-        public static final String packageFile = ".keep";
+    public static final String packageFile = ".keep";
 
-        public static void main(String[] args) {
-            String path = "C:\\Users\\¿­¿­\\eclipse-workspace\\Rainbow";
-            System.out.println(path);
-            File file = new File(path);
-            try {
-                traversalAllFolder(file);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+    public static void main(String[] args) {
+        String path = "C:\\Users\\å‡¯å‡¯\\eclipse-workspace\\Rainbow";
+        System.out.println(path);
+        File file = new File(path);
+        try {
+            traversalAllFolder(file);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+    }
 
-        /**
-         * ±éÀúµ±Ç°ÎÄ¼ş¼ĞÏÂµÄËùÓĞÎÄ¼ş¼Ğ£¬¶Ô¿ÕµÄÎÄ¼ş¼Ğ´´½¨.keepÎÄ¼ş
-         *
-         * @param dir
-         * @throws Exception
-         */
-        final static void traversalAllFolder(File dir) throws Exception {
-            File[] fs = dir.listFiles();
-            int fsLength = fs.length;
-            if (fsLength == 0) {
-                createFile(dir.getAbsolutePath());
-            } else {
-                for (int i = 0; i < fsLength; i++) {
-                    if (fs[i].isDirectory()) {
-                        try {
-                            traversalAllFolder(fs[i]);
-                        } catch (Exception e) {
-                        }
+    /**
+     * éå†å½“å‰æ–‡ä»¶å¤¹ä¸‹çš„æ‰€æœ‰æ–‡ä»¶å¤¹ï¼Œå¯¹ç©ºçš„æ–‡ä»¶å¤¹åˆ›å»º.keepæ–‡ä»¶
+     *
+     * @param dir
+     * @throws Exception
+     */
+    final static void traversalAllFolder(File dir) throws Exception {
+        File[] fs = dir.listFiles();
+        int fsLength = fs.length;
+        if (fsLength == 0) {
+            createFile(dir.getAbsolutePath());
+        } else {
+            for (int i = 0; i < fsLength; i++) {
+                if (fs[i].isDirectory()) {
+                    try {
+                        traversalAllFolder(fs[i]);
+                    } catch (Exception e) {
                     }
                 }
             }
         }
-
-        /**
-         * ´´½¨.keepÎÄ¼ş
-         *
-         * @param folderPath
-         *            Â·¾¶Ãû
-         */
-        public static void createFile(String folderPath) {
-            String fileName = folderPath + "/" + packageFile;
-            File file = new File(fileName);
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        /**
-         * »ñÈ¡ÏîÄ¿ËùÔÚµÄ¾ø¶ÔÂ·¾¶
-         *
-         * @return
-         */
-        public static String getRealPath() {
-            String realPath = System.getProperty("user.dir");
-            java.io.File file = new java.io.File(realPath);
-            realPath = file.getAbsolutePath();
-            try {
-                realPath = java.net.URLDecoder.decode(realPath, "utf-8");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return realPath;
-        }
-
     }
+
+    /**
+     * åˆ›å»º.keepæ–‡ä»¶
+     *
+     * @param folderPath
+     *            è·¯å¾„å
+     */
+    public static void createFile(String folderPath) {
+        String fileName = folderPath + "/" + packageFile;
+        File file = new File(fileName);
+        try {
+            file.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * è·å–é¡¹ç›®æ‰€åœ¨çš„ç»å¯¹è·¯å¾„
+     *
+     * @return
+     */
+    public static String getRealPath() {
+        String realPath = System.getProperty("user.dir");
+        java.io.File file = new java.io.File(realPath);
+        realPath = file.getAbsolutePath();
+        try {
+            realPath = java.net.URLDecoder.decode(realPath, "utf-8");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return realPath;
+    }
+
+}

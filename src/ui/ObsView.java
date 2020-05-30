@@ -12,7 +12,7 @@ import java.awt.*;
 public class ObsView {
     public static void obsView(Graphics big, BG map, Hero hero) {
         /**
-         * ²âÊÔ´úÂë
+         * æµ‹è¯•
          */
 
 

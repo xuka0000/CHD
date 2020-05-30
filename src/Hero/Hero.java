@@ -13,9 +13,8 @@ import java.awt.*;
 import java.util.ArrayList;
 
 /**
- * Ã°ÏÕ¼Ò
- *
- * @author ¿­¿­
+ * è‹±é›„çº¿ç¨‹
+ * @author OUT
  */
 public class Hero extends Thread implements HeroControl{
 
@@ -31,7 +30,7 @@ public class Hero extends Thread implements HeroControl{
 	public String dir_Down = "down";
 	public boolean changeMap = false;
 
-	//ÈËÎï³¯Ïò,ture ×ó false ÓÒ
+	//åˆ¤æ–­è‹±é›„æœå‘ ï¼Œtrue-å·¦ false -å³
 	public boolean faceTo = false;
 
 	public Hero(GameFrame gf) {
@@ -45,20 +44,22 @@ public class Hero extends Thread implements HeroControl{
 
 	}
 
-	//Ó¢ĞÛÒÆ¶¯
+	//ç§»åŠ¨æ–¹æ³•
 	public void run() {
 		int i = 1;
 		while (true) {
-			//Ó¢ĞÛµÄµØÍ¼¸Ä±ä
+			//è‹±é›„çš„åœ°å›¾æ”¹å˜
 			changeMap();
-			//²»Ğ´¾Í¶¯²»ÁË
+			//ä¸å†™å°±åŠ¨ä¸äº†
+
+
 			if (i == 2) {
 				System.out.println("hh");
 			}
 			i++;
-			//Ó¢ĞÛÕ¾Á¢
+			//è‹±é›„ç«™ç«‹
 			heroStand();
-			//ÊÇ·ñ½øÈë×ß²½
+			//æ˜¯å¦è¿›å…¥èµ°æ­¥
 			if (hero.getAction()[2].isDirection() || hero.getAction()[3].isDirection()) {
 				if (hit("right")) {
 					hero.getMove().setRightSpeed(0);
@@ -72,7 +73,7 @@ public class Hero extends Thread implements HeroControl{
 				hero.getMove().setRightSpeed(5);
 				hero.getMove().setLeftSpeed(5);
 			}
-			//ÌøÔ¾
+			//è·³è·ƒ
 			if (hero.getAction()[4].isDirection()) {
 				heroJump();
 				jumpImg();
@@ -82,7 +83,7 @@ public class Hero extends Thread implements HeroControl{
 				isGravity();
 			}
 
-			//×ÜÑÓ³Ù
+			//ä¼‘çœ 
 			try {
 				sleep(20);
 			} catch (InterruptedException e) {
@@ -92,7 +93,7 @@ public class Hero extends Thread implements HeroControl{
 	}
 
 	/**
-	 * ¸ü»»µØÍ¼£¬¸ü»»Ó¢ĞÛ×ø±ê
+	 * æ›´æ¢åœ°å›¾ï¼Œæ›´æ¢è‹±é›„åæ ‡
 	 */
 	public void changeMap() {
 		if (changeMap) {
@@ -108,7 +109,7 @@ public class Hero extends Thread implements HeroControl{
 	}
 
 	/**
-	 * ÏÂ½µÍ¼Æ¬
+	 * ä¸‹é™å›¾ç‰‡
 	 */
 	private void isGravity() {
 		if (faceTo) {
@@ -118,7 +119,7 @@ public class Hero extends Thread implements HeroControl{
 		}
 	}
 	/**
-	 * Õ¾Á¢
+	 * ç«™ç«‹
 	 */
 	public void heroStand() {
 		if (faceTo) {
@@ -130,15 +131,15 @@ public class Hero extends Thread implements HeroControl{
 	}
 
 	/**
-	 * ÅÜ²½
+	 * è·‘æ­¥
 	 */
 	public void heroRun() {
-		//Ïò×óÅÜ²½
+		//å‘å·¦è·‘æ­¥
 		if (hero.getAction()[2].isDirection()) {
 			this.image = hero.getAction()[2].getImg();
 			heroLeftRun();
 		}
-		//ÏòÓÒÅÜ²½
+		//å‘å³è·‘æ­¥
 		if (hero.getAction()[3].isDirection()) {
 			this.image = hero.getAction()[3].getImg();
 			heroRightRun();
@@ -146,7 +147,7 @@ public class Hero extends Thread implements HeroControl{
 
 	}
 	/**
-	 * ÏòÓÒÅÜµÄÅĞ¶Ï
+	 * å‘å³è·‘çš„åˆ¤æ–­
 	 */
 	@Override
 	public void heroRightRun() {
@@ -156,9 +157,9 @@ public class Hero extends Thread implements HeroControl{
 			hero.getMove().setX(hero.getMove().getX() + hero.getMove().getRightSpeed());
 		}
 		if (hero.getMove().getX() == 515) {
-			//Ñ­»·´òÓ¡µØÍ¼
+			//å¾ªç¯æ‰“å°åœ°å›¾
 			for (int i = 0; i < gf.map.Map.getImg().length; i++) {
-				//µØÍ¼Ïò×óÒÆ¶¯
+				//åœ°å›¾å‘å·¦ç§»åŠ¨
 				if (i == 2) {
 					gf.map.Map.getImg()[i].setX(gf.map.Map.getImg()[i].getX() - (hero.getMove().getRightSpeed() * 6 / 10));
 				}
@@ -174,33 +175,28 @@ public class Hero extends Thread implements HeroControl{
 		}
 		//
 		if ((hero.getMove().getX() >= 515 &&
-				//ÔÚÍ¼µÄÓÒ±ß£¬1024-Ó¢ĞÛ×óÉÏ½Ç×ø±ê
-				hero.getMove().getX() < (1024 - hero.getAction()[0].getImg()[0].getWidth())) &&
-				//µØÍ¼µÄxÒ»¶¨Ğ¡ÓÚ1024-µØÍ¼µÄx
-				gf.map.Map.getImg()[4].getX() < (1024 - gf.map.Map.getImg()[4].getWidth())) {
-
+                hero.getMove().getX() < (1024 - hero.getAction()[0].getImg()[0].getWidth())) &&
+                gf.map.Map.getImg()[4].getX() < (1024 - gf.map.Map.getImg()[4].getWidth())) {
 			hero.getMove().setX(hero.getMove().getX() + hero.getMove().getRightSpeed());
-
 		}
 
 
 	}
 
 	/**
-	 * Ïò×óÅÜµÄÅĞ¶Ï
+	 * å‘å·¦è·‘çš„åˆ¤æ–­
 	 */
 	@Override
 	public void heroLeftRun() {
-		//hero.getMove().setX(hero.getMove().getX() - hero.getMove().getLeftSpeed());
-		//Ïò×ó×ß
+
 		if (hero.getMove().getX() > 0 && hero.getMove().getX() <= 515 && gf.map.Map.getImg()[0].getX() == 0) {
 			hero.getMove().setX(hero.getMove().getX() - hero.getMove().getLeftSpeed());
 		}
 		if (hero.getMove().getX() == 515) {
-			//Ñ­»·´òÓ¡µØÍ¼
+			//å¾ªç¯æ‰“å°åœ°å›¾
 			for (int i = 0; i < gf.map.Map.getImg().length; i++) {
-				//µØÍ¼Ïò×óÒÆ¶¯
-				//µØÍ¼Ïò×óÒÆ¶¯
+				//åœ°å›¾å‘å·¦ç§»åŠ¨
+				//åœ°å›¾å‘å·¦ç§»åŠ¨
 				if (i == 2) {
 					gf.map.Map.getImg()[i].setX(gf.map.Map.getImg()[i].getX() + (hero.getMove().getRightSpeed() * 6 / 10));
 				}
@@ -222,7 +218,7 @@ public class Hero extends Thread implements HeroControl{
 	}
 
 	/**
-	 * Ó¢ĞÛÌøÔ¾
+	 * è‹±é›„è·³è·ƒ
 	 */
 	@Override
 	public void heroJump() {
@@ -240,14 +236,14 @@ public class Hero extends Thread implements HeroControl{
 	}
 
 	/**
-	 * ÌøÔ¾½µÂäº¯Êı
+	 * è·³è·ƒé™è½å‡½æ•°
 	 */
 	@Override
 	public void jumpLogic() {
-		//ÌøÔ¾¸ß¶È
+		//è·³è·ƒé«˜åº¦
 		int jumpHeigh = 0;
 		for (int i = 0; i < 150; i++) {
-			//trueÍùÉÏÌø
+			//trueå¾€ä¸Šè·³
 			hero.getAction()[6].setDirection(true);
 			hero.getMove().setY(hero.getMove().getY() - hero.getMove().getUpSpeed());
 			if (i % 5 == 0 && i > 30) {
@@ -262,14 +258,14 @@ public class Hero extends Thread implements HeroControl{
 				e.printStackTrace();
 			}
 		}
-		//ÌøÔ¾×î¸ß´¦Í£¶Ù
+		//è·³è·ƒæœ€é«˜å¤„åœé¡¿
 		try {
 			sleep(80);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 
-		//½µÂä
+		//é™è½
 		for (int i = 0; i < jumpHeigh; i++) {
 
 			hero.getAction()[6].setDirection(false);
@@ -295,13 +291,13 @@ public class Hero extends Thread implements HeroControl{
 	}
 
 	/**
-	 * ÌøÔ¾Í¼Æ¬¸Ä±ä
+	 * è·³è·ƒå›¾ç‰‡æ”¹å˜
 	 */
 	@Override
 	public void jumpImg() {
-		//ÅĞ¶Ï³¯Ïò
+		//åˆ¤æ–­æœå‘
 		if (faceTo) {
-			//ÅĞ¶ÏÊÇÉÏ»¹ÊÇÏÂ
+			//åˆ¤æ–­æ˜¯ä¸Šè¿˜æ˜¯ä¸‹
 			if (hero.getAction()[6].isDirection()) {
 				this.image = hero.getAction()[4].getImg();
 			} else {
@@ -319,13 +315,13 @@ public class Hero extends Thread implements HeroControl{
 	}
 
 	/**
-	 * ¼ì²âÅö×²
+	 * æ£€æµ‹ç¢°æ’
 	 */
 	@Override
 	public boolean hit(String dir) {
-		//Ó¢ĞÛµÄÅö×²ÁĞ±í
+		//è‹±é›„çš„ç¢°æ’åˆ—è¡¨
 		ArrayList<Rectangle> obsHreo = new ArrayList<>();
-		//Swing ¼¼ÊõÖĞ
+		//Swing æŠ€æœ¯ä¸­
 
 		for (int i = 0; i < image.length; i++) {
 			obsHreo.add(new Rectangle(hero.getMove().getX(), hero.getMove().getY(), image[i].getWidth(), image[i].getHeight()));
@@ -365,7 +361,7 @@ public class Hero extends Thread implements HeroControl{
 			System.err.println("");
 		}
 
-		//Åö×²µ×Ãæ¼ì²é
+		//ç¢°æ’åº•é¢æ£€æŸ¥
 		if (dir.equals(dir_Down)) {
 			for (int i = 0; i < obsHreo.size(); i++) {
 				for (int j = 0; j < obsBottom.size(); j++) {
@@ -377,7 +373,7 @@ public class Hero extends Thread implements HeroControl{
 			}
 		}
 
-		//ÓÒÕÏ°­ÎïÅĞ¶Ï
+		//å³éšœç¢ç‰©åˆ¤æ–­
 		if (dir.equals("right")) {
 			for (int i = 0; i < obsHreo.size(); i++) {
 				for (int j = 0; j < obsRight.size(); j++) {
@@ -387,7 +383,7 @@ public class Hero extends Thread implements HeroControl{
 				}
 			}
 		}
-		//×óÕÏ°­ÎïÅĞ¶Ï
+		//å·¦éšœç¢ç‰©åˆ¤æ–­
 		if (dir.equals("left")) {
 			for (int i = 0; i < obsHreo.size(); i++) {
 				for (int j = 0; j < obsLeft.size(); j++) {
@@ -397,7 +393,7 @@ public class Hero extends Thread implements HeroControl{
 				}
 			}
 		}
-		//Ìİ×ÓÅö×²ÅĞ¶Ï
+		//æ¢¯å­ç¢°æ’åˆ¤æ–­
 		if (dir.equals("ladder")) {
 			for (int i = 0; i < obsHreo.size(); i++) {
 				for (int j = 0; j < ladder.size(); j++) {
@@ -407,7 +403,7 @@ public class Hero extends Thread implements HeroControl{
 				}
 			}
 		}
-		//Éş×ÓÅö×²ÅĞ¶Ï
+		//ç»³å­ç¢°æ’åˆ¤æ–­
 		if (dir.equals("rope")) {
 			for (int i = 0; i < obsHreo.size(); i++) {
 				for (int j = 0; j < rope.size(); j++) {
@@ -420,7 +416,7 @@ public class Hero extends Thread implements HeroControl{
 		return false;
 	}
 	/**
-	 * ÖØÁ¦Ïß³Ì
+	 * é‡åŠ›çº¿ç¨‹
 	 */
 	@Override
 	public void Gravity() {
@@ -435,8 +431,7 @@ public class Hero extends Thread implements HeroControl{
 						e.printStackTrace();
 					}
 					while (true) {
-						//ÀûÓÃÉÏÃæ¶¨ÒåµÄÓ¢ĞÛÍ¼Æ¬6µÄÅĞ¶ÏÌøÔ¾
-
+						//åˆ©ç”¨ä¸Šé¢å®šä¹‰çš„è‹±é›„å›¾ï¿½?6çš„åˆ¤æ–­è·³ï¿½?
 						if (hero.getAction()[6].isDirection()&&!hero.getIsGravity()) {
 
 							break;

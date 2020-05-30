@@ -4,7 +4,7 @@ import DataMask.Img;
 import DataMask.Obstruction;
 
 /**
- * VerusµÄÅö×²
+ * Verusçš„ç¢°æ’
  * @author shkstart
  * @create 2020-05-25-23:40
  */
@@ -18,7 +18,7 @@ public class VerusObs {
     };
 
     public static Obstruction[] obsBottom = {
-            new Obstruction(new Img("", "Image\\ÂÌÉ«Ğ¡µã.png", 300, 50, 2500, 600)),
+            new Obstruction(new Img("", "Image\\ç»¿è‰²å°ç‚¹.png", 300, 50, 2500, 600)),
     };
 
     public static Obstruction[] ladder = {

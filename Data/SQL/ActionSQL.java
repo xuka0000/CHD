@@ -5,22 +5,22 @@ import DataMask.Sound;
 import util.SoundPlayer;
 
 /**
- * ÈÎÎñ¶¯×÷¿â´æ
- * @author ¿­¿­
+ * ä»»åŠ¡åŠ¨ä½œåº“å­˜
+ * @author å‡¯å‡¯
  *
  */
 public class ActionSQL {
-	
+
 	public static Action[] ActionSQL = {
 
-			new Action("×óÕ¾Á¢", false,ActionHeroImg.leftStand,null),
-			new Action("ÓÒÕ¾Á¢", false,ActionHeroImg.rightStand,null),
-			new Action("×óÅÜ²½", false,ActionHeroImg.leftRun,null),
-			new Action("ÓÒÅÜ²½", false,ActionHeroImg.rightRun,null),
-			new Action("×óÌøÔ¾", false,ActionHeroImg.leftJump, new Sound("ÌøÔ¾","Sound\\Ìø.mp3")),
-			new Action("×ó½µÂä", false,ActionHeroImg.leftDown,null),
-			new Action("ÓÒÌøÔ¾", false,ActionHeroImg.rightJump,null),
-			new Action("ÓÒ½µÂä", false,ActionHeroImg.rightDown,null),
+			new Action("å·¦ç«™ç«‹", false,ActionHeroImg.leftStand,null),
+			new Action("å³ç«™ç«‹", false,ActionHeroImg.rightStand,null),
+			new Action("å·¦è·‘æ­¥", false,ActionHeroImg.leftRun,null),
+			new Action("å³è·‘æ­¥", false,ActionHeroImg.rightRun,null),
+			new Action("å·¦è·³è·ƒ", false,ActionHeroImg.leftJump, new Sound("è·³è·ƒ","Sound\\è·³.mp3")),
+			new Action("å·¦é™è½", false,ActionHeroImg.leftDown,null),
+			new Action("å³è·³è·ƒ", false,ActionHeroImg.rightJump,null),
+			new Action("å³é™è½", false,ActionHeroImg.rightDown,null),
 
 	};
 

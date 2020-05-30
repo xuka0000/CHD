@@ -6,25 +6,25 @@ import DataMask.Weapon;
 import TradableList.WeaponImg;
 
 /**
- * 1----ÎäÆ÷
- * @author ¿­¿­
+ * 1----æ­¦å™¨
+ * @author å‡¯å‡¯
  *
  */
 public class TradableSQL {
 
 	public static Weapon[] soldierWeapon = {
-			new Weapon("³¤Ã«", 1, 480, "Õ½¶·ÎïÆ·---Ç¹", WeaponImg.Spear, SoundList.WeaponSound.SpearSound, "×°±¸", "Õ½Ê¿", 4, 22, 18, 150,20, "ÆÕÍ¨"),
-			
+			new Weapon("é•¿æ¯›", 1, 480, "æˆ˜æ–—ç‰©å“---æª", WeaponImg.Spear, SoundList.WeaponSound.SpearSound, "è£…å¤‡", "æˆ˜å£«", 4, 22, 18, 150,20, "æ™®é€š"),
+
 	};
-	
+
 	public static Weapon[] fashionSpear = {
 			new Weapon(null, 0, 0, null, null, null, null, null, 0, 0, 0, 0, 0, null)
 	};
-	
+
 	public static Weapon[] rangerWeapon = {
-			
+
 	};
-	
+
 	public static Armor[] armor = {
 			new Armor(null, 0, 0, null, null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, null),
 			new Armor(null, 0, 0, null, null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, null),
@@ -32,7 +32,7 @@ public class TradableSQL {
 			new Armor(null, 0, 0, null, null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, null),
 			new Armor(null, 0, 0, null, null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, null),
 	};
-	
+
 	public static Armor[] fashionArmor = {
 			new Armor(null, 0, 0, null, null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, null),
 			new Armor(null, 0, 0, null, null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, null),
@@ -40,11 +40,11 @@ public class TradableSQL {
 			new Armor(null, 0, 0, null, null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, null),
 			new Armor(null, 0, 0, null, null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, null),
 	};
-	
+
 	public static Pet[] pet = {
 			new Pet(null, 0, 0, null, null, null, null, null)
 	};
-	
+
 	public static Weapon[] WeaponSQL = {
 			new Weapon(null, 0, 0, null, null, null, null, null, 0, 0, 0, 0, 0, null),
 	};

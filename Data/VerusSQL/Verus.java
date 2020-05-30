@@ -6,18 +6,18 @@ import DataMask.Sound;
 
 
 /**
- * ±´ÂŞË¹³ÇÕò
- * @author ¿­¿­
+ * è´ç½—æ–¯åŸé•‡
+ * @author å‡¯å‡¯
  *
  */
 public class Verus {
 
 	public static Img[] VerusImg = {
-			new Img("±´ÂŞË¹Ìì¿Õ", "Image/±´ÂŞË¹Ìì¿Õ.png", 4973, 2000, 0, -750),
-			new Img("±´ÂŞË¹ºó3", "Image/±´ÂŞË¹ºó3.png", 4973, 2000, 0, -750),
-			new Img("±´ÂŞË¹ºó2", "Image/±´ÂŞË¹ºó2.png", 4973, 2000, 0, -750),
-			new Img("±´ÂŞË¹ºó1", "Image/±´ÂŞË¹ºó1.png", 4973, 2000, 0, -750),
-			new Img("±´ÂŞË¹·¿Îİ", "Image/±´ÂŞË¹Ç°·½·¿Îİ.png", 4973, 2000, 0, -750),
+			new Img("è´ç½—æ–¯å¤©ç©º", "Image/è´ç½—æ–¯å¤©ç©º.png", 4973, 2000, 0, -750),
+			new Img("è´ç½—æ–¯å3", "Image/è´ç½—æ–¯å3.png", 4973, 2000, 0, -750),
+			new Img("è´ç½—æ–¯å2", "Image/è´ç½—æ–¯å2.png", 4973, 2000, 0, -750),
+			new Img("è´ç½—æ–¯å1", "Image/è´ç½—æ–¯å1.png", 4973, 2000, 0, -750),
+			new Img("è´ç½—æ–¯æˆ¿å±‹", "Image/è´ç½—æ–¯å‰æ–¹æˆ¿å±‹.png", 4973, 2000, 0, -750),
 	};
 
 	public static Sound VerusSdound = new Sound("Verus'Sound", "Sound\\Velos.mp3");

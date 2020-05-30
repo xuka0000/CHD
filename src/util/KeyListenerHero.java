@@ -6,51 +6,51 @@ import java.awt.event.KeyEvent;
 import ui.GameFrame;
 
 /**
- * Ó¢ĞÛ¼àÌıÆ÷¿ØÖÆ
+ * è‹±é›„ç›‘å¬å™¨æ§åˆ¶
  */
 public class KeyListenerHero extends KeyAdapter{
 
 	public GameFrame gf ;
-	
+
 	public KeyListenerHero(GameFrame gf) {
 		this.gf = gf;
-		}
+	}
 
 	/**
-	 * ¼üÅÌµã»÷Ã¿Ò»¸ö¼üÊ±
+	 * é”®ç›˜ç‚¹å‡»æ¯ä¸€ä¸ªé”®æ—¶
 	 * @param e
 	 */
 	@Override
 	public void keyPressed(KeyEvent e) {
 		int code = e.getKeyCode();
-		//²âÊÔASCLLÂë
+		//æµ‹è¯•ASCLLç 
 		//System.out.print(code);
 		switch (code) {
-			//×ó¼ü
+			//å·¦é”®
 			case 37:
 				gf.hero.faceTo = true;
 				gf.hero.hero.getAction()[2].setDirection(true);
 				break;
-			//ÓÒ¼ü
+			//å³é”®
 			case 39:
 				gf.hero.faceTo = false;
 				gf.hero.hero.getAction()[3].setDirection(true);
 				break;
-			//C¼ü
+			//Cé”®
 			case 67:
 				if (!gf.hero.hero.getIsGravity()) {
 					gf.hero.hero.getAction()[4].setDirection(true);
 				}
 				break;
-			//ÉÏ¼ü
+			//ä¸Šé”®
 			case 38:
 				/**
-				 * ¸ü»»µØÍ¼
+				 * æ›´æ¢åœ°å›¾
 				 */
 				for (int i = 0; i < gf.portal.length ; i++) {
 					if (gf.portal[i].portal.getIsGravity()) {
 						gf.hero.changeMap = true;
-						//ÇĞ»»µØÍ¼ÇĞ»»ÒôÀÖ
+						//åˆ‡æ¢åœ°å›¾åˆ‡æ¢éŸ³ä¹
 						if (!gf.StartSound.isAlive()) {
 							gf.StartSound.stopMusic();
 						}
@@ -61,7 +61,7 @@ public class KeyListenerHero extends KeyAdapter{
 	}
 
 	/**
-	 * µ±Ì§Æğ¼üÅÌÃşÒ»¸ö¼üÊ±
+	 * å½“æŠ¬èµ·é”®ç›˜æ‘¸ä¸€ä¸ªé”®æ—¶
 	 * @param e
 	 */
 	@Override

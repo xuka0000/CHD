@@ -8,6 +8,7 @@ import ui.GameFrame;
 import util.AudioPlayer;
 
 /**
+ * åŠ è½½ç±»
  * @author shkstart
  * @create 2020-05-30-0:13
  */
@@ -22,32 +23,32 @@ public class Loading extends Thread {
         while (true) {
             for (int j = 0; j < MapSQL.MapSQL.length; j++) {
                 if (SQL.MapSQL.MapSQL[j].getId() == gf.hero.hero.getMapId()) {
-                    //¸øMap¸³ÖµÇÐ»»
+                    //ç»™Mapèµ‹å€¼åˆ‡æ¢
                     gf.map.Map = SQL.MapSQL.MapSQL[j];
                 }
             }
-            // ´´½¨¹ÖÊÞ(Ïß³Ì£©
+            // åˆ›å»ºæ€ªå…½(çº¿ç¨‹ï¼‰
             for (int i = 0; i < gf.map.Map.getMonster().length - 1; i++) {
                 gf.monster[i] = new Monster(gf);
             }
-            // ´´½¨NPC(Ïß³Ì£©
+            // åˆ›å»ºNPC(çº¿ç¨‹ï¼‰
             for (int i = 0; i < gf.map.Map.getNPC().length - 1; i++) {
                 gf.NPC[i] = new NPC(gf);
             }
-            // ´´½¨´«ËÍÃÅ
+            // åˆ›å»ºä¼ é€é—¨
             for (int i = 0; i < gf.map.Map.getPortal().length; i++) {
                 gf.portal[i] = new Portal(gf);
                 gf.portal[i].portal = gf.map.Map.getPortal()[i];
             }
-            // Ïß³ÌÈÎÎñ¿ªÊ¼
-            // Ã°ÏÕ¼Ò
+            // çº¿ç¨‹ä»»åŠ¡å¼€å§‹
+            // å†’é™©å®¶
             try {
                 gf.hero.start();
             } catch (Exception e) {
-                //²»´òÓ¡ÁË
+                //ä¸æ‰“å°äº†
             }
 
-            // ¹ÖÎï
+            // æ€ªç‰©
 //            for (int i = 0; i < gf.map.Map.getMonster().length - 1; i++) {
 //               gf.Monster[i].start();
 //            }
@@ -55,14 +56,14 @@ public class Loading extends Thread {
 //            for (int i = 0; i < gf.map.Map.getNPC().length - 1; i++) {
 //                gf.NPC[i].start();
 //            }
-            // ´«ËÍÃÅ
+            // ä¼ é€é—¨
             for (int i = 0; i < gf.map.Map.getPortal().length; i++) {
                 gf.portal[i].start();
             }
             try {
                 sleep(20);
             } catch (InterruptedException e) {
-                //²»´òÓ¡ÁË
+                //ä¸æ‰“å°äº†
             }
         }
 

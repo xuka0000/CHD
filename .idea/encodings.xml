@@ -1,10 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
-    <file url="file://$PROJECT_DIR$/src/AppMain/AppMain.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/Hero/Hero.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/Map/Portal.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/ui/GameFrame.java" charset="GBK" />
-    <file url="PROJECT" charset="GBK" />
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/Data/SQL/ActionHeroImg.java" charset="UTF-16" />
+    <file url="file://$PROJECT_DIR$/Data/SQL/ActionSQL.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Data/SQL/HeroSQL.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Data/SQL/MapSQL.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Data/SQL/TempBag.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Data/SQL/TradableSQL.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Data/SoundList/WeaponSound.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Data/TempData/TempHero.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Data/TempData/TempMap.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Data/TradableList/WeaponImg.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Data/VerusSQL/Verus.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Data/VerusSQL/VerusMonster.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Data/VerusSQL/VerusNPC.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Data/VerusSQL/VerusObs.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Data/VerusSQL/VerusPortal.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Data/VerusSQL/VerusSmallMap.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Data/VerusSQL/VerusTask.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Data/jungleSQL/Jungle.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Data/jungleSQL/JungleMonster.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Data/jungleSQL/JungleTask.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/keep/CreateKeep.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/AppMain/AppMain.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/Hero/Hero.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/gameProgress/Loading.java" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

@@ -5,19 +5,22 @@ import util.KeyListenerHero;
 import util.MouseListenHero;
 
 
-public class AppMain {
-public static void main(String[] args) {
 
-	GameFrame gf = new GameFrame();
-	// ´´½¨¼àÌıÆ÷¶ÔÏó
-	KeyListenerHero kl = new KeyListenerHero(gf);
-	// ¸ø´°ÌåÌí¼Ó¼üÅÌ¼àÌıÆ÷
-	gf.addKeyListener(kl);
-	//´´½¨Ò»¸ö¼àÌıÊó±ê¶ÔÏó
-	//´´½¨Êó±ê¼àÌı
-	MouseListenHero m1 = new MouseListenHero(gf);
-	MouseListenHero m2 = new MouseListenHero(gf);
-	gf.addMouseMotionListener(m1);
-	gf.addMouseListener(m2);
-}
+
+public class AppMain {
+
+	public static void main(String[] args) {
+
+		GameFrame gf = new GameFrame();
+		// åˆ›å»ºç›‘å¬å™¨å¯¹è±¡
+		KeyListenerHero kl = new KeyListenerHero(gf);
+		// ç»™çª—ä½“æ·»åŠ é”®ç›˜ç›‘å¬å™¨
+		gf.addKeyListener(kl);
+		//åˆ›å»ºä¸€ä¸ªç›‘å¬é¼ æ ‡å¯¹è±¡
+		//åˆ›å»ºé¼ æ ‡ç›‘å¬
+		MouseListenHero m1 = new MouseListenHero(gf);
+		MouseListenHero m2 = new MouseListenHero(gf);
+		gf.addMouseMotionListener(m1);
+		gf.addMouseListener(m2);
+	}
 }

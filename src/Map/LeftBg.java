@@ -6,27 +6,27 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * ×óÉÏ½ÇµÄÊôĞÔ
+ * å·¦ä¸Šè§’çš„å±æ€§
  * @author shkstart
  * @create 2020-05-18-13:56
  */
 public class LeftBg {
-    //µÈ¼¶Í¼Æ¬
-    public static Image levelImg = new ImageIcon("Image\\µÈ¼¶.png").getImage();
+    //ç­‰çº§å›¾ç‰‡
+    public static Image levelImg = new ImageIcon("Image\\ç­‰çº§.png").getImage();
     public static int X_LEVEL = 10, Y_LEVEL = 20;
     public static int highLevel = 30, widthLevel = 45;
-    //Hp²ÎÊı
-    public static Image hpImg = new ImageIcon("Image\\ºìÉ«ÑªÌõ.png").getImage();
+    //Hpå‚æ•°
+    public static Image hpImg = new ImageIcon("Image\\çº¢è‰²è¡€æ¡.png").getImage();
     public static int X_HP = 15, Y_HP = 60;
     public static int highHp = 20, widthHp = 200;
-    //Mp²ÎÊı
-    public static Image mpImg = new ImageIcon("Image\\À¶Ìõ.png").getImage();
+    //Mpå‚æ•°
+    public static Image mpImg = new ImageIcon("Image\\è“æ¡.png").getImage();
     public static int X_MP = 15, Y_MP = 85;
     public static int highMp = 20, widthMp = 200;
-    //°×ÌõÍ¼
-    public static Image nullImg = new ImageIcon("Image\\×óÉÏ¿Õ°×Ìõ.png").getImage();
+    //ç™½æ¡å›¾
+    public static Image nullImg = new ImageIcon("Image\\å·¦ä¸Šç©ºç™½æ¡.png").getImage();
     public static int X_HERO_EXP = 15, Y_HERO_EXP = 110;
     public static int highHeroExp = 20, widthHeroExp = 200;
-    //EXPÍ¼Æ¬
-    public static Image expImg = new ImageIcon("Image\\×óÉÏ¿Õ°×Ìõ.png").getImage();
+    //EXPå›¾ç‰‡
+    public static Image expImg = new ImageIcon("Image\\å·¦ä¸Šç©ºç™½æ¡.png").getImage();
 }

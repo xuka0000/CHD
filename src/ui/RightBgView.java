@@ -13,19 +13,19 @@ public class RightBgView {
 
         big.setFont(new Font("",Font.BOLD,15));
 
-        //╢Рс║╣ьм╪,╡╩╢Рс║срио╫гп║хк,╨мбл╣Ц
+        //Ф┴⌠Е█╟Е°╟Е⌡╬,Д╦█Ф┴⌠Е█╟Е▐ЁД╦┼Х╖▓Е╟▐Д╨╨,Е▓▄Г╩©Г┌╧
         for (int i = 0; i < map.Map.getSmallMapMask().length - 2; i++) {
             big.drawImage(map.Map.getSmallMapMask()[i].getPicturePath(), map.Map.getSmallMapMask()[i].getX(), map.Map.getSmallMapMask()[i].getY(), map.Map.getSmallMapMask()[i].getWidth(), map.Map.getSmallMapMask()[i].getHeight(), null);
         }
-        //п║╣ьм╪вЬ╠Й
-        big.drawString("вЬ╠Й"+(hero.hero.getMove().getX()-map.Map.getImg()[4].getX())+":"+hero.hero.getMove().getY(),890,70);
-        //п║хк╣дн╩жц
+        //Е╟▐Е°╟Е⌡╬Е²░Ф═┤
+        big.drawString("Е²░Ф═┤"+(hero.hero.getMove().getX()-map.Map.getImg()[4].getX())+":"+hero.hero.getMove().getY(),890,70);
+        //Е╟▐Д╨╨Г └Д╫█Г╫╝
         big.drawImage(map.Map.getSmallMapMask()[map.Map.getSmallMapMask().length - 1].getPicturePath(),
                 map.Map.getSmallMapMask()[map.Map.getSmallMapMask().length - 1].getX() + hero.hero.getMove().getX() / 23 - map.Map.getImg()[4].getX()/23,
                 map.Map.getSmallMapMask()[map.Map.getSmallMapMask().length - 1].getY() + hero.hero.getMove().getY() / 20,
                 map.Map.getSmallMapMask()[map.Map.getSmallMapMask().length - 1].getWidth(),
                 map.Map.getSmallMapMask()[map.Map.getSmallMapMask().length - 1].getHeight(), null);
-        //п║хк╤тс╕ио╣У╣Ц
+        //Е╟▐Д╨╨Е╞╧Е╨■Д╦┼Е░┼Г┌╧
 
         big.drawImage(map.Map.getSmallMapMask()[map.Map.getSmallMapMask().length - 2].getPicturePath(),
                 map.Map.getSmallMapMask()[map.Map.getSmallMapMask().length - 2].getX() + hero.hero.getMove().getX() / 23 - map.Map.getImg()[4].getX()/23,

@@ -3,6 +3,7 @@ package jungleSQL;
 import DataMask.MonsterMask;
 
 /**
+ * 从林怪物类
  * @author shkstart
  * @create 2020-05-29-18:45
  */

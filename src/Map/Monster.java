@@ -12,7 +12,7 @@ public class Monster extends Thread{
 		this.gf = gf ;
 	}
 	
-	//¹ÖÎïÒÆ¶¯
+	//æ€ªç‰©ç§»åŠ¨
 	public void run() {
 		
 	}

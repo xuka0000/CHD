@@ -8,69 +8,69 @@ import ui.GameFrame;
 
 public class MouseListenHero implements MouseListener,MouseMotionListener {
 
-public GameFrame gf;
-	
+	public GameFrame gf;
+
 	public int mousex,mousey;
 	public int x,y;
-	
-	//¹¹Ôì¼àÌıÀàĞÍ
+
+	//æ„é€ ç›‘å¬ç±»å‹
 	public MouseListenHero(int a) {
 	}
-	
-	
+
+
 	public MouseListenHero(GameFrame gf) {
 		this.gf = gf;
 	}
-	
-	//»ñÈ¡Êó±êÎ»ÖÃ
-	
-	//Êó±ê°´¼ü¼àÌı
+
+	//è·å–é¼ æ ‡ä½ç½®
+
+	//é¼ æ ‡æŒ‰é”®ç›‘å¬
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	//Êó±êÒÆ¶¯½øÈëÇøÓò¼àÌı
+	//é¼ æ ‡ç§»åŠ¨è¿›å…¥åŒºåŸŸç›‘å¬
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	//Êó±êÀë¿ªÇøÓò¼àÌı
+	//é¼ æ ‡ç¦»å¼€åŒºåŸŸç›‘å¬
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
 	}
 
-	//Êó±êµã»÷
+	//é¼ æ ‡ç‚¹å‡»
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
 
-		
+
 	}
 
-	//Êó±êÊÍ·Å
+	//é¼ æ ‡é‡Šæ”¾
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	//Êó±ê½øÈë
+	//é¼ æ ‡è¿›å…¥
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	//Êó±êÀë¿ª
+	//é¼ æ ‡ç¦»å¼€
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

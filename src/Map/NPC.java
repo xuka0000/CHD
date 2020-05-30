@@ -12,7 +12,7 @@ public class NPC extends Thread  {
 		this.gf = gf ;
 	}
 	
-	//NPCµÄÔË¶¯
+	//NPCçš„è¿åŠ¨
 	public void run() {
 		
 	}
