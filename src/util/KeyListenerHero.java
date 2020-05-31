@@ -16,6 +16,17 @@ public class KeyListenerHero extends KeyAdapter{
 		this.gf = gf;
 	}
 
+	@Override
+	public void keyTyped(KeyEvent e) {
+		//判断是否接触绳子，改变绳子Boolean的状态，如果触碰就为当前的反状态
+		int code = e.getKeyCode();
+		switch (code) {
+			case 38:
+
+
+				break;
+		}
+	}
 	/**
 	 * 键盘点击每一个键时
 	 * @param e
@@ -24,7 +35,7 @@ public class KeyListenerHero extends KeyAdapter{
 	public void keyPressed(KeyEvent e) {
 		int code = e.getKeyCode();
 		//测试ASCLL码
-		//System.out.print(code);
+//		System.out.print(code);
 		switch (code) {
 			//左键
 			case 37:
@@ -41,6 +52,14 @@ public class KeyListenerHero extends KeyAdapter{
 				if (!gf.hero.hero.getIsGravity()) {
 					gf.hero.hero.getAction()[4].setDirection(true);
 				}
+//				//绳索关系,判断绳子和人接触
+//				if (gf.hero.ropeContral) {
+//					//是否按了左还是右
+//					if (gf.hero.hero.getAction()[3].isDirection() || gf.hero.hero.getAction()[3].isDirection()) {
+//						//释放
+//						gf.hero.ropeContral = false;
+//					}
+//				}
 				break;
 			//上键
 			case 38:
@@ -56,7 +75,14 @@ public class KeyListenerHero extends KeyAdapter{
 						}
 					}
 				}
-				break;
+//				//判断是否接触绳子，改变绳子Boolean的状态，如果触碰就为当前的反状态
+//				gf.hero.ropeUp = true;
+//				break;
+//			case 40:
+//				//如果按下英雄的向下变量为ture
+//				gf.hero.ropeDown = true;
+//
+//				break;
 		}
 	}
 
@@ -68,13 +94,32 @@ public class KeyListenerHero extends KeyAdapter{
 	public void keyReleased(KeyEvent e) {
 		int code = e.getKeyCode();
 		if (code == 37) {
-
 			gf.hero.hero.getAction()[2].setDirection(false);
 
 		} else if (code == 39) {
-
 			gf.hero.hero.getAction()[3].setDirection(false);
+		}
 
+//		if (code == 38) {
+//			System.out.println(gf.hero.hit(gf.hero.DIR_ROPE));
+//			if (gf.hero.hit(gf.hero.DIR_ROPE)) {
+//
+//				gf.hero.ropeContral = !gf.hero.ropeContral;
+//				sleepTest(100);
+//			}
+//			gf.hero.ropeUp = false;
+//		}
+//		if (code == 40) {
+//			gf.hero.ropeDown = false;
+//		}
+	}
+	public static void sleepTest(int sleep) {//时间延迟装置
+		try {
+			Thread.sleep(sleep);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
+
 }

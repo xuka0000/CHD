@@ -18,7 +18,7 @@ public class HeroSQL {
 	 * 英雄的移动
 	 */
 	public static Move[] move = {
-			new Move(400, 300, 5, 5, 1, 1, 1)
+			new Move(400, 300, 5, 5, 2, 2, 1)
 
 	};
 	/**
@@ -30,7 +30,7 @@ public class HeroSQL {
 
 
 	public static HeroMask[] soldier = {
-			new HeroMask("无名氏1", ActionSQL.ActionSQL, false, 0, "战士", 400, 750, SQL.TempBag.tempBag, equipment, fashionEquipment, abilityValue[0], move[0], skill),
+			new HeroMask("无名氏1", ActionSQL.ActionSQL, false, 1, "战士", 400, 750, SQL.TempBag.tempBag, equipment, fashionEquipment, abilityValue[0], move[0], skill),
 	};
 
 	public static HeroMask[] Ranger = {
