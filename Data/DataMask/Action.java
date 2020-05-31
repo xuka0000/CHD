@@ -2,7 +2,7 @@ package DataMask;
 
 public class Action {
 	/**
-	 * 
+	 *
 	 */
 	private String name ;
 	private boolean isDirection ;
