@@ -20,11 +20,11 @@ public class ropeHero {
                 public void run(){
 
                     try {
-                        sleep(1000);
+                        sleep(750);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-
+                    gf.hero.ropeToJump = true ;
                     gf.hero.isRopeContraling = true ;
                 }
             }.start();

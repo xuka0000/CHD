@@ -31,7 +31,7 @@ public class JungleObs {
             new Obstruction(new Img("", "Image\\绿色小点.png", 620, 50, 2000, 245)),
             new Obstruction(new Img("", "Image\\绿色小点.png", 1220, 50, 855, -40)),
             new Obstruction(new Img("", "Image\\绿色小点.png", 150, 50, 720, -145)),
-            new Obstruction(new Img("", "Image\\绿色小点.png", 800, 30, 2650, -165)),
+            new Obstruction(new Img("", "Image\\绿色小点.png", 800, 30, 2650, -175)),
             new Obstruction(new Img("", "Image\\绿色小点.png", 300, 30, 3050, 600)),
             new Obstruction(new Img("", "Image\\绿色小点.png", 600, 30, 2230, 726)),
     };

@@ -76,7 +76,7 @@ public class Hero extends Thread implements HeroControl{
 
 			//判断绳索是否可以进行判断（我预判你的预判 哈哈哈哈 ）
 			ropeHero.isRopeContraling(gf);
-
+            //System.out.println(ropeContral);
 			//休眠
 			try {
 				sleep(20);
@@ -97,7 +97,10 @@ public class Hero extends Thread implements HeroControl{
             //System.out.println(gf.hero.hero.getMove().getY()+"英雄");
             // System.out.println(gf.map.Map.getImg()[4].getY()+"地图");
             //System.out.println(gf.hero.hit(gf.hero.DIR_ROPE));
-			this.image[0] = new Img("上", "Image\\技能1下右.gif", 168, 192, 50, 50);
+			  Img[] rope = {
+					new Img("上", "Image\\技能1下右.gif", 168, 192, 50, 50),
+			};
+			this.image = rope;
 			/**
 			 * Hero:570 ~ 400
 			 * Map:-750 ~ -650
@@ -140,7 +143,10 @@ public class Hero extends Thread implements HeroControl{
 			if(gf.hero.hit(gf.hero.dir_Down)){
 				gf.hero.hero.getMove().setDownSoeed(0);
 			}
-			this.image[0] = new Img("下", "Image\\技能1下右.gif", 168, 192, 50, 50);
+			Img[] rope = {
+					new Img("上", "Image\\技能1下右.gif", 168, 192, 50, 50),
+			};
+			this.image = rope;
 			/**
 			 * Hero:570 ~ 400
 			 * Map:-100 ~ 0
@@ -161,8 +167,8 @@ public class Hero extends Thread implements HeroControl{
 				UnHeroControl.arrayObsSetY_Down(gf.map.Map.getRope(),gf.hero.hero.getMove().getDownSoeed()*3);
 				UnHeroControl.arrayObsSetY_Down(gf.map.Map.getObsLeft(),gf.hero.hero.getMove().getDownSoeed()*3);
 				UnHeroControl.arrayObsSetY_Down(gf.map.Map.getObsRight(),gf.hero.hero.getMove().getDownSoeed()*3);
-				UnHeroControl.arrayHillSetY_Down(gf.map.Map.getLeftHill(),gf.hero.hero.getMove().getDownSoeed()*2);
-				UnHeroControl.arrayHillSetY_Down(gf.map.Map.getRightHill(),gf.hero.hero.getMove().getDownSoeed()*2);
+				UnHeroControl.arrayHillSetY_Down(gf.map.Map.getLeftHill(),gf.hero.hero.getMove().getDownSoeed()*3);
+				UnHeroControl.arrayHillSetY_Down(gf.map.Map.getRightHill(),gf.hero.hero.getMove().getDownSoeed()*3);
 
 			}
 			/**
@@ -181,7 +187,6 @@ public class Hero extends Thread implements HeroControl{
 			gf.hero.ropeContral = false;
 		}
 
-		gf.hero.ropeToJump = true;
 
 	}
 
@@ -452,6 +457,7 @@ public class Hero extends Thread implements HeroControl{
 
 			hero.getAction()[6].setDirection(false);
 			if(gf.hero.ropeToJump){
+				System.out.println("123");
 				UnHeroControl.arraySetY_Down(gf.map.Map.getImg(),gf.hero.hero.getMove().getDownSoeed());
 				UnHeroControl.arrayObsSetY_Down(gf.map.Map.getObsLeft(),gf.hero.hero.getMove().getDownSoeed());
 				UnHeroControl.arrayObsSetY_Down(gf.map.Map.getObsRight(),gf.hero.hero.getMove().getDownSoeed());
@@ -659,7 +665,14 @@ public class Hero extends Thread implements HeroControl{
 				}
 			}
 		}
-		//System.out.println(rightHill.get(1).getX1()+"+++"+rightHill.get(1).getY1());
+		try{
+			//System.out.println(rightHill.get(0).getX1()+"+++"+rightHill.get(0).getY1());
+			//System.out.println(rightHill.size());
+
+		}catch (Exception e){
+
+		}
+
 		//右斜坡碰撞判断
 		if (dir.equals(DIR_rightHill)) {
 			for (int i = 0; i < obsHeroDown.size(); i++) {
@@ -703,6 +716,7 @@ public class Hero extends Thread implements HeroControl{
 						}
 						if (ropeContral) {
 							//System.out.println("1");
+
 							break;
 						}
 						//利用上面定义的英雄运动的6的判断跳跃?
@@ -710,7 +724,8 @@ public class Hero extends Thread implements HeroControl{
 							//System.out.println("2");
 							break;
 						}
-//
+
+
 
 
 						if (hit(dir_Down)) {
@@ -720,6 +735,7 @@ public class Hero extends Thread implements HeroControl{
 						}
 
 						if(hit(DIR_rightHill)){
+							//System.out.println("5");
 							hero.setIsGravity(false);
 							break;
 						}

@@ -119,34 +119,38 @@ public class GameFrame extends JFrame {
 		BufferedImage bi = (BufferedImage) this.createImage(this.getSize().width, this.getSize().height);
 		// 画笔
 		Graphics big = bi.getGraphics();
+        try{
+			//背景图
+			for (int i = 0; i < 5; i++) {
+				big.drawImage(map.Map.getImg()[i].getPicturePath(), map.Map.getImg()[i].getX(), map.Map.getImg()[i].getY(),
+						map.Map.getImg()[i].getWidth(), map.Map.getImg()[i].getHeight(), null);
+			}
+			//传送门
+			PortalView.portalUse(big,portal,map);
 
-		//背景图
-		for (int i = 0; i < 5; i++) {
-			big.drawImage(map.Map.getImg()[i].getPicturePath(), map.Map.getImg()[i].getX(), map.Map.getImg()[i].getY(),
-					map.Map.getImg()[i].getWidth(), map.Map.getImg()[i].getHeight(), null);
+			//调用方法打印英雄
+			GraphicsView.heroActionImg(big, hero.image, hero.hero);
+			//打印前面图层的地图
+			for (int i = 5; i < map.Map.getImg().length; i++) {
+				big.drawImage(map.Map.getImg()[i].getPicturePath(), map.Map.getImg()[i].getX(), map.Map.getImg()[i].getY(),
+						map.Map.getImg()[i].getWidth(), map.Map.getImg()[i].getHeight(), null);
+			}
+			//左上角属性
+			//drawleftBg(big);
+			LeftBgView.drawleftBg(big, leftBg, hero);
+
+			//顶部技能栏
+			TopBgView.topBgView(big, topBg);
+
+			//右上角小地图
+			RightBgView.rightBgView(big, map, hero);
+
+			//打印障碍物
+			ObsView.obsView(big, map, hero);
+		}catch (Exception e){
+
 		}
-		//传送门
-		PortalView.portalUse(big,portal,map);
 
-		//调用方法打印英雄
-		GraphicsView.heroActionImg(big, hero.image, hero.hero);
-        //打印前面图层的地图
-		for (int i = 5; i < map.Map.getImg().length; i++) {
-			big.drawImage(map.Map.getImg()[i].getPicturePath(), map.Map.getImg()[i].getX(), map.Map.getImg()[i].getY(),
-					map.Map.getImg()[i].getWidth(), map.Map.getImg()[i].getHeight(), null);
-		}
-		//左上角属性
-		//drawleftBg(big);
-		LeftBgView.drawleftBg(big, leftBg, hero);
-
-		//顶部技能栏
-		TopBgView.topBgView(big, topBg);
-
-		//右上角小地图
-		RightBgView.rightBgView(big, map, hero);
-
-		//打印障碍物
-		ObsView.obsView(big, map, hero);
 
 		// 绘画上色
 		g.drawImage(bi, 0, 0, null);
