@@ -1,7 +1,7 @@
 package DataMask;
 /**
- * µØÍ¼ÊôÐÔ
- * @author ¿­¿­
+ * åœ°å›¾çš„å±žæ€§
+ * @author OUT
  *
  */
 public class MapMask {
@@ -17,7 +17,7 @@ public class MapMask {
 	private Obstruction ladder[];
 	private Obstruction rope[];
 	private PortalMask portal[];
-	private Img smallMapMask[];		//Ð¡µØÍ¼Êý×é
+	private Img smallMapMask[];
 	private int id;
 
 	public MapMask(String name, Img[] img, Sound sound, NPCMask[] NPC, MonsterMask[] monster, Obstruction[] obsLeft, Obstruction[] obsRight, Obstruction[] obsBottom, Obstruction[] ladder, Obstruction[] rope, PortalMask[] portal, Img[] smallMapMask, int id) {

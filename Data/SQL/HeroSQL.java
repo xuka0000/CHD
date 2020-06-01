@@ -18,7 +18,7 @@ public class HeroSQL {
 	 * 英雄的移动
 	 */
 	public static Move[] move = {
-			new Move(400, 300, 5, 5, 2, 2, 1)
+			new Move(400, 300, 5, 5, 1, 1, 1)
 
 	};
 	/**

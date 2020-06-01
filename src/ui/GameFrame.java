@@ -130,7 +130,11 @@ public class GameFrame extends JFrame {
 
 		//调用方法打印英雄
 		GraphicsView.heroActionImg(big, hero.image, hero.hero);
-
+        //打印前面图层的地图
+		for (int i = 5; i < map.Map.getImg().length; i++) {
+			big.drawImage(map.Map.getImg()[i].getPicturePath(), map.Map.getImg()[i].getX(), map.Map.getImg()[i].getY(),
+					map.Map.getImg()[i].getWidth(), map.Map.getImg()[i].getHeight(), null);
+		}
 		//左上角属性
 		//drawleftBg(big);
 		LeftBgView.drawleftBg(big, leftBg, hero);
@@ -143,11 +147,7 @@ public class GameFrame extends JFrame {
 
 		//打印障碍物
 		ObsView.obsView(big, map, hero);
-		//打印前面图层的地图
-		for (int i = 5; i < map.Map.getImg().length; i++) {
-			big.drawImage(map.Map.getImg()[i].getPicturePath(), map.Map.getImg()[i].getX(), map.Map.getImg()[i].getY(),
-					map.Map.getImg()[i].getWidth(), map.Map.getImg()[i].getHeight(), null);
-		}
+
 		// 绘画上色
 		g.drawImage(bi, 0, 0, null);
 	}

@@ -1,7 +1,7 @@
 package DataMask;
 /**
- * ÕÏ°­Îï
- * @author ¿­¿­
+ * éšœç¢ç‰©å±æ€§
+ * @author OUT
  *
  */
 public class Obstruction {

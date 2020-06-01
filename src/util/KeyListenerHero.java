@@ -16,16 +16,15 @@ public class KeyListenerHero extends KeyAdapter{
 		this.gf = gf;
 	}
 
+	/**
+	 * 按键触发一次
+	 * 仅对字母键位有效
+	 * @param e
+	 */
 	@Override
-	public void keyTyped(KeyEvent e) {
-		//判断是否接触绳子，改变绳子Boolean的状态，如果触碰就为当前的反状态
+	public void keyTyped(KeyEvent e){
 		int code = e.getKeyCode();
-		switch (code) {
-			case 38:
 
-
-				break;
-		}
 	}
 	/**
 	 * 键盘点击每一个键时
@@ -33,33 +32,48 @@ public class KeyListenerHero extends KeyAdapter{
 	 */
 	@Override
 	public void keyPressed(KeyEvent e) {
+
 		int code = e.getKeyCode();
 		//测试ASCLL码
 //		System.out.print(code);
 		switch (code) {
 			//左键
 			case 37:
+				/**
+				 * 左移动控制
+				 */
 				gf.hero.faceTo = true;
 				gf.hero.hero.getAction()[2].setDirection(true);
 				break;
 			//右键
 			case 39:
+				/**
+				 * 右移动控制
+				 */
 				gf.hero.faceTo = false;
 				gf.hero.hero.getAction()[3].setDirection(true);
 				break;
 			//C键
 			case 67:
+				/**
+				 * 跳跃启动后，重力线程关闭的控制 哈哈哈哈哈  看不懂吧！
+				 */
 				if (!gf.hero.hero.getIsGravity()) {
 					gf.hero.hero.getAction()[4].setDirection(true);
 				}
-//				//绳索关系,判断绳子和人接触
-//				if (gf.hero.ropeContral) {
-//					//是否按了左还是右
-//					if (gf.hero.hero.getAction()[3].isDirection() || gf.hero.hero.getAction()[3].isDirection()) {
-//						//释放
-//						gf.hero.ropeContral = false;
-//					}
-//				}
+				/**
+				 * 扒住绳索后脱离绳索的方式
+				 * 首先判断玩家是否左键或右键是否保持开启 + 是否可以进行绳索状态的改变（每次判断间隔1S） + 是否是扒住绳子的状态
+				 */
+				if(gf.hero.hero.getAction()[2].isDirection()||gf.hero.hero.getAction()[3].isDirection()){
+					if(gf.hero.isRopeContraling){
+						if(gf.hero.ropeContral){
+							gf.hero.ropeContral = false;
+						}
+
+					}
+
+				}
 				break;
 			//上键
 			case 38:
@@ -75,14 +89,36 @@ public class KeyListenerHero extends KeyAdapter{
 						}
 					}
 				}
-//				//判断是否接触绳子，改变绳子Boolean的状态，如果触碰就为当前的反状态
-//				gf.hero.ropeUp = true;
-//				break;
-//			case 40:
-//				//如果按下英雄的向下变量为ture
-//				gf.hero.ropeDown = true;
-//
-//				break;
+				/**
+				 * 绳索判断  (绳索状态是否是true + 冒险家是否与绳索接触 )
+				 * 判断成功后 按下上键 去改变冒险家与绳索的深入关系 （扒上去就掉不下来了)
+				 * 扒住绳子后！ 控制键变成false ！ 让两次控制之间间隔1S 。
+				 */
+				if(gf.hero.isRopeContraling){
+					if(gf.hero.hit(gf.hero.DIR_ROPE)){
+						gf.hero.ropeContral = true;
+						gf.hero.isRopeContraling = false;
+					}
+				}
+				/**
+				 * 我扒住了绳子   +  我想要往上扒 嘿嘿
+				 * 我是否是扒住绳子的状态呢？
+				 */
+               if(gf.hero.ropeContral){
+               	gf.hero.ropeUp = true ;
+			   }
+
+				break;
+			case 40:
+				/**
+				 * 我扒住了绳子  + 我想往下面钻
+				 * 我是否是扒住绳子的状态呢？
+				 */
+				if(gf.hero.ropeContral){
+					gf.hero.ropeDown = true ;
+				}
+				break;
+
 		}
 	}
 
@@ -93,26 +129,35 @@ public class KeyListenerHero extends KeyAdapter{
 	@Override
 	public void keyReleased(KeyEvent e) {
 		int code = e.getKeyCode();
+		/**
+		 * 左移动释放按键---关闭行为
+		 */
 		if (code == 37) {
 			gf.hero.hero.getAction()[2].setDirection(false);
 
-		} else if (code == 39) {
+		}
+		/**
+		 * 右移动释放按键 -- 贤者模式
+		 */
+		if (code == 39) {
 			gf.hero.hero.getAction()[3].setDirection(false);
 		}
+		/**
+		 * 扒住绳索后向上面扒  --- 释放
+		 */
+		if( code == 38){
+			gf.hero.ropeUp = false ;
+		}
+		/**
+		 * 扒住绳索后向下面扒  --- 释放
+		 */
+		if( code == 40){
+			gf.hero.ropeDown = false ;
+		}
 
-//		if (code == 38) {
-//			System.out.println(gf.hero.hit(gf.hero.DIR_ROPE));
-//			if (gf.hero.hit(gf.hero.DIR_ROPE)) {
-//
-//				gf.hero.ropeContral = !gf.hero.ropeContral;
-//				sleepTest(100);
-//			}
-//			gf.hero.ropeUp = false;
-//		}
-//		if (code == 40) {
-//			gf.hero.ropeDown = false;
-//		}
+
 	}
+	/**************************************************************************************/
 	public static void sleepTest(int sleep) {//时间延迟装置
 		try {
 			Thread.sleep(sleep);
