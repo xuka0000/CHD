@@ -2,6 +2,7 @@ package Hero;
 
 import DataMask.Img;
 import DataMask.Obstruction;
+import DataMask.hill;
 import ui.GameFrame;
 
 /**
@@ -76,6 +77,46 @@ public class UnHeroControl {
     public static void arrayObsSetX_Up( Obstruction[] obs , int speed){
         for(int i = 0 ; i< obs.length ; i++){
             obs[i].getImg().setX(obs[i].getImg().getX() - speed);
+        }
+    }
+
+    /**
+     * Hill数组集体改Y上升
+     */
+    public static void arrayHillSetY_Up(hill[] hill , int speed){
+        for(int i = 0 ; i< hill.length ; i++){
+            hill[i].setY1(hill[i].getY1()+speed);
+            hill[i].setY2(hill[i].getY2()+speed);
+        }
+    }
+
+    /**
+     * Hill数组集体改Y下降
+     */
+    public static void arrayHillSetY_Down(hill[] hill , int speed){
+        for(int i = 0 ; i< hill.length ; i++){
+            hill[i].setY1(hill[i].getY1()-speed);
+            hill[i].setY2(hill[i].getY2()-speed);
+        }
+    }
+
+    /**
+     * Hill数组集体改X上升
+     */
+    public static void arrayHillSetX_Up(hill[] hill , int speed){
+        for(int i = 0 ; i< hill.length ; i++){
+            hill[i].setX1(hill[i].getX1()+speed);
+            hill[i].setX2(hill[i].getX2()+speed);
+        }
+    }
+
+    /**
+     * Hill数组集体改X下降
+     */
+    public static void arrayHillSetX_Down(hill[] hill , int speed){
+        for(int i = 0 ; i< hill.length ; i++){
+            hill[i].setX1(hill[i].getX1()-speed);
+            hill[i].setX2(hill[i].getX2()-speed);
         }
     }
 

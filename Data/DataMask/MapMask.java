@@ -17,10 +17,12 @@ public class MapMask {
 	private Obstruction ladder[];
 	private Obstruction rope[];
 	private PortalMask portal[];
+	private hill[] leftHill ;
+	private hill[] rightHill ;
 	private Img smallMapMask[];
 	private int id;
 
-	public MapMask(String name, Img[] img, Sound sound, NPCMask[] NPC, MonsterMask[] monster, Obstruction[] obsLeft, Obstruction[] obsRight, Obstruction[] obsBottom, Obstruction[] ladder, Obstruction[] rope, PortalMask[] portal, Img[] smallMapMask, int id) {
+	public MapMask(String name, Img[] img, Sound sound, NPCMask[] NPC, MonsterMask[] monster, Obstruction[] obsLeft, Obstruction[] obsRight, Obstruction[] obsBottom, Obstruction[] ladder, Obstruction[] rope, PortalMask[] portal, hill[] leftHill, hill[] rightHill, Img[] smallMapMask, int id) {
 		this.name = name;
 		this.img = img;
 		this.sound = sound;
@@ -32,8 +34,26 @@ public class MapMask {
 		this.ladder = ladder;
 		this.rope = rope;
 		this.portal = portal;
+		this.leftHill = leftHill;
+		this.rightHill = rightHill;
 		this.smallMapMask = smallMapMask;
 		this.id = id;
+	}
+
+	public void setLeftHill(hill[] leftHill) {
+		this.leftHill = leftHill;
+	}
+
+	public void setRightHill(hill[] rightHill) {
+		this.rightHill = rightHill;
+	}
+
+	public hill[] getLeftHill() {
+		return leftHill;
+	}
+
+	public hill[] getRightHill() {
+		return rightHill;
 	}
 
 	public String getName() {

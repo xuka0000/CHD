@@ -10,6 +10,8 @@ public class ropeHero {
     目前冒险家是否可以去判断绳索状态
      */
     public static void isRopeContraling(GameFrame gf){
+
+
         /**
          * 如果绳索
          */

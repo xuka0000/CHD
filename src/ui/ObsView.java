@@ -58,6 +58,21 @@ public class ObsView {
                     map.Map.getRope()[i].getImg().getX() + map.Map.getImg()[4].getX(), map.Map.getRope()[i].getImg().getY(),
                     map.Map.getRope()[i].getImg().getWidth(), map.Map.getRope()[i].getImg().getHeight(), null);
         }
+        //斜坡画画
+        for(int i =0 ;i < map.Map.getLeftHill().length ; i++){
+            big.drawLine(map.Map.getLeftHill()[i].getX1()+map.Map.getImg()[4].getX(),
+                    map.Map.getLeftHill()[i].getY1(),
+                    map.Map.getLeftHill()[i].getX2()+map.Map.getImg()[4].getX(),
+                    map.Map.getLeftHill()[i].getY2());
+        }
+
+        for(int i =0 ;i < map.Map.getRightHill().length ; i++){
+            big.drawLine(map.Map.getRightHill()[i].getX1()+map.Map.getImg()[4].getX(),
+                    map.Map.getRightHill()[i].getY1(),
+                    map.Map.getRightHill()[i].getX2()+map.Map.getImg()[4].getX(),
+                    map.Map.getRightHill()[i].getY2());
+        }
+
 
 
     }

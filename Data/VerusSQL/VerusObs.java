@@ -2,6 +2,7 @@ package VerusSQL;
 
 import DataMask.Img;
 import DataMask.Obstruction;
+import DataMask.hill;
 
 /**
  * Verus的碰撞
@@ -28,4 +29,13 @@ public class VerusObs {
     public static Obstruction[] rope = {
             new Obstruction(new Img("", null, 0, 0, 0, 0)),
     };
+
+    public static hill[] leftHill = {
+            new hill(1,1,1,1)
+    };
+
+    public static hill[] rightHill = {
+            new hill(1,1,1,1)
+    };
+
 }
