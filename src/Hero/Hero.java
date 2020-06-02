@@ -16,6 +16,12 @@ import java.util.ArrayList;
 
 /**
  * 英雄线程
+ * 冒险家移动：绳索上下、左右移动、重力、跳跃
+ * 地图移动：X：左右移动
+ *         Y：重力、跳跃、绳索
+ * 地图中元素：X：依据地图判断，自己参数不改变
+ *          Y:重力、跳跃、绳索
+ * 注意碰撞检测.
  * @author OUT
  */
 public class Hero extends Thread implements HeroControl{
@@ -110,10 +116,10 @@ public class Hero extends Thread implements HeroControl{
 				hero.getMove().setY(hero.getMove().getY()-hero.getMove().getUpSpeed()*2);
 			}
 			/**
-			 * Hero:400 ~ 120
+			 * Hero:2000 ~ 120
 			 * Map:-1000 ~ -100
 			 */
-			if ((hero.getMove().getY() < 400 && hero.getMove().getY() >= 120) &&
+			if ((hero.getMove().getY() < 2000 && hero.getMove().getY() >= 120) &&
 					(gf.map.Map.getImg()[4].getY()>=-1000 && gf.map.Map.getImg()[4].getY()<=-100)) {
 				UnHeroControl.arraySetY_Up(gf.map.Map.getImg(),gf.hero.hero.getMove().getUpSpeed()*2);
 				//地面碰撞改变
@@ -138,9 +144,9 @@ public class Hero extends Thread implements HeroControl{
 		 * 下扒
 		 */
 		if (ropeDown) {
-			System.out.println(gf.hero.hero.getMove().getY()+"英雄");
-			System.out.println(gf.map.Map.getImg()[4].getY()+"地图");
-			System.out.println(gf.hero.hit(gf.hero.DIR_ROPE));
+//			System.out.println(gf.hero.hero.getMove().getY()+"英雄");
+//			System.out.println(gf.map.Map.getImg()[4].getY()+"地图");
+//			System.out.println(gf.hero.hit(gf.hero.DIR_ROPE));
 			if(gf.hero.hit(gf.hero.dir_Down)){
 				gf.hero.hero.getMove().setDownSoeed(0);
 			}
@@ -157,10 +163,10 @@ public class Hero extends Thread implements HeroControl{
 				hero.getMove().setY(hero.getMove().getY() + hero.getMove().getDownSoeed()*3);
 			}
 			/**
-			 * Hero:400 ~ 160
+			 * Hero: 2000 ~ 160
 			 * Map:-1000 ~ -100
 			 */
-			if (hero.getMove().getY() <= 400 && hero.getMove().getY() > 160&&
+			if (hero.getMove().getY() <= 2000 && hero.getMove().getY() > 160&&
 					(gf.map.Map.getImg()[4].getY()>-1000&& gf.map.Map.getImg()[4].getY()<=-100)) {
 				UnHeroControl.arraySetY_Down(gf.map.Map.getImg(),gf.hero.hero.getMove().getDownSoeed()*3);
 
@@ -292,9 +298,11 @@ public class Hero extends Thread implements HeroControl{
 		//hero.getMove().setX(hero.getMove().getX() + hero.getMove().getRightSpeed());
 		//4900  1024  512
 		if (hero.getMove().getX() >= 0 && hero.getMove().getX() <= 510) {
+//			System.out.println("1");
 			hero.getMove().setX(hero.getMove().getX() + hero.getMove().getRightSpeed());
 		}
 		if (hero.getMove().getX() >510 && hero.getMove().getX()<520) {
+//			System.out.println("2");
 			//循环打印地图
 			for (int i = 0; i < gf.map.Map.getImg().length; i++) {
 				//地图向左移动
@@ -315,6 +323,7 @@ public class Hero extends Thread implements HeroControl{
 		if ((hero.getMove().getX() >= 515 &&
                 hero.getMove().getX() < (1024 - hero.getAction()[0].getImg()[0].getWidth())) &&
                 gf.map.Map.getImg()[4].getX() < (1024 - gf.map.Map.getImg()[4].getWidth())) {
+//			System.out.println("3");
 			hero.getMove().setX(hero.getMove().getX() + hero.getMove().getRightSpeed());
 		}
 
@@ -348,9 +357,11 @@ public class Hero extends Thread implements HeroControl{
 	public void heroLeftRun() {
 
 		if (hero.getMove().getX() > 0 && hero.getMove().getX() <= 515 && gf.map.Map.getImg()[0].getX() == 0) {
+//			System.out.println("1");
 			hero.getMove().setX(hero.getMove().getX() - hero.getMove().getLeftSpeed());
 		}
 		if (hero.getMove().getX() >510 && hero.getMove().getX()<520) {
+//			System.out.println("2");
 			//循环打印地图
 			for (int i = 0; i < gf.map.Map.getImg().length; i++) {
 				//地图向左移动
@@ -371,6 +382,7 @@ public class Hero extends Thread implements HeroControl{
 		//
 		if (hero.getMove().getX() >= 510 && hero.getMove().getX() <= 1024
 				&& gf.map.Map.getImg()[4].getX() < 1024 - gf.map.Map.getImg()[4].getWidth()) {
+//			System.out.println("3");
 			hero.getMove().setX(hero.getMove().getX() - hero.getMove().getLeftSpeed());
 		}
         if(hit(dir_Down)){
