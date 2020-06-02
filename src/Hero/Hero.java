@@ -98,7 +98,7 @@ public class Hero extends Thread implements HeroControl{
             // System.out.println(gf.map.Map.getImg()[4].getY()+"地图");
             //System.out.println(gf.hero.hit(gf.hero.DIR_ROPE));
 			  Img[] rope = {
-					new Img("上", "Image\\技能1下右.gif", 168, 192, 50, 50),
+					new Img("上", "Image\\技能1下右.gif", 108, 156, 50, 50),
 			};
 			this.image = rope;
 			/**
@@ -144,7 +144,7 @@ public class Hero extends Thread implements HeroControl{
 				gf.hero.hero.getMove().setDownSoeed(0);
 			}
 			Img[] rope = {
-					new Img("上", "Image\\技能1下右.gif", 168, 192, 50, 50),
+					new Img("上", "Image\\技能1下右.gif", 108, 156, 50, 50),
 			};
 			this.image = rope;
 			/**
@@ -456,8 +456,8 @@ public class Hero extends Thread implements HeroControl{
 		for (int i = 0; i < jumpHeigh; i++) {
 
 			hero.getAction()[6].setDirection(false);
-			if(gf.hero.ropeToJump){
-				System.out.println("123");
+			if(gf.hero.ropeToJump  &&  gf.map.Map.getImg()[4].getY()>-745){
+
 				UnHeroControl.arraySetY_Down(gf.map.Map.getImg(),gf.hero.hero.getMove().getDownSoeed());
 				UnHeroControl.arrayObsSetY_Down(gf.map.Map.getObsLeft(),gf.hero.hero.getMove().getDownSoeed());
 				UnHeroControl.arrayObsSetY_Down(gf.map.Map.getObsRight(),gf.hero.hero.getMove().getDownSoeed());
