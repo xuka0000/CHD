@@ -97,6 +97,7 @@ public class Hero extends Thread implements HeroControl{
             //System.out.println(gf.hero.hero.getMove().getY()+"英雄");
             // System.out.println(gf.map.Map.getImg()[4].getY()+"地图");
             //System.out.println(gf.hero.hit(gf.hero.DIR_ROPE));
+
 			  Img[] rope = {
 					new Img("上", "Image\\技能1下右.gif", 108, 156, 50, 50),
 			};
@@ -156,11 +157,11 @@ public class Hero extends Thread implements HeroControl{
 				hero.getMove().setY(hero.getMove().getY() + hero.getMove().getDownSoeed()*3);
 			}
 			/**
-			 * Hero:400 ~ 285
-			 * Map:-750 ~ -100
+			 * Hero:400 ~ 160
+			 * Map:-1000 ~ -100
 			 */
 			if (hero.getMove().getY() <= 400 && hero.getMove().getY() > 160&&
-					(gf.map.Map.getImg()[4].getY()>-800 && gf.map.Map.getImg()[4].getY()<=-100)) {
+					(gf.map.Map.getImg()[4].getY()>-1000&& gf.map.Map.getImg()[4].getY()<=-100)) {
 				UnHeroControl.arraySetY_Down(gf.map.Map.getImg(),gf.hero.hero.getMove().getDownSoeed()*3);
 
 				UnHeroControl.arrayObsSetY_Down(gf.map.Map.getObsBottom(),gf.hero.hero.getMove().getDownSoeed()*3);
@@ -176,7 +177,7 @@ public class Hero extends Thread implements HeroControl{
 			 * Map:-750 ~ -600
 			 */
 			if (hero.getMove().getY() > 285 && gf.map.Map.getImg()[4].getY()<=-650) {
-				hero.getMove().setY(hero.getMove().getY()+hero.getMove().getUpSpeed()*3);
+				hero.getMove().setY(hero.getMove().getY()+hero.getMove().getDownSoeed()*3);
 			}
 			gf.hero.hero.getMove().setDownSoeed(1);
 		}
