@@ -4,21 +4,40 @@ public class PortalMask extends BasicPerson {
 	private int changeMapId;
 	private int changeHeroX;
 	private int changeHeroY;
-	//´«ËÍÃÅ×ø±ê
+	private int addMapX;
+	private int addMapY;
+	//ä¼ é€é—¨è‡ªå·±çš„ä½ç½®å•¦
 	private int x;
 	private int y;
 	
 	private Img[] img;
 
-
-	public PortalMask(String name, Action[] action, boolean isGravity, int changeMapId, int changeHeroX, int changeHeroY, int x, int y, Img[] img) {
+	public PortalMask(String name, Action[] action, boolean isGravity, int changeMapId, int changeHeroX, int changeHeroY, int addMapX, int addMapY, int x, int y, Img[] img) {
 		super(name, action, isGravity);
 		this.changeMapId = changeMapId;
 		this.changeHeroX = changeHeroX;
 		this.changeHeroY = changeHeroY;
+		this.addMapX = addMapX;
+		this.addMapY = addMapY;
 		this.x = x;
 		this.y = y;
 		this.img = img;
+	}
+
+	public void setAddMapX(int addMapX) {
+		this.addMapX = addMapX;
+	}
+
+	public void setAddMapY(int addMapY) {
+		this.addMapY = addMapY;
+	}
+
+	public int getAddMapX() {
+		return addMapX;
+	}
+
+	public int getAddMapY() {
+		return addMapY;
 	}
 
 	public int getChangeMapId() {
