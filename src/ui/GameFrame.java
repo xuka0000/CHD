@@ -6,16 +6,12 @@ import java.util.Random;
 
 import javax.swing.JFrame;
 
-import DataMask.MapMask;
-import DataMask.Sound;
 import Hero.Hero;
 import Map.Monster;
-import Map.NPC;
 import Map.Portal;
 import SQL.LoadingSQL;
-import SQL.MapSQL;
-import SQL.TradableSQL;
 import gameProgress.Loading;
+import npc.Npc;
 import util.AudioPlayer;
 import Map.BG;
 import Map.LeftBg;
@@ -37,7 +33,7 @@ public class GameFrame extends JFrame {
 	// 得到很多怪兽
 	public Monster[] monster;
 	// 得到很多NPC
-	public NPC[] NPC;
+	public Npc[] npcs = {new Npc()};
 	// 得到很多传送门
 	public Portal[] portal = {new Portal()};
 
@@ -147,7 +143,8 @@ public class GameFrame extends JFrame {
 				}
 				//传送门
 				PortalView.portalUse(big,portal,map);
-
+				//NPC
+				NpcView.NpcImg(big,this);
 				//调用方法打印英雄
 				GraphicsView.heroActionImg(big, hero.image, hero.hero);
 				//打印前面图层的地图

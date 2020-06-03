@@ -10,9 +10,8 @@ import static VerusSQL.Verus.VerusImg;
  * @create 2020-05-25-23:37
  */
 public class VerusNPC {
-
     public static NPCMask[] verusNPC = {
-            new NPCMask("名字", SQL.ActionSQL.ActionSQL, false, SQL.TempBag.tempBag,VerusTask.task , false, VerusImg, null, null, false, 0, 0),
+            new NPCMask("崔悦", NpcActionSQL.action, false, SQL.TempBag.tempBag,VerusTask.task , false, VerusImg, null, null, false, 1435, 600),
     };
 
 }

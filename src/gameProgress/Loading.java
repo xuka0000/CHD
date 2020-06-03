@@ -1,11 +1,9 @@
 package gameProgress;
 
-import Map.Monster;
-import Map.NPC;
 import Map.Portal;
 import SQL.MapSQL;
+import npc.Npc;
 import ui.GameFrame;
-import util.AudioPlayer;
 
 /**
  * @author shkstart
@@ -23,6 +21,13 @@ public class Loading  {
                 //给Map赋值切换
                 gf.map.Map = SQL.MapSQL.MapSQL[j];
             }
+        }
+        for (int i = 0; i < gf.map.Map.getNPC().length; i++) {
+            gf.npcs[i] = new Npc(gf);
+            gf.npcs[i].npc= gf.map.Map.getNPC()[i];
+        }
+        for (int i = 0; i < gf.map.Map.getNPC().length ; i++) {
+            gf.npcs[i].start();
         }
         try {
             loadingPlus(gf);
@@ -52,10 +57,11 @@ public class Loading  {
         //                    gf.Monster[i] = new Monster(gf);
         //                    gf.Monster[i].Monster = gf.map.Map.getMonster()[i];
         //                }
-        //                // 创建NPC(线程）
-        //                for (int i = 0; i < gf.map.Map.getNPC().length - 1; i++) {
-        //                    gf.NPC[i] = new NPC(gf);
-        //                }
+                        // 创建NPC(线程）
+                        for (int i = 0; i < gf.map.Map.getNPC().length; i++) {
+                            gf.npcs[i] = new Npc(gf);
+                            gf.npcs[i].npc= gf.map.Map.getNPC()[i];
+                        }
         // 创建传送门
         for (int i = 0; i < gf.map.Map.getPortal().length; i++) {
             gf.portal[i] = new Portal(gf);
@@ -69,10 +75,10 @@ public class Loading  {
 //            for (int i = 0; i < gf.map.Map.getMonster().length - 1; i++) {
 //               gf.Monster[i].start();
 //            }
-//            // NPC
-//            for (int i = 0; i < gf.map.Map.getNPC().length - 1; i++) {
-//                gf.NPC[i].start();
-//            }
+            // NPC
+            for (int i = 0; i < gf.map.Map.getNPC().length ; i++) {
+                gf.npcs[i].start();
+            }
         // 传送门
         for (int i = 0; i < gf.map.Map.getPortal().length; i++) {
             gf.portal[i].start();
