@@ -16,10 +16,10 @@ public class PortalView {
     public static void portalUse(Graphics big, Portal[]portal, BG map) {
         for (int i = 0; i < portal.length ; i++) {
             big.drawImage(map.Map.getPortal()[i].getAction()[0].getImg()[0].getPicturePath(),
-                    map.Map.getPortal()[i].getAction()[0].getImg()[0].getX()+map.Map.getImg()[4].getX(),
+                    map.Map.getPortal()[i].getAction()[0].getImg()[0].getX() + map.Map.getImg()[4].getX(),
                     map.Map.getPortal()[i].getAction()[0].getImg()[0].getY(),
                     map.Map.getPortal()[i].getAction()[0].getImg()[0].getWidth(),
-                    map.Map.getPortal()[i].getAction()[0].getImg()[0].getHeight(),null);
+                    map.Map.getPortal()[i].getAction()[0].getImg()[0].getHeight(), null);
 
             if (portal[0].portal.getIsGravity()) {
                 big.drawImage(map.Map.getPortal()[i].getAction()[0].getImg()[1].getPicturePath(),

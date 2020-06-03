@@ -73,7 +73,11 @@ public class ObsView {
                     map.Map.getRightHill()[i].getY2());
         }
 
-
+        for (int i = 0; i < map.Map.getPortal().length; i++) {
+            big.drawRect(map.Map.getPortal()[i].getImg()[0].getX()+ map.Map.getImg()[4].getX(),
+                    map.Map.getPortal()[i].getImg()[0].getY()+map.Map.getPortal()[i].getImg()[0].getHeight() - 20,
+                    map.Map.getPortal()[i].getImg()[0].getHeight(),50);
+        }
 
     }
 }

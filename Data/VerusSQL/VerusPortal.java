@@ -26,7 +26,7 @@ public class VerusPortal {
      * 传送门数据
      */
     public static PortalMask[] portal = {
-            new PortalMask(null, verusPortal, false, 1,0,0,0,0, 20, 20, verusPortalImg),
+            new PortalMask("Verus", verusPortal, false, 1,10,150,0,750, 20, 20, verusPortalImg),
     };
 
 

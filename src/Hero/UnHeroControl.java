@@ -2,7 +2,9 @@ package Hero;
 
 import DataMask.Img;
 import DataMask.Obstruction;
+import DataMask.PortalMask;
 import DataMask.hill;
+import Map.Portal;
 import ui.GameFrame;
 
 /**
@@ -44,6 +46,44 @@ public class UnHeroControl {
             img[i].setX(img[i].getX() + speed);
         }
     }
+    //*****************************
+    /**
+     * 控制传送门数组Y集体上升
+     */
+    public static void arrayPortalSetY_Up(PortalMask[] portal, int speed){
+
+        for(int i = 0 ; i< portal.length ; i++){
+            portal[i].getImg()[0].setY(portal[i].getImg()[0].getY() + speed);
+        }
+    }
+
+    /**
+     * 控制传送门数组Y集体下降
+     */
+    public static void arrayPortalSetY_Down(PortalMask[] portal, int speed){
+        for(int i = 0 ; i< portal.length ; i++){
+            portal[i].getImg()[0].setY(portal[i].getImg()[0].getY() - speed);
+        }
+    }
+
+    /**
+     * 控制传送门数组X集体下降
+     */
+    public static void arrayPortalSetX_Down( PortalMask[] portal, int speed){
+        for(int i = 0 ; i< portal.length ; i++){
+            portal[i].getImg()[0].setX(portal[i].getImg()[0].getX() - speed);
+        }
+    }
+
+    /**
+     * 控制传送门数组X集体上升
+     */
+    public static void arrayPortalSetX_Up(PortalMask[] portal, int speed){
+        for(int i = 0 ; i< portal.length ; i++){
+            portal[i].getImg()[0].setX(portal[i].getImg()[0].getX() + speed);
+        }
+    }
+    //*****************************
     /**
      * 控制障碍物数组Y集体上升
      */

@@ -11,14 +11,13 @@ import util.AudioPlayer;
  * @author shkstart
  * @create 2020-05-30-0:13
  */
-public class Loading extends Thread {
+public class Loading  {
     private GameFrame gf;
     public Loading(GameFrame gf) {
         this.gf = gf;
     }
 
-    @Override
-    public void run() {
+    public static void loadStart(GameFrame gf) {
         for (int j = 0; j < MapSQL.MapSQL.length; j++) {
             if (SQL.MapSQL.MapSQL[j].getId() == gf.hero.hero.getMapId()) {
                 //给Map赋值切换
@@ -26,36 +25,28 @@ public class Loading extends Thread {
             }
         }
         try {
-            loadingPlus();
+            loadingPlus(gf);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        while (true) {
+    }
+
+    public static void loadingMap(GameFrame gf) {
             for (int j = 0; j < MapSQL.MapSQL.length; j++) {
                 if (SQL.MapSQL.MapSQL[j].getId() == gf.hero.hero.getMapId()) {
                     //给Map赋值切换
                     gf.map.Map = SQL.MapSQL.MapSQL[j];
                 }
             }
-
-            try {
-                if (!gf.map.Map.getPortal()[0].getName().equals(gf.portal[0].portal.getName())) {
-                    loadingPlus();
-                }
-            } catch (Exception e) {
-
-            }
-
-            try {
-                sleep(20);
-            } catch (InterruptedException e) {
-                //不打印了
-            }
+        try {
+            loadingPlus(gf);
+        } catch (Exception e) {
+            //刨了
         }
 
     }
 
-    public void loadingPlus() {
+    public static void loadingPlus(GameFrame gf) {
         // 创建怪兽(线程）
         //                for (int i = 0; i < gf.map.Map.getMonster().length - 1; i++) {
         //                    gf.Monster[i] = new Monster(gf);
@@ -86,5 +77,6 @@ public class Loading extends Thread {
         for (int i = 0; i < gf.map.Map.getPortal().length; i++) {
             gf.portal[i].start();
         }
+
     }
 }

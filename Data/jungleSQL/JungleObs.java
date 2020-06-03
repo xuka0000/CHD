@@ -53,8 +53,9 @@ public class JungleObs {
     };
 
     public static hill[] rightHill = {
-            new hill(2750,745,3070,600),
-            new hill(450,-10,700,-170)
+            new hill(450,-10,700,-170),
+            new hill(2750,745,3070,600)
+
     };
 
 }

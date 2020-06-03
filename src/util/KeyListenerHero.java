@@ -80,9 +80,13 @@ public class KeyListenerHero extends KeyAdapter{
 				/**
 				 * 更换地图
 				 */
+
 				for (int i = 0; i < gf.portal.length ; i++) {
-					if (gf.portal[i].portal.getIsGravity()) {
+
+
+					if (gf.hero.hit(gf.hero.DIR_PORTAL)) {
 						gf.hero.changeMap = true;
+
 						//切换地图切换音乐
 						if (!gf.StartSound.isAlive()) {
 							gf.StartSound.stopMusic();
