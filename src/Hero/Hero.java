@@ -475,6 +475,11 @@ public class Hero extends Thread implements HeroControl{
 		//跳跃高度
 		int jumpHeigh = 0;
 		for (int i = 0; i < 160; i++) {
+
+			if ( gf.hero.ropeContral) {
+				hero.getMove().setUpSpeed(0);
+			}
+
 			//true往上跳
 			hero.getAction()[6].setDirection(true);
 			if(gf.hero.ropeToJump){
@@ -513,6 +518,11 @@ public class Hero extends Thread implements HeroControl{
 		//降落
 		for (int i = 0; i < jumpHeigh; i++) {
 
+
+			if (hit(dir_Down) || gf.hero.ropeContral) {
+				hero.getMove().setDownSoeed(0);
+			}
+
 			hero.getAction()[6].setDirection(false);
 			if(gf.hero.ropeToJump  &&  gf.map.Map.getImg()[4].getY()>-745){
 
@@ -534,12 +544,6 @@ public class Hero extends Thread implements HeroControl{
 			}
 
 
-			if (hit(dir_Down) || gf.hero.ropeContral) {
-				hero.getMove().setDownSoeed(0);
-			} else {
-				hero.getMove().setDownSoeed(1);
-			}
-
 			try {
 				sleep(2);
 			} catch (InterruptedException e) {
@@ -548,6 +552,7 @@ public class Hero extends Thread implements HeroControl{
 		}
 		//恢复出厂设置
 		hero.getMove().setDownSoeed(1);
+		hero.getMove().setUpSpeed(1);
 		gf.hero.ropeToJump = false;
 	}
 
