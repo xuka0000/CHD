@@ -85,7 +85,6 @@ public class Hero extends Thread implements HeroControl{
 				baseMoveHero();
 			}
 
-
 			//重置坐标
 			try {
 				resetHero();
@@ -102,9 +101,6 @@ public class Hero extends Thread implements HeroControl{
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-
-
-
 		}
 	}
 
@@ -115,8 +111,10 @@ public class Hero extends Thread implements HeroControl{
 
 			hero.getMove().setX(20);
 			hero.getMove().setY(20);
+
 //			hero.getMove().setY(205);
 //			hero.getMove().setX(205);
+
 			for (int i = 0; i < gf.map.Map.getImg().length; i++) {
 				gf.map.Map.getImg()[i].setX(0);
 				gf.map.Map.getImg()[i].setY(0);
@@ -420,8 +418,11 @@ public class Hero extends Thread implements HeroControl{
 		}
 
         if(hit(dir_leftHill)){
-			hero.getMove().setY(hero.getMove().getY()+hero.getMove().getDownSoeed()*2);
-			//System.out.println("**************************");
+			System.out.println("1111");
+			System.out.println(hero.getMove().getUpSpeed()*2);
+			System.out.println("11HillHigh"+HillHigh);
+			hero.getMove().setY(hero.getMove().getY() + hero.getMove().getDownSoeed() * 2);
+			System.out.println("**************************");
 			HillHigh++;
 			HillHigh++;
 			HillHigh++;
@@ -430,6 +431,8 @@ public class Hero extends Thread implements HeroControl{
 
 
 		if(hit(DIR_rightHill)){
+			System.out.println("2222");
+
         	hero.getMove().setY(hero.getMove().getY()-hero.getMove().getUpSpeed()*2);
 			HillHigh--;
 			HillHigh--;
@@ -479,8 +482,11 @@ public class Hero extends Thread implements HeroControl{
         	gf.hero.hero.getMove().setDownSoeed(0);
 		}
 		if(hit(dir_leftHill)){
-
-			hero.getMove().setY(hero.getMove().getY()-hero.getMove().getUpSpeed()*2);
+			System.out.println("333");
+			System.out.println(hero.getMove().getUpSpeed()*2);
+			System.out.println("33HillHigh"+HillHigh);
+			System.out.println("**************************");
+			hero.getMove().setY(hero.getMove().getY() - hero.getMove().getUpSpeed() * 2);
 			HillHigh--;
 			HillHigh--;
 			HillHigh--;
@@ -488,7 +494,8 @@ public class Hero extends Thread implements HeroControl{
 		}
 
 		if(hit(DIR_rightHill)){
-			hero.getMove().setY(hero.getMove().getY()+hero.getMove().getDownSoeed()*2);
+			System.out.println(4444);
+			hero.getMove().setY(hero.getMove().getY() + hero.getMove().getDownSoeed() * 2);
 			HillHigh++;
 			HillHigh++;
 			HillHigh++;

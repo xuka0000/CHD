@@ -17,7 +17,7 @@ public class VerusPortal {
 
     public static Img[] verusPortalImg = {
             new Img("Verus传送门", "Image\\光环.gif", 200, 200, 4750, 550),
-            new Img("Verus传送", "Image\\前往古木丛林.png", 300, 200, 4600, 300)
+            new Img("Verus传送", "Image\\前往古木丛林.png", 300, 400, 4300, 300)
     };
     /**
      * 一个地图有
@@ -30,7 +30,7 @@ public class VerusPortal {
      */
     public static PortalMask[] portal = {
             new PortalMask("Verus", verusPortal, false, 1,10,150,0,750, 20, 20, verusPortalImg),
-            new PortalMask("Jungle", JunglePortal, false, 0,515,150,0,750, 20, 20, JunglePortalImg),
+
     };
 
 

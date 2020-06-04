@@ -14,7 +14,7 @@ import static VerusSQL.VerusPortal.*;
 public class JunglePortal {
     public static Img[] JunglePortalImg = {
             new Img("Jungle传送门", "Image\\光环.gif", 200, 200, 0, -210),
-            new Img("Jungle传送", "Image\\前往古木丛林.png", 300, 200, 4600, 300)
+            new Img("Jungle传送", "Image\\前往古木丛林.png", 300, 400, 400, -300)
     };
     /**
      * 一个地图有
@@ -27,6 +27,6 @@ public class JunglePortal {
      */
     public static PortalMask[] portal = {
             new PortalMask("Jungle", JunglePortal, false, 0,800,100,0,750, 20, 20, JunglePortalImg),
-            new PortalMask("Verus", verusPortal, false, 1,10,150,0,750, 20, 20, verusPortalImg),
+            //new PortalMask("Verus", verusPortal, false, 1,10,150,0,750, 20, 20, verusPortalImg),
     };
 }

@@ -142,7 +142,7 @@ public class GameFrame extends JFrame {
 							map.Map.getImg()[i].getWidth(), map.Map.getImg()[i].getHeight(), null);
 				}
 				//传送门
-				PortalView.portalUse(big,portals,map);
+				PortalView.portalUse(big,portals,map,this);
 				//NPC
 				NpcView.NpcImg(big,this);
 				//调用方法打印英雄

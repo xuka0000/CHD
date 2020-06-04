@@ -19,7 +19,9 @@ public class VerusObs {
     };
 
     public static Obstruction[] obsBottom = {
-            new Obstruction(new Img("", "Image\\绿色小点.png", 300, 50, 2500, 600)),
+            new Obstruction(new Img("", "Image\\绿色小点.png", 100, 10, 2280, 665)),
+            new Obstruction(new Img("", "Image\\绿色小点.png", 100, 10, 2300, 550)),
+            new Obstruction(new Img("", "Image\\绿色小点.png", 100, 10, 2300, 500)),
     };
 
     public static Obstruction[] ladder = {
@@ -31,7 +33,7 @@ public class VerusObs {
     };
 
     public static hill[] leftHill = {
-            new hill(1,1,1,1)
+            new hill(2100,200,2300,500)
     };
 
     public static hill[] rightHill = {
