@@ -7,7 +7,7 @@ import java.util.Random;
 import javax.swing.JFrame;
 
 import Hero.Hero;
-import Map.Monster;
+import monster.Monster;
 import Map.Portal;
 import SQL.LoadingSQL;
 import gameProgress.Loading;
@@ -31,11 +31,11 @@ public class GameFrame extends JFrame {
 	//右上角小地图
 	public RightBG rightBG;
 	// 得到很多怪兽
-	public Monster[] monster;
+	public Monster[] monsters = {new Monster()};
 	// 得到很多NPC
 	public Npc[] npcs = {new Npc()};
 	// 得到很多传送门
-	public Portal[] portal = {new Portal()};
+	public Portal[] portals = {new Portal()};
 
 	//音乐播放
 	public AudioPlayer StartSound;
@@ -142,7 +142,7 @@ public class GameFrame extends JFrame {
 							map.Map.getImg()[i].getWidth(), map.Map.getImg()[i].getHeight(), null);
 				}
 				//传送门
-				PortalView.portalUse(big,portal,map);
+				PortalView.portalUse(big,portals,map);
 				//NPC
 				NpcView.NpcImg(big,this);
 				//调用方法打印英雄

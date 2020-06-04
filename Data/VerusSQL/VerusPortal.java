@@ -6,6 +6,9 @@ import DataMask.MapMask;
 import DataMask.PortalMask;
 import Hero.Hero;
 
+import static jungleSQL.JunglePortal.*;
+
+
 /**
  * @author shkstart
  * @create 2020-05-25-23:50
@@ -27,6 +30,7 @@ public class VerusPortal {
      */
     public static PortalMask[] portal = {
             new PortalMask("Verus", verusPortal, false, 1,10,150,0,750, 20, 20, verusPortalImg),
+            new PortalMask("Jungle", JunglePortal, false, 0,515,150,0,750, 20, 20, JunglePortalImg),
     };
 
 

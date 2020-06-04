@@ -5,6 +5,7 @@ import javax.swing.*;
 import javax.xml.crypto.Data;
 
 import DataMask.*;
+import Map.BG;
 import gameProgress.Loading;
 import ui.GameFrame;
 import SQL.HeroSQL;
@@ -55,6 +56,9 @@ public class Hero extends Thread implements HeroControl{
 	//切换地图感受器
 	public boolean isChangeMap = false;
 
+	//是否重置英雄的位置
+	public boolean isChangeHero = false;
+
 	public Hero(GameFrame gf) {
 
 
@@ -66,19 +70,28 @@ public class Hero extends Thread implements HeroControl{
 
 	}
 
-	//移动方法
+	/**
+	 * 移动方法(线程)
+	 */
 	public void run() {
 
 		while (true) {
-
+			//英雄的地图改变
+			changeMap();
 			if (ropeContral) {
 				heroRope();
 			}else {
 				//英雄基础移动
 				baseMoveHero();
 			}
-			//英雄的地图改变
-			changeMap();
+
+
+			//重置坐标
+			try {
+				resetHero();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 
 			//判断绳索是否可以进行判断（我预判你的预判 哈哈哈哈 ）
 			ropeHero.isRopeContraling(gf);
@@ -95,6 +108,24 @@ public class Hero extends Thread implements HeroControl{
 		}
 	}
 
+
+	public void resetHero() {
+		if (isChangeHero) {
+
+
+			hero.getMove().setX(20);
+			hero.getMove().setY(20);
+//			hero.getMove().setY(205);
+//			hero.getMove().setX(205);
+			for (int i = 0; i < gf.map.Map.getImg().length; i++) {
+				gf.map.Map.getImg()[i].setX(0);
+				gf.map.Map.getImg()[i].setY(0);
+			}
+
+			isChangeHero = false;
+
+		}
+	}
 	/**
 	 * 英雄绳索逻辑
 	 */
@@ -125,15 +156,19 @@ public class Hero extends Thread implements HeroControl{
 			if ((hero.getMove().getY() < 2000 && hero.getMove().getY() >= 120) &&
 					(gf.map.Map.getImg()[4].getY()>=-1000 && gf.map.Map.getImg()[4].getY()<=-100)) {
 				UnHeroControl.arraySetY_Up(gf.map.Map.getImg(),gf.hero.hero.getMove().getUpSpeed()*2);
-				//地面碰撞改变
-				UnHeroControl.arrayObsSetY_Up(gf.map.Map.getObsBottom(),gf.hero.hero.getMove().getUpSpeed()*2);
-				UnHeroControl.arrayObsSetY_Up(gf.map.Map.getRope(),gf.hero.hero.getMove().getUpSpeed()*2);
-				UnHeroControl.arrayObsSetY_Up(gf.map.Map.getObsLeft(),gf.hero.hero.getMove().getUpSpeed()*2);
-				UnHeroControl.arrayObsSetY_Up(gf.map.Map.getObsRight(),gf.hero.hero.getMove().getUpSpeed()*2);
-				UnHeroControl.arrayHillSetY_Up(gf.map.Map.getLeftHill(),gf.hero.hero.getMove().getUpSpeed()*2);
-				UnHeroControl.arrayHillSetY_Up(gf.map.Map.getRightHill(),gf.hero.hero.getMove().getUpSpeed()*2);
-				//传送门改变
-				UnHeroControl.arrayPortalSetY_Up(gf.map.Map.getPortal(),gf.hero.hero.getMove().getUpSpeed()*2);
+//				//地面碰撞改变
+//				UnHeroControl.arrayObsSetY_Up(gf.map.Map.getObsBottom(),gf.hero.hero.getMove().getUpSpeed()*2);
+//				UnHeroControl.arrayObsSetY_Up(gf.map.Map.getRope(),gf.hero.hero.getMove().getUpSpeed()*2);
+//				UnHeroControl.arrayObsSetY_Up(gf.map.Map.getObsLeft(),gf.hero.hero.getMove().getUpSpeed()*2);
+//				UnHeroControl.arrayObsSetY_Up(gf.map.Map.getObsRight(),gf.hero.hero.getMove().getUpSpeed()*2);
+//				UnHeroControl.arrayHillSetY_Up(gf.map.Map.getLeftHill(),gf.hero.hero.getMove().getUpSpeed()*2);
+//				UnHeroControl.arrayHillSetY_Up(gf.map.Map.getRightHill(),gf.hero.hero.getMove().getUpSpeed()*2);
+//				//传送门改变
+//				UnHeroControl.arrayPortalSetY_Up(gf.map.Map.getPortal(),gf.hero.hero.getMove().getUpSpeed()*2);
+//				//怪物坐标改变
+//                UnHeroControl.arrayMonsterSetY_Up(gf.monsters,gf.hero.hero.getMove().getUpSpeed()*2);
+//                //NPC坐标改变
+//                UnHeroControl.arrayNpcSetY_Up(gf.npcs,gf.hero.hero.getMove().getUpSpeed()*2);
 			}
 			/**
 			 * Hero:285 ~ 0
@@ -174,14 +209,18 @@ public class Hero extends Thread implements HeroControl{
 					(gf.map.Map.getImg()[4].getY()>-1000&& gf.map.Map.getImg()[4].getY()<=-100)) {
 				UnHeroControl.arraySetY_Down(gf.map.Map.getImg(),gf.hero.hero.getMove().getDownSoeed()*3);
 
-				UnHeroControl.arrayObsSetY_Down(gf.map.Map.getObsBottom(),gf.hero.hero.getMove().getDownSoeed()*3);
-				UnHeroControl.arrayObsSetY_Down(gf.map.Map.getRope(),gf.hero.hero.getMove().getDownSoeed()*3);
-				UnHeroControl.arrayObsSetY_Down(gf.map.Map.getObsLeft(),gf.hero.hero.getMove().getDownSoeed()*3);
-				UnHeroControl.arrayObsSetY_Down(gf.map.Map.getObsRight(),gf.hero.hero.getMove().getDownSoeed()*3);
-				UnHeroControl.arrayHillSetY_Down(gf.map.Map.getLeftHill(),gf.hero.hero.getMove().getDownSoeed()*3);
-				UnHeroControl.arrayHillSetY_Down(gf.map.Map.getRightHill(),gf.hero.hero.getMove().getDownSoeed()*3);
-				//传送门
-				UnHeroControl.arrayPortalSetY_Down(gf.map.Map.getPortal(),gf.hero.hero.getMove().getDownSoeed()*3);
+//				UnHeroControl.arrayObsSetY_Down(gf.map.Map.getObsBottom(),gf.hero.hero.getMove().getDownSoeed()*3);
+//				UnHeroControl.arrayObsSetY_Down(gf.map.Map.getRope(),gf.hero.hero.getMove().getDownSoeed()*3);
+//				UnHeroControl.arrayObsSetY_Down(gf.map.Map.getObsLeft(),gf.hero.hero.getMove().getDownSoeed()*3);
+//				UnHeroControl.arrayObsSetY_Down(gf.map.Map.getObsRight(),gf.hero.hero.getMove().getDownSoeed()*3);
+//				UnHeroControl.arrayHillSetY_Down(gf.map.Map.getLeftHill(),gf.hero.hero.getMove().getDownSoeed()*3);
+//				UnHeroControl.arrayHillSetY_Down(gf.map.Map.getRightHill(),gf.hero.hero.getMove().getDownSoeed()*3);
+//				//传送门
+//				UnHeroControl.arrayPortalSetY_Down(gf.map.Map.getPortal(),gf.hero.hero.getMove().getDownSoeed()*3);
+//				//怪物坐标改变
+//                UnHeroControl.arrayMonsterSetY_Down(gf.monsters,gf.hero.hero.getMove().getDownSoeed()*3);
+//				//npc坐标改变
+//                UnHeroControl.arrayNpcSetY_Down(gf.npcs,gf.hero.hero.getMove().getDownSoeed()*3);
 			}
 			/**
 			 * Hero:285 ~ 0
@@ -239,45 +278,54 @@ public class Hero extends Thread implements HeroControl{
 	public void changeMap() {
 		if (changeMap) {
 
-			for (int i = 0; i < gf.portal.length; i++) {
-				portal = gf.portal[i].portal;
+			for (int i = 0; i < gf.portals.length; i++) {
+				portal = gf.portals[i].portal;
 
 				if (hit(DIR_PORTAL)) {
 					hero.setMapId(portal.getChangeMapId());
-
 					Loading.loadingMap(gf);
+					gf.map.startMap = gf.map;
 					//感受器感知切换地图
 					isChangeMap = true;
-
+                    //改变地图后根据传送门改变hero的初始坐标
 					hero.getMove().setX(portal.getChangeHeroX());
 					hero.getMove().setY(portal.getChangeHeroY());
-
+					//使用传送门后加载地图的坐标
 					UnHeroControl.arraySetY_Up(gf.map.Map.getImg(), portal.getAddMapY());
 					UnHeroControl.arraySetX_Up(gf.map.Map.getImg(), portal.getAddMapX());
 
-					UnHeroControl.arrayObsSetY_Up(gf.map.Map.getObsBottom(), portal.getAddMapY());
-					UnHeroControl.arrayObsSetX_Up(gf.map.Map.getObsBottom(), portal.getAddMapX());
 
-					UnHeroControl.arrayObsSetY_Up(gf.map.Map.getObsLeft(), portal.getAddMapY());
-					UnHeroControl.arrayObsSetX_Up(gf.map.Map.getObsLeft(), portal.getAddMapX());
+//                    //使用传送门后加载下方障碍物的坐标
+//					UnHeroControl.arrayObsSetY_Up(gf.map.Map.getObsBottom(), portal.getAddMapY());
+//					UnHeroControl.arrayObsSetX_Up(gf.map.Map.getObsBottom(), portal.getAddMapX());
+//                    //使用传送门后加载左方障碍物的坐标
+//					UnHeroControl.arrayObsSetY_Up(gf.map.Map.getObsLeft(), portal.getAddMapY());
+//					UnHeroControl.arrayObsSetX_Up(gf.map.Map.getObsLeft(), portal.getAddMapX());
+//                    //使用传送门后加载右方障碍物的坐标
+//					UnHeroControl.arrayObsSetY_Up(gf.map.Map.getObsRight(), portal.getAddMapY());
+//					UnHeroControl.arrayObsSetX_Up(gf.map.Map.getObsRight(), portal.getAddMapX());
+//                    //使用传送门后加载绳子障碍物的坐标
+//					UnHeroControl.arrayObsSetY_Up(gf.map.Map.getRope(), portal.getAddMapY());
+//					UnHeroControl.arrayObsSetX_Up(gf.map.Map.getRope(), portal.getAddMapX());
+//                    //使用传送门后加载梯子障碍物的坐标
+//					UnHeroControl.arrayObsSetY_Up(gf.map.Map.getLadder(), portal.getAddMapY());
+//					UnHeroControl.arrayObsSetX_Up(gf.map.Map.getLadder(), portal.getAddMapX());
+//                    //使用传送门后加载左倾斜坡障碍物的坐标
+//					UnHeroControl.arrayHillSetY_Up(gf.map.Map.getLeftHill(), portal.getAddMapY());
+//					UnHeroControl.arrayHillSetX_Up(gf.map.Map.getLeftHill(), portal.getAddMapX());
+//                    //使用传送门后加载右倾斜坡障碍物的坐标
+//					UnHeroControl.arrayHillSetY_Up(gf.map.Map.getRightHill(),portal.getAddMapY());
+//					UnHeroControl.arrayHillSetX_Up(gf.map.Map.getRightHill(),portal.getAddMapX());
+//                    //使用传送门后加载传送门碍物的坐标
+//					UnHeroControl.arrayPortalSetY_Up(gf.map.Map.getPortal(),portal.getAddMapY());
+//					UnHeroControl.arrayPortalSetX_Up(gf.map.Map.getPortal(),portal.getAddMapX());
+//
+//                    //使用传送门后加载怪物的坐标
+//                    UnHeroControl.arrayMonsterSetY_Up(gf.monsters,portal.getAddMapY());
+//
+//                    //使用传送门后加载NPC的坐标
+//                    UnHeroControl.arrayNpcSetY_Up(gf.npcs,portal.getAddMapY());
 
-					UnHeroControl.arrayObsSetY_Up(gf.map.Map.getObsRight(), portal.getAddMapY());
-					UnHeroControl.arrayObsSetX_Up(gf.map.Map.getObsRight(), portal.getAddMapX());
-
-					UnHeroControl.arrayObsSetY_Up(gf.map.Map.getRope(), portal.getAddMapY());
-					UnHeroControl.arrayObsSetX_Up(gf.map.Map.getRope(), portal.getAddMapX());
-
-					UnHeroControl.arrayObsSetY_Up(gf.map.Map.getLadder(), portal.getAddMapY());
-					UnHeroControl.arrayObsSetX_Up(gf.map.Map.getLadder(), portal.getAddMapX());
-
-					UnHeroControl.arrayHillSetY_Up(gf.map.Map.getLeftHill(), portal.getAddMapY());
-					UnHeroControl.arrayHillSetX_Up(gf.map.Map.getLeftHill(), portal.getAddMapX());
-
-					UnHeroControl.arrayHillSetY_Up(gf.map.Map.getRightHill(),portal.getAddMapY());
-					UnHeroControl.arrayHillSetX_Up(gf.map.Map.getRightHill(),portal.getAddMapX());
-
-					UnHeroControl.arrayPortalSetY_Up(gf.map.Map.getPortal(),portal.getAddMapY());
-					UnHeroControl.arrayPortalSetX_Up(gf.map.Map.getPortal(),portal.getAddMapX());
 				}
 			}
 			changeMap = false;
@@ -484,14 +532,18 @@ public class Hero extends Thread implements HeroControl{
 			hero.getAction()[6].setDirection(true);
 			if(gf.hero.ropeToJump){
 				UnHeroControl.arraySetY_Up(gf.map.Map.getImg(),gf.hero.hero.getMove().getUpSpeed());
-				UnHeroControl.arrayObsSetY_Up(gf.map.Map.getObsLeft(),gf.hero.hero.getMove().getUpSpeed());
-				UnHeroControl.arrayObsSetY_Up(gf.map.Map.getObsRight(),gf.hero.hero.getMove().getUpSpeed());
-				UnHeroControl.arrayObsSetY_Up(gf.map.Map.getObsBottom(),gf.hero.hero.getMove().getUpSpeed());
-				UnHeroControl.arrayObsSetY_Up(gf.map.Map.getRope(),gf.hero.hero.getMove().getUpSpeed());
-				UnHeroControl.arrayHillSetY_Up(gf.map.Map.getLeftHill(),gf.hero.hero.getMove().getUpSpeed());
-				UnHeroControl.arrayHillSetY_Up(gf.map.Map.getRightHill(),gf.hero.hero.getMove().getUpSpeed());
-				//传送门
-				UnHeroControl.arrayPortalSetY_Up(gf.map.Map.getPortal(),gf.hero.hero.getMove().getUpSpeed());
+//				UnHeroControl.arrayObsSetY_Up(gf.map.Map.getObsLeft(),gf.hero.hero.getMove().getUpSpeed());
+//				UnHeroControl.arrayObsSetY_Up(gf.map.Map.getObsRight(),gf.hero.hero.getMove().getUpSpeed());
+//				UnHeroControl.arrayObsSetY_Up(gf.map.Map.getObsBottom(),gf.hero.hero.getMove().getUpSpeed());
+//				UnHeroControl.arrayObsSetY_Up(gf.map.Map.getRope(),gf.hero.hero.getMove().getUpSpeed());
+//				UnHeroControl.arrayHillSetY_Up(gf.map.Map.getLeftHill(),gf.hero.hero.getMove().getUpSpeed());
+//				UnHeroControl.arrayHillSetY_Up(gf.map.Map.getRightHill(),gf.hero.hero.getMove().getUpSpeed());
+//				//传送门
+//				UnHeroControl.arrayPortalSetY_Up(gf.map.Map.getPortal(),gf.hero.hero.getMove().getUpSpeed());
+//				//npc
+//                UnHeroControl.arrayNpcSetY_Up(gf.npcs,gf.hero.hero.getMove().getUpSpeed());
+//                //怪物
+//                UnHeroControl.arrayMonsterSetY_Up(gf.monsters,gf.hero.hero.getMove().getUpSpeed());
 			}else{
 				hero.getMove().setY(hero.getMove().getY() - hero.getMove().getUpSpeed());
 				if (i % 5 == 0 && i > 30) {
@@ -527,14 +579,18 @@ public class Hero extends Thread implements HeroControl{
 			if(gf.hero.ropeToJump  &&  gf.map.Map.getImg()[4].getY()>-745){
 
 				UnHeroControl.arraySetY_Down(gf.map.Map.getImg(),gf.hero.hero.getMove().getDownSoeed());
-				UnHeroControl.arrayObsSetY_Down(gf.map.Map.getObsLeft(),gf.hero.hero.getMove().getDownSoeed());
-				UnHeroControl.arrayObsSetY_Down(gf.map.Map.getObsRight(),gf.hero.hero.getMove().getDownSoeed());
-				UnHeroControl.arrayObsSetY_Down(gf.map.Map.getObsBottom(),gf.hero.hero.getMove().getDownSoeed());
-				UnHeroControl.arrayObsSetY_Down(gf.map.Map.getRope(),gf.hero.hero.getMove().getDownSoeed());
-				UnHeroControl.arrayHillSetY_Down(gf.map.Map.getLeftHill(),gf.hero.hero.getMove().getDownSoeed());
-				UnHeroControl.arrayHillSetY_Down(gf.map.Map.getRightHill(),gf.hero.hero.getMove().getDownSoeed());
-				//传送门
-				UnHeroControl.arrayPortalSetY_Down(gf.map.Map.getPortal(),gf.hero.hero.getMove().getDownSoeed());
+//				UnHeroControl.arrayObsSetY_Down(gf.map.Map.getObsLeft(),gf.hero.hero.getMove().getDownSoeed());
+//				UnHeroControl.arrayObsSetY_Down(gf.map.Map.getObsRight(),gf.hero.hero.getMove().getDownSoeed());
+//				UnHeroControl.arrayObsSetY_Down(gf.map.Map.getObsBottom(),gf.hero.hero.getMove().getDownSoeed());
+//				UnHeroControl.arrayObsSetY_Down(gf.map.Map.getRope(),gf.hero.hero.getMove().getDownSoeed());
+//				UnHeroControl.arrayHillSetY_Down(gf.map.Map.getLeftHill(),gf.hero.hero.getMove().getDownSoeed());
+//				UnHeroControl.arrayHillSetY_Down(gf.map.Map.getRightHill(),gf.hero.hero.getMove().getDownSoeed());
+//				//传送门
+//				UnHeroControl.arrayPortalSetY_Down(gf.map.Map.getPortal(),gf.hero.hero.getMove().getDownSoeed());
+//				//npc
+//                UnHeroControl.arrayNpcSetY_Up(gf.npcs,gf.hero.hero.getMove().getDownSoeed());
+//                //怪物
+//                UnHeroControl.arrayMonsterSetY_Up(gf.monsters,gf.hero.hero.getMove().getDownSoeed());
 			}else{
 				hero.getMove().setY(hero.getMove().getY() + hero.getMove().getDownSoeed());
 				if (i % 5 == 0 && i > 30) {
@@ -629,46 +685,46 @@ public class Hero extends Thread implements HeroControl{
 
 		try {
 			for (int i = 0; i < gf.map.Map.getObsLeft().length; i++) {
-				obsLeft.add(new Rectangle(gf.map.Map.getObsLeft()[i].getImg().getX()+gf.map.Map.getImg()[4].getX(), gf.map.Map.getObsLeft()[i].getImg().getY(),
+				obsLeft.add(new Rectangle(gf.map.Map.getObsLeft()[i].getImg().getX()+gf.map.Map.getImg()[4].getX(), gf.map.Map.getObsLeft()[i].getImg().getY()+(750+gf.map.Map.getImg()[4].getY()),
 						gf.map.Map.getObsLeft()[i].getImg().getWidth(), gf.map.Map.getObsLeft()[i].getImg().getHeight()));
 			}
 
 			for (int i = 0; i < gf.map.Map.getObsRight().length; i++) {
-				obsRight.add(new Rectangle(gf.map.Map.getObsRight()[i].getImg().getX()+gf.map.Map.getImg()[4].getX(), gf.map.Map.getObsRight()[i].getImg().getY(),
+				obsRight.add(new Rectangle(gf.map.Map.getObsRight()[i].getImg().getX()+gf.map.Map.getImg()[4].getX(), gf.map.Map.getObsRight()[i].getImg().getY()+(750+gf.map.Map.getImg()[4].getY()),
 						gf.map.Map.getObsRight()[i].getImg().getWidth(), gf.map.Map.getObsRight()[i].getImg().getHeight()));
 			}
 
 			for (int i = 0; i < gf.map.Map.getObsBottom().length; i++) {
-				obsBottom.add(new Rectangle(gf.map.Map.getObsBottom()[i].getImg().getX()+gf.map.Map.getImg()[4].getX(), gf.map.Map.getObsBottom()[i].getImg().getY(),
+				obsBottom.add(new Rectangle(gf.map.Map.getObsBottom()[i].getImg().getX()+gf.map.Map.getImg()[4].getX(), gf.map.Map.getObsBottom()[i].getImg().getY()+(750+gf.map.Map.getImg()[4].getY()),
 						gf.map.Map.getObsBottom()[i].getImg().getWidth(), gf.map.Map.getObsBottom()[i].getImg().getHeight()));
 			}
 
 			for (int i = 0; i < gf.map.Map.getLadder().length; i++) {
-				ladder.add(new Rectangle(gf.map.Map.getLadder()[i].getImg().getX()+gf.map.Map.getImg()[4].getX(), gf.map.Map.getLadder()[i].getImg().getY(),
+				ladder.add(new Rectangle(gf.map.Map.getLadder()[i].getImg().getX()+gf.map.Map.getImg()[4].getX(), gf.map.Map.getLadder()[i].getImg().getY()+(750+gf.map.Map.getImg()[4].getY()),
 						gf.map.Map.getLadder()[i].getImg().getWidth(), gf.map.Map.getLadder()[i].getImg().getHeight()));
 			}
 
 			for (int i = 0; i < gf.map.Map.getRope().length; i++) {
-				rope.add(new Rectangle(gf.map.Map.getRope()[i].getImg().getX()+gf.map.Map.getImg()[4].getX(), gf.map.Map.getRope()[i].getImg().getY(),
+				rope.add(new Rectangle(gf.map.Map.getRope()[i].getImg().getX()+gf.map.Map.getImg()[4].getX(), gf.map.Map.getRope()[i].getImg().getY()+(750+gf.map.Map.getImg()[4].getY()),
 						gf.map.Map.getRope()[i].getImg().getWidth(), gf.map.Map.getRope()[i].getImg().getHeight()));
 			}
 			for (int i = 0; i < gf.map.Map.getLeftHill().length; i++) {
 				leftHill.add(new hill(gf.map.Map.getLeftHill()[i].getX1()+gf.map.Map.getImg()[4].getX(),
-						gf.map.Map.getLeftHill()[i].getY1(),
+						gf.map.Map.getLeftHill()[i].getY1()+(750+gf.map.Map.getImg()[4].getY()),
 						gf.map.Map.getLeftHill()[i].getX2()+gf.map.Map.getImg()[4].getX(),
-						gf.map.Map.getLeftHill()[i].getY2()));
+						gf.map.Map.getLeftHill()[i].getY2()+(750+gf.map.Map.getImg()[4].getY())));
 			}
 
 			for (int i = 0; i < gf.map.Map.getRightHill().length; i++) {
 				rightHill.add(new hill(gf.map.Map.getRightHill()[i].getX1()+gf.map.Map.getImg()[4].getX(),
-						gf.map.Map.getRightHill()[i].getY1(),
+						gf.map.Map.getRightHill()[i].getY1()+(750+gf.map.Map.getImg()[4].getY()),
 						gf.map.Map.getRightHill()[i].getX2()+gf.map.Map.getImg()[4].getX(),
-						gf.map.Map.getRightHill()[i].getY2()));
+						gf.map.Map.getRightHill()[i].getY2()+(750+gf.map.Map.getImg()[4].getY())));
 			}
 
 			for (int i = 0; i < gf.map.Map.getPortal().length; i++) {
 				obsPortal.add(new Rectangle(gf.map.Map.getPortal()[i].getImg()[0].getX() + gf.map.Map.getImg()[4].getX(),
-						gf.map.Map.getPortal()[i].getImg()[0].getY() + gf.map.Map.getPortal()[i].getImg()[0].getHeight() - 20,
+						gf.map.Map.getPortal()[i].getImg()[0].getY() + gf.map.Map.getPortal()[i].getImg()[0].getHeight() - 20+(750+gf.map.Map.getImg()[4].getY()),
 						gf.map.Map.getPortal()[i].getImg()[0].getWidth(),
 						20));
 			}
@@ -839,45 +895,40 @@ public class Hero extends Thread implements HeroControl{
 										hero.getMove().setY(hero.getMove().getY() + (hero.getMove().getDownSoeed()*3));
 
 									}
+                                    if(gf.map.Map.getImg()[4].getY()>-750){
+
+                                        hero.setIsGravity(true);
+                                        /**
+                                         * 背景图片下坠
+                                         */
+                                        UnHeroControl.arraySetY_Down(gf.map.Map.getImg(),gf.hero.hero.getMove().getDownSoeed()*5);
+                                        /**
+                                         * 障碍物下坠
+                                         */
 
 
-										if(gf.map.Map.getImg()[4].getY()>-750){
-
-											hero.setIsGravity(true);
-											/**
-											 * 背景图片下坠
-											 */
-											UnHeroControl.arraySetY_Down(gf.map.Map.getImg(),gf.hero.hero.getMove().getDownSoeed()*5);
-											/**
-											 * 障碍物下坠
-											 */
-											UnHeroControl.arrayObsSetY_Down(gf.map.Map.getObsBottom(),gf.hero.hero.getMove().getDownSoeed()*5);
-											UnHeroControl.arrayObsSetY_Down(gf.map.Map.getObsLeft(),gf.hero.hero.getMove().getDownSoeed()*5);
-											UnHeroControl.arrayObsSetY_Down(gf.map.Map.getObsRight(),gf.hero.hero.getMove().getDownSoeed()*5);
-											UnHeroControl.arrayObsSetY_Down(gf.map.Map.getRope(),gf.hero.hero.getMove().getDownSoeed()*5);
-											UnHeroControl.arrayObsSetY_Down(gf.map.Map.getLadder(),gf.hero.hero.getMove().getDownSoeed()*5);
-											UnHeroControl.arrayHillSetY_Down(gf.map.Map.getLeftHill(),gf.hero.hero.getMove().getDownSoeed()*5);
-											UnHeroControl.arrayHillSetY_Down(gf.map.Map.getRightHill(),gf.hero.hero.getMove().getDownSoeed()*5);
-
-											/**
-											 * 传送门下坠
-											 */
-											UnHeroControl.arrayPortalSetY_Down(gf.map.Map.getPortal(),gf.hero.hero.getMove().getDownSoeed()*5);
-											/**
-											 * 怪物下坠
-											 */
-											/**
-											 * NPC门下坠
-											 */
-										}
-
-
-
-
+//                                        UnHeroControl.arrayObsSetY_Down(gf.map.Map.getObsBottom(),gf.hero.hero.getMove().getDownSoeed()*5);
+//                                        UnHeroControl.arrayObsSetY_Down(gf.map.Map.getObsLeft(),gf.hero.hero.getMove().getDownSoeed()*5);
+//                                        UnHeroControl.arrayObsSetY_Down(gf.map.Map.getObsRight(),gf.hero.hero.getMove().getDownSoeed()*5);
+//                                        UnHeroControl.arrayObsSetY_Down(gf.map.Map.getRope(),gf.hero.hero.getMove().getDownSoeed()*5);
+//                                        UnHeroControl.arrayObsSetY_Down(gf.map.Map.getLadder(),gf.hero.hero.getMove().getDownSoeed()*5);
+//                                        UnHeroControl.arrayHillSetY_Down(gf.map.Map.getLeftHill(),gf.hero.hero.getMove().getDownSoeed()*5);
+//                                        UnHeroControl.arrayHillSetY_Down(gf.map.Map.getRightHill(),gf.hero.hero.getMove().getDownSoeed()*5);
+//                                        /**
+//                                         * 传送门下坠
+//                                         */
+//                                        UnHeroControl.arrayPortalSetY_Down(gf.map.Map.getPortal(),gf.hero.hero.getMove().getDownSoeed()*5);
+//                                        /**
+//                                         * 怪物下坠
+//                                         */
+//                                        UnHeroControl.arrayMonsterSetY_Down(gf.monsters,gf.hero.hero.getMove().getDownSoeed()*5);
+//                                        /**
+//                                         * NPC们下坠
+//                                         */
+//                                        UnHeroControl.arrayNpcSetY_Down(gf.npcs,gf.hero.hero.getMove().getDownSoeed()*5);
+                                    }
 								}
-
 							}
-//
 						}catch (Exception e){
 
 						}

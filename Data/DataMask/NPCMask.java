@@ -1,7 +1,7 @@
 package DataMask;
 /**
  * NPC
- * @author ¿­¿­
+ * @author
  *
  */
 public class NPCMask extends BasicPerson{
@@ -12,13 +12,13 @@ public class NPCMask extends BasicPerson{
 	private Topic topic[];
 	private Choice Choice[];
 	private boolean isClicked;
-	//NPCÎ»ÖÃ
+	//NPCçš„XY
 	private int x;
 	private int y;
-	
-	
 
-	
+
+
+
 
 
 	public NPCMask(String name, Action[] action, boolean isGravity, Bag bag, Task[] task, boolean isPressed, Img[] talkImg,

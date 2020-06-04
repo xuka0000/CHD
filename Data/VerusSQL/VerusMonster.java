@@ -9,7 +9,7 @@ import DataMask.MonsterMask;
 public class VerusMonster {
 
     public static MonsterMask[] verusMonster = {
-            new MonsterMask(null, null, false, 0, 0, null, null, null, null, 0, 0, 0),
+            new MonsterMask(null, null, false, 0, 0, null, null, null, null, 0, 0, 0,0,0),
     };
 
 }

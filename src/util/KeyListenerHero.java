@@ -35,7 +35,7 @@ public class KeyListenerHero extends KeyAdapter{
 
 		int code = e.getKeyCode();
 		//测试ASCLL码
-//		System.out.print(code);
+//		System.out.println(code);
 		switch (code) {
 			//左键
 			case 37:
@@ -81,7 +81,7 @@ public class KeyListenerHero extends KeyAdapter{
 				 * 更换地图
 				 */
 
-				for (int i = 0; i < gf.portal.length ; i++) {
+				for (int i = 0; i < gf.portals.length ; i++) {
 
 
 					if (gf.hero.hit(gf.hero.DIR_PORTAL)) {
@@ -122,7 +122,11 @@ public class KeyListenerHero extends KeyAdapter{
 					gf.hero.ropeDown = true ;
 				}
 				break;
+				//F12重置英雄位置
+			case 123:
+				gf.hero.isChangeHero = true;
 
+				break;
 		}
 	}
 

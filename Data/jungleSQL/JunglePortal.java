@@ -4,6 +4,8 @@ import DataMask.Action;
 import DataMask.Img;
 import DataMask.PortalMask;
 
+import static VerusSQL.VerusPortal.*;
+
 /**
  * 从林传送门
  * @author shkstart
@@ -25,5 +27,6 @@ public class JunglePortal {
      */
     public static PortalMask[] portal = {
             new PortalMask("Jungle", JunglePortal, false, 0,800,100,0,750, 20, 20, JunglePortalImg),
+            new PortalMask("Verus", verusPortal, false, 1,10,150,0,750, 20, 20, verusPortalImg),
     };
 }

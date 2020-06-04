@@ -9,8 +9,11 @@ import ui.GameFrame;
  * @create 2020-05-30-14:37
  */
 public class Monster extends Thread {
-    private MonsterMask monster;
-    private GameFrame gf;
+    public MonsterMask monster;
+    public GameFrame gf;
+
+
+    public Monster(){}
 
     public Monster(GameFrame gf) {
         this.gf = gf;

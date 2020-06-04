@@ -4,7 +4,6 @@ import DataMask.PortalMask;
 import ui.GameFrame;
 
 public class Portal extends Thread{
-
 	public GameFrame gf ;
 	
 	public PortalMask portal ;

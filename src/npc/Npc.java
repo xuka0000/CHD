@@ -29,8 +29,8 @@ public class Npc extends Thread{
             }else {
                 this.image = npc.getAction()[1].getImg();
             }
-            System.out.println(gf.hero.hero.getMove().getX());
-            System.out.println(npc.getX()+gf.map.Map.getImg()[4].getX());
+//            System.out.println(gf.hero.hero.getMove().getX());
+//            System.out.println(npc.getX()+gf.map.Map.getImg()[4].getX());
             try {
                 sleep(20);
             } catch (InterruptedException e) {
