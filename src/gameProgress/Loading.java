@@ -27,6 +27,10 @@ public class Loading  {
             }
         }
 
+
+        //NPC赋值
+        Npc[] tempNpc = new Npc[gf.map.Map.getNPC().length];
+        gf.npcs =tempNpc ;
         for (int i = 0; i < gf.map.Map.getNPC().length; i++) {
             gf.npcs[i] = new Npc(gf);
             gf.npcs[i].npc= gf.map.Map.getNPC()[i];
@@ -36,11 +40,15 @@ public class Loading  {
             gf.npcs[i].start();
         }
 
+
+
+        //怪物赋值
+        Monster[] tempMonster = new Monster[gf.map.Map.getMonster().length];
+        gf.monsters = tempMonster ;
         for (int i = 0; i < gf.map.Map.getMonster().length; i++) {
             gf.monsters[i] = new Monster(gf);
             gf.monsters[i].monster = gf.map.Map.getMonster()[i];
         }
-
         for (int i = 0; i < gf.map.Map.getMonster().length - 1; i++) {
             gf.monsters[i].start();
         }
@@ -70,16 +78,28 @@ public class Loading  {
     }
 
     public static void loadingPlus(GameFrame gf) {
+
+
         // 创建怪兽(线程）
+        //怪物赋值
+        Monster[] tempMonster = new Monster[gf.map.Map.getMonster().length];
+        gf.monsters = tempMonster ;
         for (int i = 0; i < gf.map.Map.getMonster().length; i++) {
             gf.monsters[i] = new Monster(gf);
             gf.monsters[i].monster = gf.map.Map.getMonster()[i];
         }
+
+
         // 创建NPC(线程）
+        //NPC赋值
+        Npc[] tempNpc = new Npc[gf.map.Map.getNPC().length];
+        gf.npcs =tempNpc ;
         for (int i = 0; i < gf.map.Map.getNPC().length; i++) {
             gf.npcs[i] = new Npc(gf);
             gf.npcs[i].npc= gf.map.Map.getNPC()[i];
         }
+
+
         // 创建传送门
         Portal[] tempPortal = new Portal[gf.map.Map.getPortal().length];
         gf.portals = tempPortal;
@@ -87,8 +107,6 @@ public class Loading  {
             gf.portals[i] = new Portal(gf);
             gf.portals[i].portal = gf.map.Map.getPortal()[i];
         }
-
-
 
 
 
