@@ -1,6 +1,8 @@
 package SQL;
 
 import DataMask.Img;
+import Hero.HeroBox;
+import Hero.HeroDecoration;
 
 /**
  * 人物运动属性图片
@@ -8,9 +10,30 @@ import DataMask.Img;
  * @create 2020-05-20-22:41h
  */
 public class ActionHeroImg {
+
     public static Img[] leftStand={
-            new Img("基本图形左站立","Image\\站立左.gif",108,156,0,0)
+            HeroBox.body[0],
+            HeroBox.head[0],
+
+            HeroBox.armLeft[0],
+            HeroBox.handLeft[0],
+
+            HeroBox.legLeft[0],
+            HeroBox.footLeft[0],
+            HeroBox.legRight[0],
+            HeroBox.footRight[0],
+
+
+            HeroDecoration.face[0],
+            HeroDecoration.hair[1],
+            HeroDecoration.hair[0],
+            HeroDecoration.underWear_Up[0],
+            HeroDecoration.underWear_Down[0],
+
+            HeroBox.armRight[0],
+            HeroBox.handRight[0],
     };
+
     public static Img[] rightStand={
             new Img("基本图形右站立","Image\\站立右.gif",108,156,0,0)
     };

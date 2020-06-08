@@ -64,8 +64,6 @@ public class Hero extends Thread implements HeroControl{
 
 		hero = SQL.HeroSQL.soldier[0];
 		this.gf = gf;
-//		this.hero.getIsGravity();
-//		hero.getAbilityValue().getCurrHp();
 		this.Gravity();
 
 	}

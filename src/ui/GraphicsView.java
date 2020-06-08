@@ -40,7 +40,7 @@ public class GraphicsView {
      */
     public static void drawHeroImg(Graphics big, Img img, HeroMask heroMask) {
 
-        big.drawImage(img.getPicturePath(), heroMask.getMove().getX(), heroMask.getMove().getY(), img.getWidth(), img.getHeight(),null);
+        big.drawImage(img.getPicturePath(), heroMask.getMove().getX()+img.getX(), heroMask.getMove().getY()+img.getY(), img.getWidth(), img.getHeight(),null);
 
     }
 }
