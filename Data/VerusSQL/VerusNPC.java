@@ -11,7 +11,11 @@ import static VerusSQL.Verus.VerusImg;
  */
 public class VerusNPC {
     public static NPCMask[] verusNPC = {
-            new NPCMask("崔悦", NpcActionSQL.action, false, SQL.TempBag.tempBag,VerusTask.task , false, VerusImg, null, null, false, 1435, 600),
+            new NPCMask("药水店NPC", NpcActionSQL.action, false, SQL.TempBag.tempBag,VerusTask.task , false, VerusImg, null, null, false, 1435, 600),
+            new NPCMask("武器店NPC", NpcActionSQL.NPCtowAction, false, SQL.TempBag.tempBag,VerusTask.task , false, VerusImg, null, null, false, 2165, 600),
+            new NPCMask("情报店NPC", NpcActionSQL.NPCthereAction, false, SQL.TempBag.tempBag,VerusTask.task , false, VerusImg, null, null, false, 2675, 600),
+            new NPCMask("广场的NPC", NpcActionSQL.NPCfourAction, false, SQL.TempBag.tempBag,VerusTask.task , false, VerusImg, null, null, false, 3785, 600),
+            new NPCMask("传送门NPC", NpcActionSQL.NPCfiverAction, false, SQL.TempBag.tempBag,VerusTask.task , false, VerusImg, null, null, false, 4525, 600),
     };
 
 }
