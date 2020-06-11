@@ -273,17 +273,22 @@ public class Hero extends Thread implements HeroControl{
 	 */
 	public void changeMap() {
 		if (changeMap) {
-
 			for (int i = 0; i < gf.portals.length; i++) {
-				portal = gf.portals[i].portal;
 
-				if (hit(DIR_PORTAL)) {
+				portal = gf.portals[i].portal;
+//				System.out.println("i="+i);
+//				System.out.println("length:"+gf.portals[i].portal.getName()+gf.portals.length);
+				if (hit(DIR_PORTAL) && portal.getIsGravity()) {
+
 					hero.setMapId(portal.getChangeMapId());
+//					System.out.println("length"+gf.portals[i].portal.getName()+gf.portals.length);
+					System.out.println("mapid"+portal.getName()+portal.getChangeMapId());
+
 					Loading.loadingMap(gf);
 					gf.map.startMap = gf.map;
 					//感受器感知切换地图
 					isChangeMap = true;
-                    //改变地图后根据传送门改变hero的初始坐标
+					//改变地图后根据传送门改变hero的初始坐标
 					hero.getMove().setX(portal.getChangeHeroX());
 					hero.getMove().setY(portal.getChangeHeroY());
 					//使用传送门后加载地图的坐标
@@ -416,11 +421,11 @@ public class Hero extends Thread implements HeroControl{
 		}
 
         if(hit(dir_leftHill)){
-			System.out.println("1111");
-			System.out.println(hero.getMove().getUpSpeed()*2);
-			System.out.println("11HillHigh"+HillHigh);
+//			System.out.println("1111");
+//			System.out.println(hero.getMove().getUpSpeed()*2);
+//			System.out.println("11HillHigh"+HillHigh);
 			hero.getMove().setY(hero.getMove().getY() + hero.getMove().getDownSoeed() * 2);
-			System.out.println("**************************");
+//			System.out.println("**************************");
 			HillHigh++;
 			HillHigh++;
 			HillHigh++;
@@ -429,7 +434,7 @@ public class Hero extends Thread implements HeroControl{
 
 
 		if(hit(DIR_rightHill)){
-			System.out.println("2222");
+			//System.out.println("2222");
 
         	hero.getMove().setY(hero.getMove().getY()-hero.getMove().getUpSpeed()*2);
 			HillHigh--;
@@ -480,10 +485,6 @@ public class Hero extends Thread implements HeroControl{
         	gf.hero.hero.getMove().setDownSoeed(0);
 		}
 		if(hit(dir_leftHill)){
-			System.out.println("333");
-			System.out.println(hero.getMove().getUpSpeed()*2);
-			System.out.println("33HillHigh"+HillHigh);
-			System.out.println("**************************");
 			hero.getMove().setY(hero.getMove().getY() - hero.getMove().getUpSpeed() * 2);
 			HillHigh--;
 			HillHigh--;
@@ -492,7 +493,7 @@ public class Hero extends Thread implements HeroControl{
 		}
 
 		if(hit(DIR_rightHill)){
-			System.out.println(4444);
+
 			hero.getMove().setY(hero.getMove().getY() + hero.getMove().getDownSoeed() * 2);
 			HillHigh++;
 			HillHigh++;
@@ -738,16 +739,26 @@ public class Hero extends Thread implements HeroControl{
 		} catch (NullPointerException e) {
 			System.err.println("");
 		}
+		/**
+		 * 人物和传送门碰撞
+		 */
 		if (dir.equals(DIR_PORTAL)) {
 			for (int i = 0; i < obsHeroDown.size(); i++) {
 				for (int j = 0; j < obsPortal.size(); j++) {
 					if (obsHeroDown.get(i).intersects(obsPortal.get(j))) {
+						gf.portals[j].portal.setIsGravity(true);
 						return true;
 					}
 				}
 			}
 		}
+		try {
+			for (int i = 0; i < gf.portals.length; i++) {
+				gf.portals[i].portal.setIsGravity(false);
+			}
+		} catch (Exception e) {
 
+		}
 
 		//碰撞底面检查
 		if (dir.equals(dir_Down)) {
