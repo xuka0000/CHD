@@ -16,7 +16,7 @@ import static jungleSQL.JunglePortal.*;
 public class VerusPortal {
 
     public static Img[] verusPortalImg = {
-            new Img("Verus传送门", "Image\\光环.gif", 200, 200, 750, 550),   //4750
+            new Img("Verus传送门", "Image\\光环.gif", 200, 200, 4750, 550),   //4750
             new Img("Verus传送", "Image\\前往古木丛林.png", 300, 400, 4300, 300)
     };
     /**

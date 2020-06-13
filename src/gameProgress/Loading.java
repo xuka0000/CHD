@@ -72,7 +72,7 @@ public class Loading  {
         try {
             loadingPlus(gf);
         } catch (Exception e) {
-            //刨了
+            //抛了
         }
 
     }

@@ -34,9 +34,8 @@ public class ObsView {
                     map.Map.getObsLeft()[i].getImg().getWidth(), map.Map.getObsLeft()[i].getImg().getHeight(), null);
         }
         //打印英雄碰撞框
-//        for (int i = 0; i < hero.image.length; i++) {
-//            big.drawRect(hero.hero.getMove().getX(), hero.hero.getMove().getY()+hero.image[i].getHeight(), hero.image[i].getWidth(), 20);
-//        }
+            big.drawRect(hero.hero.getMove().getX()+hero.image[5].getX(), hero.hero.getMove().getY()+hero.image[5].getY(), hero.image[5].getWidth(),  hero.image[5].getHeight());
+
 //        for (int i = 0; i < hero.image.length; i++) {
 //            big.drawRect(hero.hero.getMove().getX(), hero.hero.getMove().getY(), hero.image[i].getWidth(), 20);
 //        }

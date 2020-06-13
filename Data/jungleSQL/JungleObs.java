@@ -34,6 +34,8 @@ public class JungleObs {
             new Obstruction(new Img("", "Image\\绿色小点.png", 800, 30, 2650, -175)),
             new Obstruction(new Img("", "Image\\绿色小点.png", 300, 30, 3050, 600)),
             new Obstruction(new Img("", "Image\\绿色小点.png", 600, 30, 2230, 726)),
+            new Obstruction(new Img("", "Image\\绿色小点.png", 600, 30, 2000, -100)),
+            new Obstruction(new Img("", "Image\\绿色小点.png", 600, 30, 100, -100)),
     };
 
     public static Obstruction[] ladder = {

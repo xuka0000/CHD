@@ -17,7 +17,7 @@ public class JunglePortal {
             new Img("Jungle传送", "Image\\前往古木丛林.png", 300, 400, 400, -300)
     };
     public static Img[] JunglePortalImg2 = {
-            new Img("Jungle传送门", "Image\\光环.gif", 200, 200, 2900, -380),
+            new Img("Jungle传送门", "Image\\光环.gif", 200, 200, 3000, -380),    //x 2900 y -380
             new Img("Jungle传送", "Image\\前往古木丛林.png", 300, 400, 2500, -150)
     };
     /**
@@ -34,6 +34,6 @@ public class JunglePortal {
      */
     public static PortalMask[] portal = {
             new PortalMask("Jungle1", JunglePortal1, false, 0,800,100,0,750, 20, 20, JunglePortalImg1),
-            new PortalMask("Jungle2", JunglePortal2, false, 2,800,100,0,750, 20, 20, JunglePortalImg2),
+            new PortalMask("Jungle2", JunglePortal2, false, 2,0,400,0,100, 20, 20, JunglePortalImg2),
     };
 }

@@ -657,9 +657,14 @@ public class Hero extends Thread implements HeroControl{
 
 		//Swing 技术中
 
-		for (int i = 0; i < image.length; i++) {
-			obsHeroDown.add(new Rectangle(hero.getMove().getX(), hero.getMove().getY()+image[i].getHeight(), image[i].getWidth(), 20));
+
+		try {
+			obsHeroDown.add(new Rectangle(hero.getMove().getX()+image[5].getX(), hero.getMove().getY()+image[5].getY(), image[5].getWidth(), image[5].getHeight()));
+			obsHeroDown.add(new Rectangle(hero.getMove().getX()+image[7].getX(), hero.getMove().getY()+image[7].getY(), image[7].getWidth(), image[7].getHeight()));
+		} catch (Exception e) {
+			
 		}
+
 		for (int i = 0; i < image.length; i++) {
 			obsHeroTop.add(new Rectangle(hero.getMove().getX(), hero.getMove().getY(), image[i].getWidth(), 20));
 		}
@@ -900,13 +905,13 @@ public class Hero extends Thread implements HeroControl{
 							break;
 						}
 						try{
-							if (hero.getMove().getY() >= 570  && gf.map.Map.getImg()[4].getY()<=-750) {
+							if (hero.getMove().getY() >= 630  && gf.map.Map.getImg()[4].getY()<=-750) {
 								//System.out.println("4");
 								hero.setIsGravity(false);
 							} else {
 
 								if (!hero.getAction()[4].isDirection()) {
-									if(hero.getMove().getY()< (570  ) ){
+									if(hero.getMove().getY()< 630 ){
 										hero.setIsGravity(true);
 										hero.getMove().setY(hero.getMove().getY() + (hero.getMove().getDownSoeed()*3));
 
