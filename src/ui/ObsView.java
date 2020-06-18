@@ -33,24 +33,21 @@ public class ObsView {
                     map.Map.getObsLeft()[i].getImg().getX() + map.Map.getImg()[4].getX(), map.Map.getObsLeft()[i].getImg().getY()+(750+map.Map.getImg()[4].getY()),
                     map.Map.getObsLeft()[i].getImg().getWidth(), map.Map.getObsLeft()[i].getImg().getHeight(), null);
         }
+        System.out.println(map.Map.getNPC().length);
         //打印英雄碰撞框
-            big.drawRect(hero.hero.getMove().getX()+hero.image[5].getX(), hero.hero.getMove().getY()+hero.image[5].getY(), hero.image[5].getWidth(),  hero.image[5].getHeight());
+            big.drawRect(hero.hero.getMove().getX(),hero.hero.getMove().getY()+hero.image[0].getHeight()-20,hero.image[0].getWidth(),20);
 
-//        for (int i = 0; i < hero.image.length; i++) {
-//            big.drawRect(hero.hero.getMove().getX(), hero.hero.getMove().getY(), hero.image[i].getWidth(), 20);
-//        }
-//        for (int i = 0; i < hero.image.length; i++) {
-//            big.drawRect(hero.hero.getMove().getX()+hero.image[i].getWidth(), hero.hero.getMove().getY(), 20, hero.image[i].getHeight());
-//        }
-//        for (int i = 0; i < hero.image.length; i++) {
-//            big.drawRect(hero.hero.getMove().getX(), hero.hero.getMove().getY(), 20, hero.image[i].getHeight());
-//        }
-//        for (int i = 0; i < hero.image.length; i++) {
-//            big.drawRect(hero.hero.getMove().getX()+hero.image[i].getWidth()/2-25, hero.hero.getMove().getY(), 50, hero.image[i].getHeight());
-//        }
-//        for (int i = 0; i < hero.image.length; i++) {
-//            big.drawRect(hero.hero.getMove().getX()+hero.image[i].getWidth()/2-25, hero.hero.getMove().getY(), 50, hero.image[i].getHeight());
-//        }
+
+            big.drawRect(hero.hero.getMove().getX(), hero.hero.getMove().getY(), hero.image[0].getWidth(), 20);
+
+            big.drawRect(hero.hero.getMove().getX()+hero.image[0].getWidth(), hero.hero.getMove().getY(), 20, hero.image[0].getHeight());
+
+            big.drawRect(hero.hero.getMove().getX(), hero.hero.getMove().getY(), 20, hero.image[0].getHeight());
+
+            big.drawRect(hero.hero.getMove().getX()+hero.image[0].getWidth()/2-15, hero.hero.getMove().getY(), 30, hero.image[0].getHeight());
+
+            big.drawRect(hero.hero.getMove().getX()+hero.image[0].getWidth()/2-15, hero.hero.getMove().getY(), 30, hero.image[0].getHeight());
+
         //打印绳子碰撞框
         for (int i = 0; i < map.Map.getRope().length ; i++) {
             big.drawImage(map.Map.getRope()[i].getImg().getPicturePath(),

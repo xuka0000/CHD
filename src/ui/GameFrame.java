@@ -164,6 +164,8 @@ public class GameFrame extends JFrame {
 
 				//打印障碍物
 				ObsView.obsView(big, map, hero);
+
+
 			}catch (Exception e){
 
 			}

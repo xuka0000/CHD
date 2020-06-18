@@ -33,9 +33,9 @@ public class JungleObs {
             new Obstruction(new Img("", "Image\\绿色小点.png", 150, 50, 720, -145)),
             new Obstruction(new Img("", "Image\\绿色小点.png", 800, 30, 2650, -175)),
             new Obstruction(new Img("", "Image\\绿色小点.png", 300, 30, 3050, 600)),
-            new Obstruction(new Img("", "Image\\绿色小点.png", 600, 30, 2230, 726)),
-            new Obstruction(new Img("", "Image\\绿色小点.png", 600, 30, 2000, -100)),
-            new Obstruction(new Img("", "Image\\绿色小点.png", 600, 30, 100, -100)),
+//            new Obstruction(new Img("", "Image\\绿色小点.png", 600, 30, 2230, 726)),
+//            new Obstruction(new Img("", "Image\\绿色小点.png", 600, 30, 2000, -100)),
+//            new Obstruction(new Img("", "Image\\绿色小点.png", 600, 30, 100, -100)),
     };
 
     public static Obstruction[] ladder = {
@@ -45,7 +45,6 @@ public class JungleObs {
     public static Obstruction[] rope = {
             new Obstruction(new Img("", "Image\\绿色小点.png", 10, 360, 2480, 230)),
             new Obstruction(new Img("", "Image\\绿色小点.png", 10, 260, 1950, -10)),
-            new Obstruction(new Img("", "Image\\绿色小点.png", 10, 2000, 200, 0)),
             new Obstruction(new Img("", "Image\\绿色小点.png", 10, 800, 2750, -200)),
 
     };

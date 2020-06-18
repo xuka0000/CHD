@@ -659,27 +659,21 @@ public class Hero extends Thread implements HeroControl{
 
 
 		try {
-			obsHeroDown.add(new Rectangle(hero.getMove().getX()+image[5].getX(), hero.getMove().getY()+image[5].getY(), image[5].getWidth(), image[5].getHeight()));
-			obsHeroDown.add(new Rectangle(hero.getMove().getX()+image[7].getX(), hero.getMove().getY()+image[7].getY(), image[7].getWidth(), image[7].getHeight()));
+			obsHeroDown.add(new Rectangle(hero.getMove().getX(), hero.getMove().getY()+image[0].getHeight()-20, image[0].getWidth(), 20));
+
 		} catch (Exception e) {
 			
 		}
+			obsHeroTop.add(new Rectangle(hero.getMove().getX(), hero.getMove().getY(), image[0].getWidth(), 20));
 
-		for (int i = 0; i < image.length; i++) {
-			obsHeroTop.add(new Rectangle(hero.getMove().getX(), hero.getMove().getY(), image[i].getWidth(), 20));
-		}
-		for (int i = 0; i < image.length; i++) {
-			obsHeroRight.add(new Rectangle(hero.getMove().getX()+image[i].getWidth(), hero.getMove().getY(), 20, image[i].getHeight()));
-		}
-		for (int i = 0; i < image.length; i++) {
-			obsHeroLeft.add(new Rectangle(hero.getMove().getX(), hero.getMove().getY(), 20, image[i].getHeight()));
-		}
-		for (int i = 0; i < image.length; i++) {
-			obsHeroRope.add(new Rectangle(hero.getMove().getX()+image[i].getWidth()/2-25, hero.getMove().getY(), 50, image[i].getHeight()));
-		}
-		for (int i = 0; i < image.length; i++) {
-			obsHeroLadder.add(new Rectangle(hero.getMove().getX()+image[i].getWidth()/2-25, hero.getMove().getY(), 50, image[i].getHeight()));
-		}
+			obsHeroRight.add(new Rectangle(hero.getMove().getX()+image[0].getWidth(), hero.getMove().getY(), 20, image[0].getHeight()));
+
+			obsHeroLeft.add(new Rectangle(hero.getMove().getX(), hero.getMove().getY(), 20, image[0].getHeight()));
+
+			obsHeroRope.add(new Rectangle(hero.getMove().getX()+image[0].getWidth()/2-25, hero.getMove().getY(), 50, image[0].getHeight()));
+
+			obsHeroLadder.add(new Rectangle(hero.getMove().getX()+image[0].getWidth()/2-25, hero.getMove().getY(), 50, image[0].getHeight()));
+
 
 
 		//障碍物集合

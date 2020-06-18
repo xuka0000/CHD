@@ -7,24 +7,47 @@ import DataMask.Img;
  */
 public class HeroDecoration {
 
-    public static Img[] face = {
-            new Img("测瞄表情","Image\\眨眼一.gif",25,25,2,14),
-            new Img("测瞄表情","Image\\眨眼一右.gif",25,25,8,14),
+    //五官-左
+    public static Img[] faceL = {
+            new Img("测瞄表情","Image\\棕色害羞眼睛左.png",96,128,0,0),
+
+    };
+    //五官-右
+    public static Img[] faceR = {
+            new Img("测瞄表情","Image\\棕色害羞眼睛右.png",96,128,0,0),
+
+    };
+    //左头发
+    public static Img[] hairL = {
+            new Img("女蓝色大波浪头发左","Image\\女蓝色大波浪头发左.png",96,128,0,0),
+
+
+    };
+    //右头发
+    public static Img[] hairR = {
+            new Img("女蓝色大波浪头发右","Image\\女蓝色大波浪头发右.png",96,128,0,0),
+
+
+    };
+    /*
+     * 这是套装的左方向
+     */
+    public static Img[] underWear_suitL = {
+               new Img("女生初始夏日清凉装","Image\\女生初始夏日清凉套装左.gif",96,128,0,0)
     };
 
-    public static Img[] hair = {
-            new Img("头发1","Image\\头发左-1.png",60,75,-2,-3),
-            new Img("头发1","Image\\头发右-1.png",60,75,-24,-3),
-
+    /*
+     * 这是套装的右方向
+     */
+    public static Img[] underWear_suitR = {
+            new Img("女生初始夏日清凉装","Image\\女生初始夏日清凉套装右.gif",96,128,0,0)
     };
 
     public static Img[] underWear_Up = {
-            new Img("蓝色小背心-女","Image\\蓝色小背心-女.png",13,15,9,42),
-            new Img("蓝色小背心-女","Image\\蓝色小背心右-女.png",13,15,13,42),
+
     };
 
     public static Img[] underWear_Down = {
-            new Img("蓝色新手短裤-女","Image\\蓝色新手短裤-女.png",21,14,2,61),
-            new Img("蓝色新手短裤-女","Image\\蓝色新手短裤右-女.png",21,14,12,61),
+
     };
 }
