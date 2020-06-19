@@ -36,25 +36,26 @@ public class ActionHeroImg {
 
 
     };
+
     public static Img[] leftRun={
-            HeroBox.HeroBBLMask[0],
+            HeroBox.HeroBBLMask[1],
 
-            HeroDecoration.faceL[0],
-            HeroDecoration.hairL[0],
+           // HeroDecoration.faceL[1],
+           //  HeroDecoration.hairL[1],
 
-            HeroDecoration.underWear_suitL[0],
+           // HeroDecoration.underWear_suitL[0],
 
-            HeroBox.HeroBOLMask[0],
+            HeroBox.HeroBOLMask[1],
     };
     public static Img[] rightRun={
-            HeroBox.HeroBBRMask[0],
+            HeroBox.HeroBBRMask[1],
 
-            HeroDecoration.faceR[0],
-            HeroDecoration.hairR[0],
+           // HeroDecoration.faceR[0],
+           // HeroDecoration.hairR[0],
 
-            HeroDecoration.underWear_suitR[0],
+           // HeroDecoration.underWear_suitR[0],
 
-            HeroBox.HeroBORMask[0],
+            HeroBox.HeroBORMask[1],
     };
     /**
      * 右跳
