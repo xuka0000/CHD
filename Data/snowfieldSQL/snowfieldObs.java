@@ -23,8 +23,8 @@ public class snowfieldObs {
 
     public static Obstruction[] obsBottom = {
             new Obstruction(new Img("", "Image\\绿色小点.png", 890, 20, 0, 540)),
-            new Obstruction(new Img("", "Image\\绿色小点.png", 2030, 20, 1100, 450)),
-            new Obstruction(new Img("", "Image\\绿色小点.png", 100, 20, 1000, 500)),
+            new Obstruction(new Img("第一层第三个超长", "Image\\绿色小点.png", 2030, 20, 1100, 450)),
+            new Obstruction(new Img("第一层跳跃平台", "Image\\绿色小点.png", 130, 20, 900, 650)),
             new Obstruction(new Img("", "Image\\绿色小点.png", 100, 20, 1100, 300)),
             new Obstruction(new Img("", "Image\\绿色小点.png", 1060, 20, 0, 150)),
             new Obstruction(new Img("", "Image\\绿色小点.png", 100, 20, 1200, 50)),
