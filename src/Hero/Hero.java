@@ -63,7 +63,7 @@ public class Hero extends Thread implements HeroControl{
 		hero = SQL.HeroSQL.soldier[0];
 		this.gf = gf;
 		this.Gravity();
-
+		this.PhotoMove();
 	}
 
 	/**
@@ -81,6 +81,9 @@ public class Hero extends Thread implements HeroControl{
 				baseMoveHero();
 			}
 
+			//镜头跟随
+			PhotoMove();
+
 			//重置坐标
 			try {
 				resetHero();
@@ -90,7 +93,7 @@ public class Hero extends Thread implements HeroControl{
 
 			//判断绳索是否可以进行判断（我预判你的预判 哈哈哈哈 ）
 			ropeHero.isRopeContraling(gf);
-            //System.out.println(ropeContral);
+
 			//休眠
 			try {
 				sleep(20);
@@ -128,90 +131,56 @@ public class Hero extends Thread implements HeroControl{
 		 * 上扒
 		 */
 		if (ropeUp) {
-            //System.out.println(gf.hero.hero.getMove().getY()+"英雄");
-            // System.out.println(gf.map.Map.getImg()[4].getY()+"地图");
-            //System.out.println(gf.hero.hit(gf.hero.DIR_ROPE));
-
-			  Img[] rope = {
-					new Img("上", "Image\\技能1下右.gif", 108, 156, 50, 50),
-			};
-			this.image = rope;
 			/**
 			 * Hero:570 ~ 400
 			 * Map:-750 ~ -650
 			 */
-			if (hero.getMove().getY() >= 400 && gf.map.Map.getImg()[4].getY()<=-650) {
+			if (hero.getMove().getY() > 400 ) {
 				hero.getMove().setY(hero.getMove().getY()-hero.getMove().getUpSpeed()*2);
 			}
 			/**
 			 * Hero:2000 ~ 120
 			 * Map:-1000 ~ -100
 			 */
-			if ((hero.getMove().getY() < 2000 && hero.getMove().getY() >= 120) &&
-					(gf.map.Map.getImg()[4].getY()>=-1000 && gf.map.Map.getImg()[4].getY()<=-100)) {
+			if ((hero.getMove().getY() >=399 && hero.getMove().getY()<=400 && gf.map.Map.getImg()[4].getY()<0 )){
 				UnHeroControl.arraySetY_Up(gf.map.Map.getImg(),gf.hero.hero.getMove().getUpSpeed()*2);
-
 			}
+
 			/**
 			 * Hero:285 ~ 0
 			 * Map:-100 ~ 0
 			 */
-			if (hero.getMove().getY() < 285 &&
-					(gf.map.Map.getImg()[4].getY()>-100 && gf.map.Map.getImg()[4].getY() <0)) {
+			if (gf.map.Map.getImg()[4].getY()>=0) {
 				hero.getMove().setY(hero.getMove().getY()-hero.getMove().getUpSpeed()*2);
 			}
 		}
 		/**
 		 * 下扒
 		 */
-		if (ropeDown) {
-//			System.out.println(gf.hero.hero.getMove().getY()+"英雄");
-//			System.out.println(gf.map.Map.getImg()[4].getY()+"地图");
-//			System.out.println(gf.hero.hit(gf.hero.DIR_ROPE));
-			if(gf.hero.hit(gf.hero.dir_Down)){
-				gf.hero.hero.getMove().setDownSoeed(0);
-			}
-			Img[] rope = {
-					new Img("上", "Image\\技能1下右.gif", 108, 156, 50, 50),
-			};
-			this.image = rope;
+		if (ropeDown&&!gf.hero.hit(gf.hero.dir_Down)) {
 			/**
-			 * Hero:570 ~ 400
-			 * Map:-100 ~ 0
+			 *
+			 * Map:小于等于-750
 			 */
-			if (hero.getMove().getY() >= 400 &&
-					(gf.map.Map.getImg()[4].getY()>-100 && gf.map.Map.getImg()[4].getY() <0)) {
+			if (gf.map.Map.getImg()[4].getY()<=-750 ) {
 				hero.getMove().setY(hero.getMove().getY() + hero.getMove().getDownSoeed()*3);
 			}
 			/**
-			 * Hero: 2000 ~ 160
-			 * Map:-1000 ~ -100
+			 * Hero: 400~402
+			 * Map:   ~-750
 			 */
-			if (hero.getMove().getY() <= 2000 && hero.getMove().getY() > 160&&
-					(gf.map.Map.getImg()[4].getY()>-1000&& gf.map.Map.getImg()[4].getY()<=-100)) {
+			if (hero.getMove().getY() <= 402 && hero.getMove().getY() >= 400&&
+					gf.map.Map.getImg()[4].getY()>=-750) {
 				UnHeroControl.arraySetY_Down(gf.map.Map.getImg(),gf.hero.hero.getMove().getDownSoeed()*3);
-
-//				UnHeroControl.arrayObsSetY_Down(gf.map.Map.getObsBottom(),gf.hero.hero.getMove().getDownSoeed()*3);
-//				UnHeroControl.arrayObsSetY_Down(gf.map.Map.getRope(),gf.hero.hero.getMove().getDownSoeed()*3);
-//				UnHeroControl.arrayObsSetY_Down(gf.map.Map.getObsLeft(),gf.hero.hero.getMove().getDownSoeed()*3);
-//				UnHeroControl.arrayObsSetY_Down(gf.map.Map.getObsRight(),gf.hero.hero.getMove().getDownSoeed()*3);
-//				UnHeroControl.arrayHillSetY_Down(gf.map.Map.getLeftHill(),gf.hero.hero.getMove().getDownSoeed()*3);
-//				UnHeroControl.arrayHillSetY_Down(gf.map.Map.getRightHill(),gf.hero.hero.getMove().getDownSoeed()*3);
-//				//传送门
-//				UnHeroControl.arrayPortalSetY_Down(gf.map.Map.getPortal(),gf.hero.hero.getMove().getDownSoeed()*3);
-//				//怪物坐标改变
-//                UnHeroControl.arrayMonsterSetY_Down(gf.monsters,gf.hero.hero.getMove().getDownSoeed()*3);
-//				//npc坐标改变
-//                UnHeroControl.arrayNpcSetY_Down(gf.npcs,gf.hero.hero.getMove().getDownSoeed()*3);
 			}
 			/**
-			 * Hero:285 ~ 0
-			 * Map:-750 ~ -600
+			 * Hero:400~0
+			 *
 			 */
-			if (hero.getMove().getY() > 285 && gf.map.Map.getImg()[4].getY()<=-650) {
+			if (hero.getMove().getY() <400) {
 				hero.getMove().setY(hero.getMove().getY()+hero.getMove().getDownSoeed()*3);
 			}
-			gf.hero.hero.getMove().setDownSoeed(1);
+
 		}
 		/**
 		 * 爬出绳索
@@ -480,85 +449,47 @@ public class Hero extends Thread implements HeroControl{
 	public void jumpLogic() {
 		//跳跃高度
 		int jumpHeigh = 0;
-		for (int i = 0; i < 160; i++) {
-
-			if ( gf.hero.ropeContral) {
-				hero.getMove().setUpSpeed(0);
-			}
+		for (int i = 0; i < 90; i++) {
 
 			//true往上跳
 			hero.getAction()[6].setDirection(true);
-			if(gf.hero.ropeToJump){
+			if(gf.hero.ropeToJump && gf.map.Map.getImg()[1].getY()>=-750 ){
 				UnHeroControl.arraySetY_Up(gf.map.Map.getImg(),gf.hero.hero.getMove().getUpSpeed());
-
-
-			}else{
-				//hero.getMove().setY(hero.getMove().getY() - hero.getMove().getUpSpeed());
+			}else {
+				System.out.println(gf.map.Map.getImg()[4].getY());
 				if (i % 5 == 0 && i > 30) {
 					gf.map.Map.getImg()[2].setY(gf.map.Map.getImg()[2].getY() - 2 * i * i / 8000);
 					gf.map.Map.getImg()[1].setY(gf.map.Map.getImg()[1].getY() - 1 * i * i / 8000);
 				}
 
-				if (gf.map.Map.getImg()[4].getY() > 0) {
-					gf.map.Map.getImg()[4].setY(0);
+				/**
+				 * Hero:570 ~ 400
+				 * Map:-750 ~ -650
+				 */
+				if (hero.getMove().getY() > 400 ) {
+					hero.getMove().setY(hero.getMove().getY()-hero.getMove().getUpSpeed()*2);
 				}
-				if (gf.map.Map.getImg()[4].getY() < -750) {
-					gf.map.Map.getImg()[4].setY(-750);
-				}
-				if (hero.getMove().getY() > 600 && hero.getMove().getY() < 807) {
-					System.out.println("I");
-					if (gf.map.Map.getImg()[4].getY() >= -750 && gf.map.Map.getImg()[4].getY() < -550) {
-						System.out.println("1");
-						hero.getMove().setY(hero.getMove().getY() - hero.getMove().getUpSpeed());
-					}
-					if (gf.map.Map.getImg()[4].getY() >= -550 && gf.map.Map.getImg()[4].getY() < -250) {
-						System.out.println("2");
-						hero.getMove().setY(hero.getMove().getY() - hero.getMove().getUpSpeed());
-					}
-					if (gf.map.Map.getImg()[4].getY() >= -250 && gf.map.Map.getImg()[4].getY() <= 0) {
-						System.out.println("3");
-						hero.getMove().setY(hero.getMove().getY() - hero.getMove().getUpSpeed());
-					}
-				}
-				if (hero.getMove().getY() <= 600 && hero.getMove().getY() > 240) {
-					System.out.println("II");
-					System.out.println(gf.map.Map.getImg()[4].getY());
-					if (gf.map.Map.getImg()[4].getY() >= -750 && gf.map.Map.getImg()[4].getY() < -550) {
-						System.out.println("4");
-						UnHeroControl.arraySetY_Up(gf.map.Map.getImg(),hero.getMove().getUpSpeed()*2);
-					}
-					if (gf.map.Map.getImg()[4].getY() >= -550 && gf.map.Map.getImg()[4].getY() < -250) {
-						System.out.println("5");
-						UnHeroControl.arraySetY_Up(gf.map.Map.getImg(),hero.getMove().getUpSpeed()*2);
-					}
-					if (gf.map.Map.getImg()[4].getY() >= -250 && gf.map.Map.getImg()[4].getY() <= 0) {
-						System.out.println("6");
-						UnHeroControl.arraySetY_Up(gf.map.Map.getImg(),hero.getMove().getUpSpeed()*2);
-					}
-				}
-				if (hero.getMove().getY() <= 240 && hero.getMove().getY() > 0) {
-					System.out.println("III");
-					if (gf.map.Map.getImg()[4].getY() >= -750 && gf.map.Map.getImg()[4].getY() < -550) {
-						System.out.println("7");
-						hero.getMove().setY(hero.getMove().getY() - hero.getMove().getUpSpeed());
-					}
-					if (gf.map.Map.getImg()[4].getY() >= -550 && gf.map.Map.getImg()[4].getY() < -250) {
-						System.out.println("8");
-						hero.getMove().setY(hero.getMove().getY() - hero.getMove().getUpSpeed());
-					}
-					if (gf.map.Map.getImg()[4].getY() >= -250 && gf.map.Map.getImg()[4].getY() <= 0) {
-						System.out.println("9");
-						hero.getMove().setY(hero.getMove().getY() - hero.getMove().getUpSpeed());
-					}
+				/**
+				 * Hero:2000 ~ 120
+				 * Map:-1000 ~ -100
+				 */
+				if ((hero.getMove().getY() >=250 && hero.getMove().getY()<=400 && gf.map.Map.getImg()[4].getY()<0 )){
+					UnHeroControl.arraySetY_Up(gf.map.Map.getImg(),gf.hero.hero.getMove().getUpSpeed()*2);
 				}
 
-
+				/**
+				 * Hero:285 ~ 0
+				 * Map:-100 ~ 0
+				 */
+				if (gf.map.Map.getImg()[4].getY()>=0) {
+					hero.getMove().setY(hero.getMove().getY()-hero.getMove().getUpSpeed()*2);
+				}
 			}
 
 			jumpHeigh++;
 
 			try {
-				sleep(2);
+				sleep(3);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -574,60 +505,43 @@ public class Hero extends Thread implements HeroControl{
 		for (int i = 0; i < jumpHeigh; i++) {
 
 
-			if (hit(dir_Down) || gf.hero.ropeContral||hit(dir_leftHill)||hit(DIR_rightHill)) {
+			if (hit(dir_Down) ||hit(dir_leftHill)||hit(DIR_rightHill)) {
 				hero.getMove().setDownSoeed(0);
 			}
 
 			hero.getAction()[6].setDirection(false);
-			if(gf.hero.ropeToJump  &&  gf.map.Map.getImg()[4].getY()>-745){
+			if(gf.hero.ropeToJump && gf.map.Map.getImg()[1].getY()>=-750 ){
 
 				UnHeroControl.arraySetY_Down(gf.map.Map.getImg(),gf.hero.hero.getMove().getDownSoeed());
 
-			}else{
+			}else {
 				//hero.getMove().setY(hero.getMove().getY() + hero.getMove().getDownSoeed());
 				if (i % 5 == 0 && i > 30) {
 					gf.map.Map.getImg()[2].setY(gf.map.Map.getImg()[2].getY() + 2 * i * i / 8000);
 					gf.map.Map.getImg()[1].setY(gf.map.Map.getImg()[1].getY() + 1 * i * i / 8000);
 				}
-				if (gf.map.Map.getImg()[4].getY() > 0) {
-					gf.map.Map.getImg()[4].setY(0);
-				}
-				if (gf.map.Map.getImg()[4].getY() < -750) {
-					gf.map.Map.getImg()[4].setY(-750);
-				}
-				if (hero.getMove().getY() > 600 && hero.getMove().getY() < 807) {
-					if (gf.map.Map.getImg()[4].getY() > -750 && gf.map.Map.getImg()[4].getY() < -550) {
-						hero.getMove().setY(hero.getMove().getY() + hero.getMove().getDownSoeed());
-					}
-					if (gf.map.Map.getImg()[4].getY() >= -550 && gf.map.Map.getImg()[4].getY() < -250) {
-						hero.getMove().setY(hero.getMove().getY() + hero.getMove().getDownSoeed());
-					}
-					if (gf.map.Map.getImg()[4].getY() >= -250 && gf.map.Map.getImg()[4].getY() <= 0) {
-						hero.getMove().setY(hero.getMove().getY() + hero.getMove().getDownSoeed());
-					}
-				}
-				if (hero.getMove().getY() <= 600 && hero.getMove().getY() > 240) {
-					if (gf.map.Map.getImg()[4].getY() > -750 && gf.map.Map.getImg()[4].getY() < -550) {
-						UnHeroControl.arraySetY_Down(gf.map.Map.getImg(),hero.getMove().getDownSoeed()*2);
-					}
-					if (gf.map.Map.getImg()[4].getY() >= -550 && gf.map.Map.getImg()[4].getY() < -250) {
-						UnHeroControl.arraySetY_Down(gf.map.Map.getImg(),hero.getMove().getDownSoeed()*2);
-					}
-					if (gf.map.Map.getImg()[4].getY() >= -250 && gf.map.Map.getImg()[4].getY() <= 0) {
-						UnHeroControl.arraySetY_Down(gf.map.Map.getImg(),hero.getMove().getDownSoeed()*2);
-					}
-				}
-				if (hero.getMove().getY() <= 240 && hero.getMove().getY() > 0) {
 
-					if (gf.map.Map.getImg()[4].getY() > -750 && gf.map.Map.getImg()[4].getY() < -550) {
-						hero.getMove().setY(hero.getMove().getY() + hero.getMove().getDownSoeed());
-					}
-					if (gf.map.Map.getImg()[4].getY() >= -550 && gf.map.Map.getImg()[4].getY() < -250) {
-						hero.getMove().setY(hero.getMove().getY() + hero.getMove().getDownSoeed());
-					}
-					if (gf.map.Map.getImg()[4].getY() >= -250 && gf.map.Map.getImg()[4].getY() <= 0) {
-						hero.getMove().setY(hero.getMove().getY() + hero.getMove().getDownSoeed());
-					}
+				/**
+				 *
+				 * Map:小于等于-750
+				 */
+				if (gf.map.Map.getImg()[4].getY()<=-750 ) {
+					hero.getMove().setY(hero.getMove().getY() + hero.getMove().getDownSoeed()*2);
+				}
+				/**
+				 * Hero: 400~402
+				 * Map:   ~-750
+				 */
+				if (hero.getMove().getY() <= 402 && hero.getMove().getY() >= 400&&
+						gf.map.Map.getImg()[4].getY()>=-750) {
+					UnHeroControl.arraySetY_Down(gf.map.Map.getImg(),gf.hero.hero.getMove().getDownSoeed()*2);
+				}
+				/**
+				 * Hero:400~0
+				 *
+				 */
+				if (hero.getMove().getY() <400) {
+					hero.getMove().setY(hero.getMove().getY()+hero.getMove().getDownSoeed()*2);
 				}
 
 			}
@@ -982,4 +896,15 @@ public class Hero extends Thread implements HeroControl{
 			}
 		}.start();
 	}
+	/**
+	 *镜头跟随设置
+	 * 如果人物在0-250的地方，地图就需要上移动且人物，下移动至250以下。
+	 */
+	public void PhotoMove(){
+		if(hero.getMove().getY()<250&&gf.map.Map.getImg()[0].getY()<0){
+			hero.getMove().setY(hero.getMove().getY()+2);
+			UnHeroControl.arraySetY_Up(gf.map.Map.getImg(),2);
+		}
+	}
+
 }

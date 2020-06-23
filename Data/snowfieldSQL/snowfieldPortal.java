@@ -30,7 +30,7 @@ public class snowfieldPortal {
      * 传送门数据
      */
     public static PortalMask[] portal = {
-            new PortalMask("Jungle1", snowfieldPortal1, false, 1,1000,100,0,750, 20, 20, snowfieldPortalImg1),
+            new PortalMask("Jungle1", snowfieldPortal1, false, 1,900,100,0,750, 20, 20, snowfieldPortalImg1),
             new PortalMask("Jungle2", snowfieldPortal2, false, 3,800,100,0,750, 20, 20, snowfieldPortalImg2),
     };
 }

@@ -30,7 +30,7 @@ public class HeroSQL {
 
 
 	public static HeroMask[] soldier = {
-			new HeroMask("无名氏1", ActionSQL.ActionSQL, false, 2, "战士", 400, 750, SQL.TempBag.tempBag, equipment, fashionEquipment, abilityValue[0], move[0], skill),
+			new HeroMask("无名氏1", ActionSQL.ActionSQL, false, 0, "战士", 400, 750, SQL.TempBag.tempBag, equipment, fashionEquipment, abilityValue[0], move[0], skill),
 			new HeroMask("无名氏1", ActionSQL.ActionSQL, false, 0, "战士", 400, 750, SQL.TempBag.tempBag, equipment, fashionEquipment, abilityValue[0], move[0], skill),
 	};
 
