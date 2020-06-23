@@ -466,14 +466,14 @@ public class Hero extends Thread implements HeroControl{
 				 * Hero:570 ~ 400
 				 * Map:-750 ~ -650
 				 */
-				if (hero.getMove().getY() > 400 ) {
+				if (hero.getMove().getY() > 400 && !ropeContral ) {
 					hero.getMove().setY(hero.getMove().getY()-hero.getMove().getUpSpeed()*2);
 				}
 				/**
 				 * Hero:2000 ~ 120
 				 * Map:-1000 ~ -100
 				 */
-				if ((hero.getMove().getY() >=250 && hero.getMove().getY()<=400 && gf.map.Map.getImg()[4].getY()<0 )){
+				if ((hero.getMove().getY() >=250 && hero.getMove().getY()<=400 && gf.map.Map.getImg()[4].getY()<0 && !ropeContral)){
 					UnHeroControl.arraySetY_Up(gf.map.Map.getImg(),gf.hero.hero.getMove().getUpSpeed()*2);
 				}
 
@@ -481,7 +481,7 @@ public class Hero extends Thread implements HeroControl{
 				 * Hero:285 ~ 0
 				 * Map:-100 ~ 0
 				 */
-				if (gf.map.Map.getImg()[4].getY()>=0) {
+				if (gf.map.Map.getImg()[4].getY()>=0 && !ropeContral) {
 					hero.getMove().setY(hero.getMove().getY()-hero.getMove().getUpSpeed()*2);
 				}
 			}
