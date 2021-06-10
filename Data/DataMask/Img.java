@@ -13,8 +13,6 @@ public class Img {
 	private int x;
 	private int y;
 
-
-
 @Override
 public String toString() {
 	return "Img [name=" + name + ", picturePath=" + picturePath + ", width=" + width + ", height=" + height + ", x=" + x
