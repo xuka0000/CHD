@@ -1,4 +1,7 @@
 package ui;
+/**
+ * 界面层
+ */
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
